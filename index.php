@@ -50,12 +50,12 @@
 		<?php
 			if($langChoix=="fr") {
 				echo"<p class='welcome'> <b>Bienvenue,</b></p><br>";
-				echo"<p> Je suis étudiant en première année de master à <u><a class='two' href='https://phelma.grenoble-inp.fr/' title='Link to Phelma's website' target='_blank'>Grenoble INP - PHELMA</a></u>, où j'étudie le génie énergétique et nucléaire.<br>Je suis à la recherche d'un stage où je pourrais développer mes connaissances physique et programmation.</p>";
+				echo"<p> Actuellement inscrit en double diplôme, j'effectue un master 2 en ingénierie nucléaire à <u><a class='two' href='https://phelma.grenoble-inp.fr/' title='Lien vers le site de Phelma' target='_blank'>Grenoble INP - PHELMA</a></u> et <u><a class='two' href='https://www.polimi.it/' title='Lien vers le site de Polimi' target='_blank'>Politecnico Di Milano</a></u>. Mon parcours académique m'a permis d'acquérir des compétences en physique nucléaire et en programmation.<br>Je suis à la recherche d'un stage à partir de septembre 2024 où je pourrais utiliser et développer mes connaissances en physique nucléaire et en informatique.</p>";
 
 			}
 			else {
 				echo"<p class='welcome'> <b>Welcome,</b></p><br>";
-				echo "<p>I am currently a 1st year Master student at <u><a class='two' href='https://phelma.grenoble-inp.fr/' title='Link to Phelma's website' target='_blank'>Grenoble INP - PHELMA</a></u>, studying energy and nuclear engineering.<br>I am looking for an internship where I can use and develop my knowledge in physics and computer science.</p>";
+				echo "<p>Currently enrolled as a double-degree student, I'm doing a Master 2 in Nuclear Engineering at <u><a class='two' href='https://phelma.grenoble-inp.fr/' title='Link to Phelma's website' target='_blank'>Grenoble INP - PHELMA</a></u> and <u><a class='two' href='https://www.polimi.it/' title='Link to Polimi's website' target='_blank'>Politecnico Di Milano</a></u>. My academic background has enabled me to acquire nuclear physics and programming skills.<br>I am looking for an internship starting in September 2024 where I can use and develop my knowledge in nuclear physics and computer science.</p>";
 			}
 		?>
 		</td>
