@@ -41,6 +41,9 @@
                                 <a class=two href='#nas'>NAS (en construction)</a><br />
                             </li>
                             <li>
+                                <a class=two href='#site'>Le site nils-malmberg.fr</a><br />
+                            </li>
+                            <li>
                                 <a class=two href='#calculquant'>Projet Braket : logiciel de calculs quantique</a><br />
                             </li>                    
                             <li>
@@ -57,6 +60,32 @@
                     <br>
                     <br>
                     <p>Paragraphe sur le NAS en construction</p>
+                    <br>
+                    <br>
+                    <br>Le site nils-malmberg.fr
+                    <br>
+
+                    <p class='title' ALIGN='CENTER' id='site'>Le site nils-malmberg.fr</p>
+                    <br>
+                    <br>
+                    <p ALIGN=JUSTIFY>Ayant toujours été attiré par l'informatique en général et la programmation, j'ai décidé lors de ma deuxième année d'école d'ingénieur à PHELMA de coder mon propre site web sans passer par des prestataires. J'ai donc acheté mon nom de domaine nils-malmberg.fr et pris un hébergeur. J'ai donc pu apprendre les bases du HTML, PHP et CSS et je voudrais par la suite développer l'identité visuelle de ce site notamment en utilisant du JavaScript. Pour le moment, j'utilise surtout ce site afin de laisser une trace écrite sur mes différents projets. Je l'utilise également afin de laisser accessible mon CV.</p>
+                    <br>
+                    <p ALIGN=JUSTIFY> Liste des modifications que je souhaite apporter :</p>
+                    <br>
+                    <ol>
+                        <li>
+                            <p ALIGN=JUSTIFY>Réécriture des URLs afin de ne pas avoir les noms des fichiers.</p>
+                        </li>
+                        <li>
+                            <p ALIGN=JUSTIFY>Rendre dynamique l'entête afin de la voir même si on utilise la scrollbar.</p>
+                        </li>
+                        <li>
+                            <p ALIGN=JUSTIFY>Trouver une autre couleur pour le background !</p>
+                        </li>
+                        <li>
+                            <p ALIGN=JUSTIFY>Utiliser de futures connaissances en JavaScript pour rendre le site plus dynamique.</p>
+                        </li>
+                    </ol>
                     <br>
                     <br>
                     <br>
@@ -121,6 +150,9 @@
                                 <a class=two href='#nas'>NAS (in construction)</a><br />
                             </li>
                             <li>
+                                <a class=two href='#site'>The nils-malmberg.fr website</a><br />
+                            </li>
+                            <li>
                                 <a class=two href='#calculquant'>Braket Project: quantum computing software</a><br />
                             </li>                    
                             <li>
@@ -131,11 +163,38 @@
                         <br>
                         <br>
                         <br>
+
                         <br>
                         <p class='title' ALIGN='CENTER' id='nas'>NAS</p>
                         <br>
                         <br>
                         <p>In construction</p>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        
+                        <p class='title' ALIGN='CENTER' id='site'>The nils-malmberg.fr website</p>
+                        <br>
+                        <br>
+                        <p>Having always been attracted by computer science in general and programming, I decided during my second year of engineering school at PHELMA to code my own website without going through providers. So I bought my domain name nils-malmberg.fr and took a host. I was able to learn the basics of HTML, PHP and CSS and I would like to develop the visual identity of this site using JavaScript. For the moment, I use this site to leave a written trace on my various projects. I also use it to make my CV available.</p>
+                        <br>
+                        <p ALIGN=JUSTIFY> List of changes I want to make :</p>
+                        <br>
+                        <ol>
+                            <li>
+                                <p ALIGN=JUSTIFY>Rewriting of the URLs in order not to have the file names.</p>
+                            </li>
+                            <li>
+                                <p ALIGN=JUSTIFY>Make the header dynamic so that it can be seen even when using the scrollbar.</p>
+                            </li>
+                            <li>
+                                <p ALIGN=JUSTIFY>TFind another color for the background!</p>
+                            </li>
+                            <li>
+                                <p ALIGN=JUSTIFY>Use future knowledge in JavaScript to make the site more dynamic.</p>
+                            </li>
+                        </ol>
                         <br>
                         <br>
                         <br>
