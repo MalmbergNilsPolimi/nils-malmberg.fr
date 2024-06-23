@@ -5,101 +5,181 @@
     // ********************************** CADRE GAUCHE CORPS DU PAGE ****************************************************
 ?>
 
-<table>
-    <tr>
+<br>
+<p class="welcome" ALIGN="CENTER">CV</p>
+<br>
+<br>
+
+<?php
+
+    if($langChoix=='fr') {
+        // ********************************** EDUCATION ********
+        $EducAnnee[0]="<br>2019-2021";
+        $EducTitre[0]="<br>Classes préparatoires aux grandes écoles (CPGE) - MPSI/PSI* <br>Lycées Clémenceau et Roosevelt";
+        $EducTheme1[0]="Mathématiques, physique, Python, sciences de l'ingénieur.";
+        $EducTheme2[0]="";
+        $EducTheme3[0]="";
+        $EducLieu[0]="<br>Reims,<br>France";
+
+        $EducAnnee[1]="depuis 2021";
+        $EducTitre[1]=" Cursus d'ingénieur en génie énergétique et nucléaire (Master) <br>Grenoble INP - PHELMA";
+        $EducTheme1[1]="Cours: physique nucléaire, physique quantique, matériaux, mécanique des fluides, électronique, C/C++, Matlab.";
+        $EducTheme2[1]=""; //PFE
+        $EducTheme3[1]="";
+        $EducLieu[1]="Grenoble,<br>France";
+    
+        $iEduc=1;	//Total Education
+
+        // *******************WORK AND ASSOCIATIVE EXPERIENCES ********
+
+        $WorkAnnee[0]="2018-2019 <br><b class='tex'>(10 mois)";
+        $WorkTitre[0]="Assistant coach (bénévole)";
+        $WorkTheme1[0]="Reims Métropole Hockey (RMH)<br>";
+        $WorkTheme2[0]="Participation aux entraînements d’enfants apprenant à patiner et à jouer au hockey sur glace";
+        $WorkTheme3[0]="";
+        $WorkLieu[0]="Reims,<br>France";
+
+        $WorkAnnee[1]="2021-2022 <br><b class='tex'>(10 mois)";
+        $WorkTitre[1]="Vulgarisation scientifique (bénévole)";
+        $WorkTheme1[1]="Membre de Phelm'Avenir, une association étudiante de PHELMA ayant pour but de vulgariser des phénomènes scientifiques au près d'élèves allant de la primaire au lycée.<br>";
+        $WorkTheme2[1]="Présentation d’expériences, participation à des évènements comme la Fête de la Science, explication de phénomènes physiques et partage de ma passion pour les sciences.";
+        $WorkTheme3[1]="";
+        $WorkLieu[1]="Grenoble,<br>France";
+
+        $WorkAnnee[2]="Juin à Juillet<br>2022<br><b class='tex'>(7 semaines)";
+        $WorkTitre[2]="Stage ouvrier à Technocoat, Groupe Optitec";
+        $WorkTheme1[2]="Stage ouvrier dans une entreprise faisant de la peinture industrielle afin de valider ma première année en école d’ingénieur.<br>";
+        $WorkTheme2[2]="Travail à la chaîne, préparation des pièces avant traitement (peinture), travail d’équipe";
+        $WorkTheme3[2]="";
+        $WorkLieu[2]="Chassieu,<br>France";
+
+        $WorkAnnee[3]="depuis Avril<br>2022";
+        $WorkTitre[3]="Vice-trésorier d'un bureau étudiant (bénévole)";
+        $WorkTheme1[3]="Vice-trésorier du bureau des arts de PHELMA, une association étudiante ayant pour but de promouvoir l'art et la culture par l'organisation d'évènements.<br>s";
+        $WorkTheme2[3]="Gestion financière, gestion d'éffectifs, démarches administratives.";
+        $WorkTheme3[3]="";
+        $WorkLieu[3]="Grenoble,<br>France";
+
+        $iWork=3;	//Total Education
+    }
+    else {
+                // ********************************** EDUCATION ********
+        $EducAnnee[0]="<br>2019-2021";
+        $EducTitre[0]="<br>Classes préparatoires aux grandes écoles (CPGE) - MPSI/PSI* <br>Lycées Clémenceau et Roosevelt";
+        $EducTheme1[0]="Mathematics, physics, Python, engineering sciences.";
+        $EducTheme2[0]="";
+        $EducTheme3[0]="";
+        $EducLieu[0]="<br>Reims,<br>France";
+
+        $EducAnnee[1]="since 2021";
+        $EducTitre[1]=" Nuclear energy engineering degree (Master) <br>Grenoble INP - PHELMA";
+        $EducTheme1[1]="Courses: nuclear physics, quantum physics, materials, fluids mechanics, eclectronics, C/C++, Matlab.";
+        $EducTheme2[1]=""; //PFE
+        $EducTheme3[1]="";
+        $EducLieu[1]="Grenoble,<br>France";
+    
+        $iEduc=1;	//Total Education
+
+        // *******************WORK AND ASSOCIATIVE EXPERIENCES ********
+
+        $WorkAnnee[0]="2018-2019 <br><b class='tex'>(10 months)";
+        $WorkTitre[0]="Assistant coach (volunteer)";
+        $WorkTheme1[0]="Reims Métropole Hockey (RMH)<br>";
+        $WorkTheme2[0]="Volunteer coach and mentor to children learning ice skating and how to play ice hockey.";
+        $WorkTheme3[0]="";
+        $WorkLieu[0]="Reims,<br>France";
+
+        $WorkAnnee[1]="2021-2022 <br><b class='tex'>(10 months)";
+        $WorkTitre[1]="Science popularizer (volunteer)";
+        $WorkTheme1[1]="Part of Phelm'Avenir, a PHELMA's student organization with the aim of popularizing scientific phenomena to students from primary to high school.<br>";
+        $WorkTheme2[1]="Preparation of experiments, participation in events such as the Science Festival, explanation of physical phenomena and sharing my passion for sciences.";
+        $WorkTheme3[1]="";
+        $WorkLieu[1]="Grenoble,<br>France";
+
+        $WorkAnnee[2]="June to July<br>2022<br><b class='tex'>(7 weeks)";
+        $WorkTitre[2]="Internship - versatile worker at Technocoat, Optitec Group";
+        $WorkTheme1[2]="Internship as a blue-collar worker as part of the first year trainig in engineering school.<br>";
+        $WorkTheme2[2]="Line work, preparation of parts before processing, team work.";
+        $WorkTheme3[2]="";
+        $WorkLieu[2]="Chassieu,<br>France";
+
+        $WorkAnnee[3]="since April<br>2022";
+        $WorkTitre[3]="Vice-treasurer of the Student Office (volunteer)";
+        $WorkTheme1[3]="Vice-treasurer of a PHELMA's student organization whose aim is to organize cultural and artistic events.<br>s";
+        $WorkTheme2[3]="Financial management, team management, administrative procedures.";
+        $WorkTheme3[3]="";
+        $WorkLieu[3]="Grenoble,<br>France";
+
+        $iWork=3;	//Total Education
+    }
+?>
+
+<?php // SCRIPT MISE EN PAGE
+
+    echo "<table BORDER=0 WIDTH=$Width ALIGN=CENTER >";
+    echo "<br>";
+    echo "<p ALIGN=CENTER>
+        <u><a class='two' href='media/02/cv/cv_fr.pdf' target='_blank'>CV (FR)</a></u>
+        &nbsp &nbsp &nbsp &nbsp
+        <u><a class='two' href='media/02/cv/cv_en.pdf' target='_blank'>CV (EN)</a></u>    
+        </p>
         <br>
-        <p class="welcome" ALIGN="CENTER">CV (en construction)</p>
-        <br>
-        <br>
-    </tr>
-    <tr>
-        <?php 
-			// ********************************** CADRE DROITE CORPS DU PAGE ****************************************************
-			if ($Width=="100%"){
-				echo"</tr><tr><td ALIGN=CENTER VALIGN=TOP>";
-			} 
-			else {
-				echo "<td WIDTH=1200 VALIGN=TOP>";
-			}
-		?>
-            <p>
-                Table des matières :
-                <br>
-                <br>
-                <ol>
-                    <li>
-                        <a class=two href="#cv">CV (version pdf)</a><br />
-                    </li>
-                    <li>
-                        <a class=two href="#exppro">Expérience professionnelle</a><br />
-                    </li>
-                    <li>
-                        <a class=two href="#formation">Formation</a><br />
-                    </li>                    
-                    <li>
-                        <a class=two href="#skills">Compétences</a><br />
-                    </li>                    
-                    <li>
-                        <a class=two href="#interests">Centres d'intérêts</a><br />
-                    </li>
-                </ol>
-            </p>
-            <br>
-            <br>
-            <br>
-            <br>
+        <br>"
+    ;
 
-            <p class="title" ALIGN="CENTER" id="cv">CV (version pdf)</p>
-            <br>
-            <br>
-            <p ALIGN="CENTER">
-                <u><a class="two" href="media/02/cv/cv_fr.pdf" target="_blank">CV (FR)</a></u>
-                <?php echo "&nbsp &nbsp &nbsp &nbsp";?>
-                <u><a class="two" href="media/02/cv/cv_en.pdf" target="_blank">CV (EN)</a></u>
-            </p>
-            <br>
-            <br>
-            <br>
-            <br>
+    //*******EDUCATION
+    echo "<table BORDER=0 WIDTH=$Width ALIGN=CENTER >";
+    echo "<br>";
+    echo "<p class='title' ALIGN=CENTER>Education</p><br><br>";
 
-            <p class="title" ALIGN="CENTER" id="exppro">Expérience professionnelle</p>
-            <br>
-            <br>
-            <p ALIGN=JUSTIFY>en construction</p>
-            <br>
-            <br>
-            <br>
-            <br>
+    echo "</tr></table>";
+    echo "<table BORDER=0 WIDTH=$Width ALIGN=CENTER >";
 
-            <p class="title" ALIGN="CENTER" id="formation">Formation</p>
-            <br>
-            <br>
-            <p ALIGN=JUSTIFY>en construction</p>
-            <br>
-            <br>
-            <br>
-            <br>
+    while ($iEduc>=0){
+        echo "<tr>
+        <td class='tex' ALIGN=LEFT vALIGN=TOP> $EducAnnee[$iEduc]</td>
+        <td class='tex'  ALIGN=JUSTIFY vALIGN=TOP>
+        <b class='tex'>$EducTitre[$iEduc]</b><br><br>
+        &bull;&nbsp;&nbsp;&nbsp;$EducTheme1[$iEduc]";
+        if ($EducTheme2[$iEduc]!=""){
+            echo "<br>&bull;&nbsp;&nbsp;&nbsp;$EducTheme2[$iEduc]<br><br>";
+        }
+        if ($EducTheme3[$iEduc]!=""){
+            echo "<br>&bull;&nbsp;&nbsp;&nbsp;$EducTheme3[$iEduc]<br><br>";
+        } 
+        echo "<br></td><td class='tex'  ALIGN=CENTER VALIGN=TOP>$EducLieu[$iEduc]</td></tr>"; 
+        $iEduc--;
+    }
 
-            <p class="title" ALIGN="CENTER" id="skills">Compétences</p>
-            <br>
-            <br>
-            <p ALIGN=JUSTIFY>en construction</p>
-            <br>
-            <br>
-            <br>
-            <br>
+    echo "</tr></table>";
 
-            <p class="title" ALIGN="CENTER" id="interests">Centres d'intérêts</p>
-            <br>
-            <br>
-            <p ALIGN=JUSTIFY>en construction</p>
-            <br>
-            <br>
+    //********** WORK
+    echo "<table BORDER=0 WIDTH=$Width ALIGN=CENTER >";
+    echo "<br>";
+    echo "<p class='title'ALIGN=CENTER><br>Work experiences</p><br><br>";
 
-        </td>
-    </tr>
+    echo "</tr></table>";
+    echo "<table BORDER=0 WIDTH=$Width ALIGN=CENTER >";
+
+    while ($iWork>=0){
+        echo "<tr>
+        <td class='tex' ALIGN=LEFT vALIGN=TOP> $WorkAnnee[$iWork]</td>
+        <td class='tex'  ALIGN=JUSTIFY vALIGN=TOP>
+        <b class='tex'>$WorkTitre[$iWork]</b><br><br>
+        &bull;&nbsp;&nbsp;&nbsp;$WorkTheme1[$iWork]";
+        if ($WorkTheme2[$iWork]!=""){
+            echo "<br>&bull;&nbsp;&nbsp;&nbsp;$WorkTheme2[$iWork]<br><br>";
+        }
+        if ($WorkTheme3[$iWork]!=""){
+            echo "<br>&bull;&nbsp;&nbsp;&nbsp;$WorkTheme3[$iWork]<br><br>";
+        } 
+        echo "<br></td><td class='tex'  ALIGN=CENTER VALIGN=TOP>$WorkLieu[$iWork]</td></tr>"; 
+        $iWork--;
+    }
+?>	 
+
+</tr>
 </table>
-
 
 
 <?php 

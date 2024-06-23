@@ -27,6 +27,14 @@ h2{
 	
 }
 
+h2{
+	COLOR: #000000;
+	FONT-SIZE: 1.3em;
+    TEXT-DECORATION: none;
+    font-weight : ;
+	
+}
+
 a.one {
 	color: #6A6A6B;
     FONT-SIZE: 1em;
@@ -50,6 +58,10 @@ p, ol {
     TEXT-DECORATION: none
 }
 
+p.smal {
+    FONT-SIZE: 0.6em;
+}
+
 p.welcome {
     color: #cfc8c8;
     FONT-SIZE: 2em;
@@ -60,6 +72,10 @@ p.title {
     color: #cfc8c8;
     FONT-SIZE: 1.4em;
     TEXT-DECORATION: underline;
+}
+
+.tex {
+    color: #ffffff;
 }
 
 .name {
