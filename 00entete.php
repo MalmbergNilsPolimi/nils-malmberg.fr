@@ -42,7 +42,9 @@
 		<meta name="identifier-URL" content="https://www.nils-malmberg.fr">
 		<meta name="author" content="Nils Malmberg">
 
-		<p hidden>www.malmberg.fr</p>
+		<!-- <p hidden>www.malmberg.fr</p> -->
+		<p hidden>https://malmberg.fr</p>
+
 
 		<?php 
 			include "comptvisiteur.php";
