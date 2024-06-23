@@ -26,22 +26,23 @@
 		
 	</head>
 
-	<body BGCOLOR="#ffffff" WIDTH=<?php echo $Width;?>>
-		<CENTER>
+	<body BGCOLOR="#555555" WIDTH=100%>
 		<!-- Hidden = pas affiché : pour que les bots regardent aussi la page de Selma => meilleur référencement -->
-		<p hidden>Selma MALMBERG</p>
-		<p hidden>www.malmberg.fr</p>
-		
-		<table BORDER="0"  WIDTH=<?php echo $Width;?>>
-			<br> 
-			<td ALIGN="CENTER">
-				<b><h2>Nils Malmberg</h2></b>
-			</td>
+		<table BGCOLOR="#ffffff" BORDER="0" WIDTH=100%>
+			<p hidden>www.malmberg.fr</p> 
 			<tr>
-				<td ALIGN="CENTER"   height="20" >
-					<?php if ($nomPage=="index.php"){echo"<b>Home</b>";} else {echo"<a href=index.php>Home</a>";}?>
-					<?php if ($nomPage=="02cv.php"){echo"<b>CV</b>";} else {echo"<a href=02cv.php>CV</a>";}?>
-					<?php if ($nomPage=="03projects.php"){echo"<b>Projects</b>";} else {echo"<a href=03projects.php>Projects</a>";}?>
+				<td class="name" ALIGN=CENTER WIDTH=20%>
+					<b><h2>Nils Malmberg</h2></b>
+				</td>
+				<td ALIGN=LEFT height="50" WIDTH=70%>
+					<?php if ($nomPage=="index.php"){echo"<b>Home</b>";} else {echo"<a class='one' href=index.php>Home</a>";}?>
+					<?php echo "&nbsp";?>
+					<?php if ($nomPage=="02cv.php"){echo"<b>CV</b>";} else {echo"<a class='one' href=02cv.php>CV</a>";}?>
+					<?php echo "&nbsp";?>
+					<?php if ($nomPage=="03projects.php"){echo"<b>Projects</b>";} else {echo"<a class='one' href=03projects.php>Projects</a>";}?>
+				</td>
+				<td color="#6A6A6B" ALIGN=LEFT WIDTH=10%>
+					<a>| FR | EN |</a>
 				</td>
 			</tr>
 		</table>

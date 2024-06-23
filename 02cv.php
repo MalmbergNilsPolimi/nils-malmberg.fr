@@ -6,5 +6,13 @@
 ?>
 
 <?php 
-    echo "Page CV";
+    echo "Page CV en construction";
+?>
+
+
+
+
+<?php 
+    // *********************************** PIED DU PAGE *********************************************************
+	include "00piedpage.php";
 ?>

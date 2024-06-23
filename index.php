@@ -9,7 +9,7 @@
 	// ********************************** SCRIPT CORPS DU PAGE ****************************************************
 ?>
 
-<table BORDER="0" WIDTH=<?php echo $Width;?> HEIGHT= "210" ALIGN="CENTER" >
+<table style="color: white;" BORDER="0" WIDTH=100% HEIGHT= "210" ALIGN="CENTER" >
 	<tr>
 		<?php 
 			// ********************************** CADRE CORPS DU PAGE ****************************************************
@@ -23,7 +23,7 @@
 			<img src="media/photo_nils1.jpg" width="150">
 			<br>
 			<br>
-			<a href="https://www.linkedin.com/in/nils-malmberg" target="_blank"> <img src="media/iconelinkedin.png" alt="Icon Linkedin" HEIGHT="30"></a>
+			<a href="https://www.linkedin.com/in/nils-malmberg" title="Lien vers mon Linkedin" target="_blank"> <img src="media/iconelinkedin.png" alt="Icon Linkedin" HEIGHT="30"></a>
 		</td>
 
 		<?php 
@@ -36,10 +36,14 @@
 			}
 		?>
 		<br>
-		<p> <b>Welcome,</b></p>
-		<p>I am currently a student in nuclear engineering at <u> <a href="https://phelma.grenoble-inp.fr/" target="_blank">Grenoble INP - PHELMA</a></u>. 
-		<br></p>
-		<p>I am looking for an internship of 10 weeks minimum that can start in May 2023.</p>
+		<p class="welcome"> <b>Welcome,</b></p>
+		<br>
+		<p>
+			I am currently a 1st year Master student at <u><a class='two' href="https://phelma.grenoble-inp.fr/" title="Lien vers le site de l'école" target="_blank">Grenoble INP - PHELMA</a></u>, studying
+			energy and nuclear engineering. 
+			<br>
+			I am looking for an internship where I can use and develop my knowledge in physics and computer science.
+		</p>
 		</td>
 	</tr>
 </table>
