@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="media/favicons/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <meta name="keywords" content="engineering, ingénieur, ingénierie, nuclear, nucléaire, quantique, quantum, fluid, fluide, mécanique, CDF, ansys, fluent, mechanics, materials, matériaux, électronique, electronics, PHELMA, Grenoble INP, Grenoble, French, Français, Anglais, English, LaTeX, Python, Matlab, C, C++, SQL, HTML, CSS, JavaScript, js, PHP, computing, programmation, code, projet, projects, nils, selma, richard, nathalie, malmberg">
+    <p hidden>https://malmberg.fr</p>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Nils Malmberg</title>
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <a href="index.html">
+                <img src="media/favicons/apple-touch-icon-57x57.png" alt="Logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-link" id="nav-home">Accueil</a></li>
+                <li><a href="cv.html" class="nav-link" id="nav-cv">CV</a></li>
+                <li><a href="projects.html" class="nav-link" id="nav-projects">Projets</a></li>
+            </ul>
+        </nav>
+        <div id="language-switcher">
+            <div class="current-language" onclick="toggleLanguageMenu()">
+                <img  src="media/logo/logo_fr.svg" alt="Français">
+                <div class="arrow-down"></div>
+            </div>
+            <div class="language-menu" id="language-menu">
+                <div class="language-option" onclick="changeLanguage('fr')">
+                    <img src="media/logo/logo_fr.svg" alt="Français">
+                    <span>Français (FR)</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('en')">
+                    <img src="media/logo/logo_en.svg" alt="English">
+                    <span>English (EN)</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="projects-content-fr">
+        
+        <h1>Quelques projets</h1>
+        
+        <div class="project-section">
+            <div class="project-image">
+                <img src="media/projets/website.jpg" alt="Image Website">
+            </div>
+
+            <div class="project-text">
+                <h3>Le site nils-malmberg.fr</h3>
+                <p>Pendant ma première année d'école d'ingénieur, j'ai commencé à coder la <a href="ancien_site/index.php" style="color: blue; text-decoration: underline;" target="_blank">première version</a> de mon site web juste pour le plaisir. La première version était assez basique et pas très jolie (beaucoup de HTML, pas beaucoup de CSS et pas de JavaScript).
+                <br><br>Puis, pendant mon année à Milan, j'ai décidé de me lancer un défi : recoder tout mon site en un week-end en partant de 0. Le premier jour, j'ai utilisé un constructeur de site fourni par Hostinger pour créer une maquette. Ensuite, j'ai appris les bases en utilisant OpenClassrom. Le deuxième jour, j'ai recodé tout le site.
+                <br><br>Prochaine étape pour le site : utiliser les media queries afin d'avoir un site présentable sur téléphone et tablettes.</p>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <div class="project-text">
+                <h3>Projet Braket : logiciel de calculs quantiques.</h3>
+                <p>Le projet Braket est un projet réalisé lors de ma première année à <a href="https://phelma.grenoble-inp.fr/" style="color: blue; text-decoration: underline;" target="_blank">Grenoble INP - Phelma</a>. Nous avons du, avec trois autres camarades, développer un logiciel avec interface graphique. Les langages utilisés sont le C et le C++ et la librairie graphique est <a href="https://www.fltk.org/" style="color: blue; text-decoration: underline;" target="_blank">FLTK</a>.
+                <br><br>Le projet BraKet offre, via une interface ergonomique et simple à prendre en main, la possibilité de simuler les différentes probabilités associé à chaque composantes d'un état quantique ayant subit une ou plusieurs transformations par le passage à travers une ou plusieurs portes quantiques.</p>
+                
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="media/projets/BRAKET_nils-malmberg.fr.zip" download class="download-button">
+                        Télécharger le projet
+                    </a>
+                </div>
+            
+            </div>
+            <div class="project-image">
+                <img src="media/projets/braket.avif" alt="Image Braket">
+            </div>
+        </div>
+
+        <div class="project-section">
+            <div class="project-image">
+                <img src="media/projets/searev.webp" alt="Image Searev">
+            </div>
+
+            <div class="project-text">
+                <h3>TIPE : Modélisation d'un système d'exploitation des énergies houlomotrices (Searev).</h3>
+                <p>Lors de mes deux années de classe préparatoire aux grandes écoles j'ai du travailler sur un projet appelé TIPE (travail d'initiative personnelle encadré). J'ai donc du choisir un sujet en lien avec le thème de l'année (Enjeux Sociétaux), en dégager une problématique et essayer de la résoudre.
+                    <br><br>Le Searev, est un projet intéressant puisqu'il permet de convertir l'énergie de la houle en énergie électrique à l'aide d'une bouée et d'une masse pendulaire.
+                    <br><br>J'ai donc lors de ce TIPE décidé de modéliser numériquement le Searev afin d'étudier son efficacité et construit un prototype se déclinant en deux versions.</p>
+                
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="media/projets/TIPE_nils-malmberg.fr.zip" download class="download-button">
+                        Télécharger le projet
+                    </a>
+                </div>
+            
+            </div>
+        </div>
+
+        <footer>
+            Ce site a été conçu en intégralité par Nils Malmberg.
+        </footer>
+    
+    </div>
+
+
+    <div id="projects-content-en">
+    
+        <h1>Some projects</h1>
+
+        <div class="project-section">
+            <div class="project-image">
+                <img src="media/projets/website.jpg" alt="Image Website">
+            </div>
+
+            <div class="project-text">
+                <h3>The nils-malmberg.fr website.</h3>
+                <p>During my first year at engineering school I started coding the <a href="ancien_site/index.php" style="color: blue; text-decoration: underline;" target="_blank">first version</a> of my website just for fun. The first version was pretty basic and not very pretty (a lot of HTML, not much CSS and no JavaScript).
+                <br><br>Then, during my year in Milan, I decided to set myself a challenge: recode my entire site in a weekend from nothing. On the first day I used a site builder provided by Hostinger to create a mock-up. Then I learnt the basics using OpenClassrom. Then on the second day I recoded the whole site.
+                <br><br>The next step for the site is to use media queries so that the site can be presented on phones and tablets.</p>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <div class="project-text">
+                <h3>Braket Project: quantum computing software.</h3>
+                <p>The Braket project is a project realized during my first year at <a href="https://phelma.grenoble-inp.fr/en" style="color: blue; text-decoration: underline;" target="_blank">Grenoble INP - Phelma</a>. With three other students, we had to develop a software with a graphical interface. The languages used are C and C++ and we used the graphic library <a href="https://www.fltk.org/" style="color: blue; text-decoration: underline;" target="_blank">FLTK</a>.
+                <br><br>The BraKet project offers, via an ergonomic and easy-to-use interface, the possibility to simulate the different probabilities associated to each component of a quantum state having undergone one or more transformations by passing through one or more quantum gates.</p>
+                
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="media/projets/BRAKET_nils-malmberg.fr.zip" download class="download-button">
+                        Download the project
+                    </a>
+                </div>
+            
+            </div>
+            <div class="project-image">
+                <img src="media/projets/braket.avif" alt="Image Braket">
+            </div>
+        </div>
+
+        <div class="project-section">
+            <div class="project-image">
+                <img src="media/projets/searev.webp" alt="Image Searev">
+            </div>
+
+            <div class="project-text">
+                <h3>TIPE : Modeling of a wave energy exploitation system (Searev).</h3>
+                <p>During my two-year university intensive course, I had to work on a project called TIPE (work of personal initiative). I had to choose a subject in connection with the theme of the year (Social Issues), to find a problematic and to try to solve it.
+                    <br><br>The Searev is an interesting project since it converts wave energy into electrical energy using a buoy and a pendulum mass.
+                    <br><br>During this project, I decided to numerically model the Searev in order to study its efficiency and built a prototype in two versions.</p>
+                
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="media/projets/TIPE_nils-malmberg.fr.zip" download class="download-button">
+                        Download the project
+                    </a>
+                </div>
+            
+            </div>
+        </div>
+    
+        <footer>
+            The entire website was designed by Nils Malmberg.
+        </footer>
+    
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
