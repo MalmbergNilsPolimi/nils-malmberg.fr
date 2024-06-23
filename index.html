@@ -7,28 +7,27 @@
     <link rel="icon" href="media/favicons/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap&display=swap" rel="stylesheet">
     <meta name="keywords" content="engineering, ingénieur, ingénierie, nuclear, nucléaire, quantique, quantum, fluid, fluide, mécanique, CDF, ansys, fluent, mechanics, materials, matériaux, électronique, electronics, PHELMA, Grenoble INP, Grenoble, French, Français, Anglais, English, LaTeX, Python, Matlab, C, C++, SQL, HTML, CSS, JavaScript, js, PHP, computing, programmation, code, projet, projects, nils, selma, richard, nathalie, malmberg">
-    <p hidden>https://malmberg.fr</p>
     <title>Nils Malmberg</title>
 </head>
 <body>
     <header>
         <div id="logo">
             <a href="index.html">
-                <img src="media/favicons/apple-touch-icon-57x57.png" alt="Logo">
+                <img src="media/favicons/apple-touch-icon-57x57.png" alt="Logo de Nils Malmberg">
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="index.html" class="nav-link" id="nav-home">Accueil</a></li>
-                <li><a href="cv.html" class="nav-link" id="nav-cv">CV</a></li>
-                <li><a href="projects.html" class="nav-link" id="nav-projects">Projets</a></li>
+                <li><a href="index.html" class="nav-link" id="nav-home" aria-label="Accueil">Accueil</a></li>
+                <li><a href="cv.html" class="nav-link" id="nav-cv" aria-label="CV">CV</a></li>
+                <li><a href="projects.html" class="nav-link" id="nav-projects" aria-label="Projets">Projets</a></li>
             </ul>
         </nav>
         <div id="language-switcher">
             <div class="current-language" onclick="toggleLanguageMenu()">
-                <img  src="media/logo/logo_fr.svg" alt="Français">
+                <img src="media/logo/logo_fr.svg" alt="Langue actuelle : Français">
                 <div class="arrow-down"></div>
             </div>
             <div class="language-menu" id="language-menu">
@@ -45,17 +44,14 @@
     </header>
     
     <div id="home-content-fr">
-        
-        <h1 style="font-size: 3em;">Bienvenue,</h1>
+        <h1>Bienvenue,</h1>
         <div class="home-section">
-            
             <div class="home-text">
-                <p>Je me présente, je m'appelle Nils Malmberg et vous vous trouvez actuellement sur mon site internet me servant de CV.     
+                <p>Je me présente, je m'appelle Nils Malmberg et vous vous trouvez actuellement sur mon site internet me servant de CV.</p>     
             </div>
             <div class="home-image">
-                <img src="media/accueil/photo_nils.jpg" alt="Nils Malmberg">
+                <img src="media/accueil/photo_nils.jpg" alt="Photo de Nils Malmberg">
             </div>
-
             <div class="home-logo">
                 <a href="https://www.linkedin.com/in/nils-malmberg/" target="_blank">
                     <img src="media/logo/logo_linkedin.png" alt="Logo LinkedIn">
@@ -64,151 +60,130 @@
         </div>
 
         <div class="home-aero">
-            <img src="media/accueil/photo_aerorefrigerent.avif" alt="Aerorefigerant">
+            <img src="media/accueil/photo_aerorefrigerent.avif" alt="Photo de l'aérorefroidissant">
         </div>
 
         <div class="home-section2">
-            <div>
-                <h2  style="font-size: 2.5em;">À propos de moi</h2>
-            </div>
-            <br>
-            <div class="home-image2" style="width: 100%;">
+            <h2>À propos de moi</h2>
+            <div class="home-image2">
                 <a href="https://phelma.grenoble-inp.fr/" target="_blank">
-                    <img class="company-logo" src="media/logo/logo_phelma.png" alt="phelma">
+                    <img class="company-logo" src="media/logo/logo_phelma.png" alt="Logo de Grenoble INP - Phelma">
                 </a>
                 <a href="https://polimi.it/en" target="_blank">
-                    <img class="company-logo" src="media/logo/logo_polimi.webp" alt="polimi" style="margin-left: 20px;">
+                    <img class="company-logo" src="media/logo/logo_polimi.webp" alt="Logo de Politecnico di Milano" style="margin-left: 20px;">
                 </a>
             </div>
-            <div class="home-text" style="margin-top: -120px;">
-                <p>Actuellement inscrit en double diplôme, j'effectue un master 2 en ingénierie nucléaire à <a href="https://phelma.grenoble-inp.fr/" style="color: blue; text-decoration: underline;" target="_blank">Grenoble INP - Phelma</a> et <a href="https://polimi.it/en/" style="color: blue; text-decoration: underline;" target="_blank">Politecnico di Milano</a>.
+            <div class="home-text">
+                <p>Actuellement inscrit en double diplôme, j'effectue un master 2 en ingénierie nucléaire à <a href="https://phelma.grenoble-inp.fr/" target="_blank">Grenoble INP - Phelma</a> et <a href="https://polimi.it/en/" target="_blank">Politecnico di Milano</a>.
                 <br><br>Concernant mes loisirs, j'ai longtemps pratiqué le hockey-sur-glace (12 ans) avant de mettre en pause ma pratique de ce sport lors de mon entrée en classe préparatoire. Je suis également très intéressé par la programmation dans divers langages (Python, Matlab, C, C++, HTML, CSS, JavaScript, PHP) et par la modélisation (sur Fusion 360) et l'impression 3D.</p>        
             </div>
         </div>
 
         <div class="home-section3">
             <div class="home-image3">
-                <img src="media/accueil/photo_assemblage.jpeg" alt="Assemblage">
+                <img src="media/accueil/photo_assemblage.jpeg" alt="Photo d'un assemblage">
             </div>
             <div class="home-image3">
-                <img src="media/accueil/photo_code.jpeg" alt="Code">
+                <img src="media/accueil/photo_code.jpeg" alt="Photo de code">
             </div>
             <div class="home-image3">
-                <img src="media/accueil/photo_hockey.jpeg" alt="Hockey">
+                <img src="media/accueil/photo_hockey.jpeg" alt="Photo de hockey">
             </div>
         </div>
 
         <div class="home-section2" style="margin-top: 100px;">
-            <div>
-                <h2  style="font-size: 2.5em;">Me contacter</h2>
-                <div class="home-logo4">
-                    <a href="https://www.linkedin.com/in/nils-malmberg/" target="_blank">
-                        <img src="media/logo/logo_linkedin.png" alt="Logo LinkedIn">
-                    </a>
-                </div>
-                <p>Si vous souhaitez me contacter, vous pouvez le faire via mon profil LinkedIn.</p>
+            <h2>Me contacter</h2>
+            <div class="home-logo4">
+                <a href="https://www.linkedin.com/in/nils-malmberg/" target="_blank">
+                    <img src="media/logo/logo_linkedin.png" alt="Logo LinkedIn">
+                </a>
             </div>
+            <p>Si vous souhaitez me contacter, vous pouvez le faire via mon profil LinkedIn.</p>
 
-            <div>
-                <div class="home-image3" style="width: 90%;">
-                    <img src="media/accueil/gif_cherenkov.gif" alt="cherenkov">
-                </div>
-                <div class="home-text" style="margin: 50px;">
-                    <p><a href="https://www.iaea.org/fr/newscenter/news/quest-ce-que-le-rayonnement-de-tcherenkov" style="color: blue; text-decoration: underline;" target="_blank">Effet Tcherenkov</a> que j'ai eu l'occasion de filmer le 10 novembre 2023, lors de ma visite à l'<a href="https://www.ijs.si/ijsw" style="color: blue; text-decoration: underline;" target="_blank">Institut "Jožef Stefan"</a> (Ljubljana, Slovénie).
-                    <br><br>Durant cette expérience, nous avons été exposé à une dose de 0.6 µSv (l'équivalent de la consommation de 6 bananes).</p>
-                </div>
+            <div class="home-image3" style="width: 90%;">
+                <img src="media/accueil/gif_cherenkov.gif" alt="Gif montrant l'effet Tcherenkov">
+            </div>
+            <div class="home-text" style="margin: 50px;">
+                <p><a href="https://www.iaea.org/fr/newscenter/news/quest-ce-que-le-rayonnement-de-tcherenkov" target="_blank">Effet Tcherenkov</a> que j'ai eu l'occasion de filmer le 10 novembre 2023, lors de ma visite à l'<a href="https://www.ijs.si/ijsw" target="_blank">Institut "Jožef Stefan"</a> (Ljubljana, Slovénie).
+                <br><br>Durant cette expérience, nous avons été exposé à une dose de 0.6 µSv (l'équivalent de la consommation de 6 bananes).</p>
             </div>
         </div>
 
         <footer>
             Ce site a été conçu en intégralité par Nils Malmberg.
         </footer>
-    
     </div>
 
-
     <div id="home-content-en">
-    
-        <h1 style="font-size: 3em;">Welcome,</h1>
+        <h1>Welcome,</h1>
         <div class="home-section">
-            
             <div class="home-text">
-                <p>Hi, I'm Nils Malmberg and you're currently visiting my website, which I use as my CV.
+                <p>Hi, I'm Nils Malmberg and you're currently visiting my website, which I use as my CV.</p>
             </div>
             <div class="home-image">
-                <img src="media/accueil/photo_nils.jpg" alt="Nils Malmberg">
+                <img src="media/accueil/photo_nils.jpg" alt="Photo of Nils Malmberg">
             </div>
-
             <div class="home-logo">
                 <a href="https://www.linkedin.com/in/nils-malmberg/" target="_blank">
-                    <img src="media/logo/logo_linkedin.png" alt="Logo LinkedIn">
+                    <img src="media/logo/logo_linkedin.png" alt="LinkedIn Logo">
                 </a>
             </div>
         </div>
 
         <div class="home-aero">
-            <img src="media/accueil/photo_aerorefrigerent.avif" alt="Aerorefigerant">
+            <img src="media/accueil/photo_aerorefrigerent.avif" alt="Photo of the aerorefrigerant">
         </div>
 
         <div class="home-section2">
-            <div>
-                <h2  style="font-size: 2.5em;">About me</h2>
-            </div>
-            <br>
-            <div class="home-image2" style="width: 100%;">
+            <h2>About me</h2>
+            <div class="home-image2">
                 <a href="https://phelma.grenoble-inp.fr/en" target="_blank">
-                    <img class="company-logo" src="media/logo/logo_phelma.png" alt="phelma">
+                    <img class="company-logo" src="media/logo/logo_phelma.png" alt="Grenoble INP - Phelma logo">
                 </a>
                 <a href="https://polimi.it/en" target="_blank">
-                    <img class="company-logo" src="media/logo/logo_polimi.webp" alt="polimi" style="margin-left: 20px;">
+                    <img class="company-logo" src="media/logo/logo_polimi.webp" alt="Politecnico di Milano logo" style="margin-left: 20px;">
                 </a>
             </div>
-            <div class="home-text" style="margin-top: -120px;">
-                <p>I'm currently enrolled on a double degree course, doing a Master's 2 in nuclear engineering at <a href="https://phelma.grenoble-inp.fr/en" style="color: blue; text-decoration: underline;" target="_blank">Grenoble INP - Phelma</a> and <a href="https://polimi.it/en/" style="color: blue; text-decoration: underline;" target="_blank">Politecnico di Milano</a>.
+            <div class="home-text">
+                <p>I'm currently enrolled on a double degree course, doing a Master's 2 in nuclear engineering at <a href="https://phelma.grenoble-inp.fr/en" target="_blank">Grenoble INP - Phelma</a> and <a href="https://polimi.it/en/" target="_blank">Politecnico di Milano</a>.
                 <br><br>As far as my hobbies are concerned, I played ice hockey for a long time (12 years) before taking a break from the sport while I was studying. I'm also very interested in programming in various languages (Python, Matlab, C, C++, HTML, CSS, JavaScript, PHP), modelling (on Fusion 360) and 3D printing.</p>        
             </div>
         </div>
 
         <div class="home-section3">
             <div class="home-image3">
-                <img src="media/accueil/photo_assemblage.jpeg" alt="Assembly">
+                <img src="media/accueil/photo_assemblage.jpeg" alt="Photo of an assembly">
             </div>
             <div class="home-image3">
-                <img src="media/accueil/photo_code.jpeg" alt="Code">
+                <img src="media/accueil/photo_code.jpeg" alt="Photo of code">
             </div>
             <div class="home-image3">
-                <img src="media/accueil/photo_hockey.jpeg" alt="Hockey">
+                <img src="media/accueil/photo_hockey.jpeg" alt="Photo of hockey">
             </div>
         </div>
 
         <div class="home-section2" style="margin-top: 100px;">
-            <div>
-                <h2  style="font-size: 2.5em;">Contact me</h2>
-                <div class="home-logo4">
-                    <a href="https://www.linkedin.com/in/nils-malmberg/" target="_blank">
-                        <img src="media/logo/logo_linkedin.png" alt="Logo LinkedIn">
-                    </a>
-                </div>
-                <p>If you wish to contact me, you can do so via my LinkedIn profile.</p>
+            <h2>Contact me</h2>
+            <div class="home-logo4">
+                <a href="https://www.linkedin.com/in/nils-malmberg/" target="_blank">
+                    <img src="media/logo/logo_linkedin.png" alt="LinkedIn Logo">
+                </a>
             </div>
+            <p>If you wish to contact me, you can do so via my LinkedIn profile.</p>
 
-            <div>
-                <div class="home-image3" style="width: 90%;">
-                    <img src="media/accueil/gif_cherenkov.gif" alt="cherenkov">
-                </div>
-                <div class="home-text" style="margin: 50px;">
-                    <p>The <a href="https://www.iaea.org/newscenter/news/what-is-cherenkov-radiation" style="color: blue; text-decoration: underline;" target="_blank">Cherenkov effect</a>, which I had the opportunity to film on 10 November 2023, during my visit to the <a href="https://www.ijs.si/ijsw" style="color: blue; text-decoration: underline;" target="_blank">Institut "Jožef Stefan"</a> (Ljubljana, Slovenia).
-                    <br><br>During this experiment, we were exposed to a dose of 0.6 µSv (the equivalent of eating 6 bananas).</p>
-                </div>
+            <div class="home-image3" style="width: 90%;">
+                <img src="media/accueil/gif_cherenkov.gif" alt="Gif showing Cherenkov effect">
+            </div>
+            <div class="home-text" style="margin: 50px;">
+                <p>The <a href="https://www.iaea.org/newscenter/news/what-is-cherenkov-radiation" target="_blank">Cherenkov effect</a>, which I had the opportunity to film on 10 November 2023, during my visit to the <a href="https://www.ijs.si/ijsw" target="_blank">Institut "Jožef Stefan"</a> (Ljubljana, Slovenia).
+                <br><br>During this experiment, we were exposed to a dose of 0.6 µSv (the equivalent of eating 6 bananas).</p>
             </div>
         </div>
-    
+
         <footer>
             The entire website was designed by Nils Malmberg.
         </footer>
-    
     </div>
-   
 
     <script src="script.js"></script>
 </body>
