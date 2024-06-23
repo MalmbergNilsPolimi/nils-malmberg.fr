@@ -1,4 +1,4 @@
-// script.js
+"use strict";
 
 // Fonction pour changer la langue
 function changeLanguage(language) {
@@ -7,27 +7,20 @@ function changeLanguage(language) {
 
     // Mettre à jour le contenu de la navigation en fonction de la langue
     document.getElementById('nav-home').innerText = (language === 'fr') ? 'Accueil' : 'Home';
-    document.getElementById('nav-cv').innerText = (language === 'fr') ? 'CV' : 'CV';
+    document.getElementById('nav-cv').innerText = 'CV';
     document.getElementById('nav-projects').innerText = (language === 'fr') ? 'Projets' : 'Projects';
-
-    // Mettre à jour d'autres éléments de la page en fonction de la langue
 
     // Mettre à jour l'image du drapeau dans le switcher de langue
     const flagImage = document.querySelector('.current-language img');
     flagImage.src = `media/logo/logo_${language}.svg`;
 
     // Cacher le menu déroulant
-    const languageMenu = document.getElementById('language-menu');
-    languageMenu.style.display = 'none';
+    document.getElementById('language-menu').style.display = 'none';
 
-    
     // Obtenir le chemin d'accès de l'URL
     const pathName = window.location.pathname;
-    // Extraire le nom de la page à partir du chemin d'accès
     let currentPage = pathName.substring(pathName.lastIndexOf('/') + 1).replace('.html', '');
-    if (currentPage=="index") {
-        currentPage="home"
-    }
+    if (currentPage === "index") currentPage = "home";
 
     // Mettre à jour le texte de la page
     updateContent(language, currentPage);
@@ -45,7 +38,7 @@ function toggleLanguageMenu() {
         languageMenu.style.display = 'none';
     } else {
         languageMenu.style.display = 'block';
-        languageMenu.style.top = `${currentLanguage.offsetHeight}px`; // Ajustez si nécessaire
+        languageMenu.style.top = `${currentLanguage.offsetHeight}px`;
     }
 }
 
@@ -54,41 +47,23 @@ function toggleLanguageMenuOnHover() {
     const languageSwitcher = document.getElementById('language-switcher');
     const languageMenu = document.getElementById('language-menu');
 
-    languageSwitcher.addEventListener('mouseenter', function () {
+    languageSwitcher.addEventListener('mouseenter', () => {
         languageMenu.style.display = 'flex';
     });
 
-    languageSwitcher.addEventListener('mouseleave', function () {
+    languageSwitcher.addEventListener('mouseleave', () => {
         languageMenu.style.display = 'none';
     });
 }
 
-// Fonction pour gérer le soulignement au survol des options du menu
-function handleHoverEffectOnOptions() {
-    const languageOptions = document.querySelectorAll('.language-option');
-
-    languageOptions.forEach(function (option) {
-        option.addEventListener('mouseenter', function () {
-            option.style.textDecoration = 'underline';
+// Fonction pour gérer le soulignement au survol des options du menu et des liens de navigation
+function handleHoverEffect(elements) {
+    elements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            element.style.textDecoration = 'underline';
         });
-
-        option.addEventListener('mouseleave', function () {
-            option.style.textDecoration = 'none';
-        });
-    });
-}
-
-// Fonction pour gérer le soulignement au survol des éléments de la bannière
-function handleHoverEffectOnNavLinks() {
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    navLinks.forEach(function (link) {
-        link.addEventListener('mouseenter', function () {
-            link.style.textDecoration = 'underline';
-        });
-
-        link.addEventListener('mouseleave', function () {
-            link.style.textDecoration = 'none';
+        element.addEventListener('mouseleave', () => {
+            element.style.textDecoration = 'none';
         });
     });
 }
@@ -106,19 +81,14 @@ function updateContent(language, page) {
     }
 }
 
-
-
-// Initialiser la gestion du survol des éléments de la bannière
-handleHoverEffectOnNavLinks();
+// Initialiser les gestionnaires de survol
+handleHoverEffect(document.querySelectorAll('.nav-link'));
+handleHoverEffect(document.querySelectorAll('.language-option'));
 
 // Initialiser la gestion du survol du menu déroulant
 toggleLanguageMenuOnHover();
 
-// Initialiser la gestion du survol des options du menu
-handleHoverEffectOnOptions();
-
 // Initialiser la langue du document
 const browserLanguage = navigator.language.substr(0, 2);
 const savedLanguage = localStorage.getItem('language') || browserLanguage;
-
 changeLanguage(savedLanguage);
