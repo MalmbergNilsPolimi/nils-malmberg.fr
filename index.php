@@ -20,10 +20,10 @@
 			// ********************************** CADRE GAUCHE CORPS DU PAGE ****************************************************
 		?>
 		<td  WIDTH="100" ALIGN="CENTER">
-			<img src="media/photo_nils1.jpg" width="150">
+			<img src="media/01/photo_nils.jpg" width="150">
 			<br>
 			<br>
-			<a href="https://www.linkedin.com/in/nils-malmberg" title="Lien vers mon Linkedin" target="_blank"> <img src="media/iconelinkedin.png" alt="Icon Linkedin" HEIGHT="30"></a>
+			<a href="https://www.linkedin.com/in/nils-malmberg" title="Lien vers mon Linkedin" target="_blank"> <img src="media/01/iconelinkedin.png" alt="Icon Linkedin" HEIGHT="30"></a>
 		</td>
 
 		<?php 

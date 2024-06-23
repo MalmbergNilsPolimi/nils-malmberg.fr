@@ -11,7 +11,6 @@
 		<meta name="identifier-URL" content="https://www.nils-malmberg.fr">
 		<meta name="author" content="NilsMalmberg">
 
-		<p hidden>Selma MALMBERG</p>
 		<p hidden>www.malmberg.fr</p>
 
 		<?php 
@@ -26,9 +25,9 @@
 		
 	</head>
 
-	<body BGCOLOR="#555555" WIDTH=100%>
+	<body BGCOLOR="#000000" WIDTH=100%>
 		<!-- Hidden = pas affiché : pour que les bots regardent aussi la page de Selma => meilleur référencement -->
-		<table BGCOLOR="#ffffff" BORDER="0" WIDTH=100%>
+		<table BGCOLOR="#f0f0f0" BORDER="0" WIDTH=100%>
 			<p hidden>www.malmberg.fr</p> 
 			<tr>
 				<td class="name" ALIGN=CENTER WIDTH=20%>
@@ -42,7 +41,7 @@
 					<?php if ($nomPage=="03projects.php"){echo"<b>Projects</b>";} else {echo"<a class='one' href=03projects.php>Projects</a>";}?>
 				</td>
 				<td color="#6A6A6B" ALIGN=LEFT WIDTH=10%>
-					<a>| FR | EN |</a>
+					<!-- <a>| FR | EN |</a> -->
 				</td>
 			</tr>
 		</table>
