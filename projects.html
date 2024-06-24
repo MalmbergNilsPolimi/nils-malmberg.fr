@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="media/favicons/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
     <title>Nils Malmberg - Projets</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -19,37 +23,61 @@
         </div>
     </header>
 
-    <main>
-        <section id="projects">
-            <div class="container">
-                <h2>Projets</h2>
+    <div class="container">
+        <h2>Sommaire</h2>
+        <ul class="project-summary">
+            <li class="project-summary-item project5-summary"><a href="#project5">mdisd : une librairie C++/Python pour l'interpolation multi-dimensionnelle de données.</a></li>
+            <li class="project-summary-item project4-summary"><a href="#project4">Design d'un NAS sous Fusion 360.</a></li>
+            <li class="project-summary-item project3-summary"><a href="#project3">Le site nils-malmberg.fr</a></li>
+            <li class="project-summary-item project2-summary"><a href="#project2">Projet Braket : logiciel de calculs quantiques.</a></li>
+            <li class="project-summary-item project1-summary"><a href="#project1">TIPE : Modélisation d'un système d'exploitation des énergies houlomotrices (Searev).</a></li>
+        </ul>
 
-                <div class="project">
-                    <a href="project1.html">
-                        <img src="images/project1.jpg" alt="Projet 1">
-                        <h3>Projet 1</h3>
-                        <p>Développement d'une application web pour la prédiction des pannes de machines industrielles.</p>
-                    </a>
-                </div>
+        <h2>Projets</h2>
+        <div class="project project5" id="project5">
+            <h3>mdisd : une librairie C++/Python pour l'interpolation multi-dimensionnelle de données.</h3>
+            <p>Lors de mon cours "Advanced Programming for Scientific Computing" à Politecnico di Milano, j'ai développé la librairie mdisd en C++. 
+                Cette librairie vise à interpoller des fonctions à plusieurs variables à partir de jeux de données dispersées. La librairie utilise des méthodes 
+                telles que les "Radial Basis Functions" et les "Ordinary Least Squares" pour ces interpolations. J'ai également créé des bindings permettant 
+                d'utiliser cette librairie efficacement dans des projets Python.
+            </p>
+            <a href="project5.html" class="button">En savoir plus</a>
+        </div>
 
-                <div class="project">
-                    <a href="project2.html">
-                        <h3>Projet 2</h3>
-                        <p>Projet Braket : logiciel de calculs quantiques.</p>
-                        <img src="media/projets/braket.avif" alt="Projet 2">
-                    </a>
-                </div>
+        <div class="project project4" id="project4">
+            <h3>Design d'un NAS sous Fusion 360.</h3>
+            <p>A venir...</p>
+            <a href="project4.html" class="button">En savoir plus</a>
+        </div>
 
-                <div class="project">
-                    <a href="project1.html">
-                        <h3>Projet 1</h3>
-                        <p>TIPE : Modélisation d'un système d'exploitation des énergies houlomotrices (Searev).</p>
-                        <img src="media/projets/searev.webp" alt="Projet 1">
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
+        <div class="project project3" id="project3">
+            <h3>Le site nils-malmberg.fr</h3>
+            <p>Durant ma première année d'école d'ingénieur, j'ai commencé à développer mon site web personnel par passion. La première version, simple et basique, 
+                combinait principalement HTML avec un peu de PHP, peu de CSS et pas de JavaScript. Pendant mon séjour à Milan, j'ai relevé le défi de reconstruire 
+                entièrement mon site en un week-end. J'ai utilisé un constructeur de site pour créer une maquette le premier jour, puis j'ai appris les bases 
+                du développement web via OpenClassrooms. Le deuxième jour, j'ai recodé intégralement le site, donnant naissance à sa seconde version. 
+                Le prochain objectif fut d'optimiser le site pour les appareils mobiles en utilisant les media queries. Pour cela, j'ai décidé de recoder une grosse
+                partie du site, donnant lieu à la troisième version sur laquelle vous naviguez actuellement.</p>
+            <a href="project3.html" class="button">En savoir plus</a>
+        </div>
+
+        <div class="project project2" id="project2">
+            <h3>Projet Braket : logiciel de calculs quantiques.</h3>
+            <p>Le Projet Braket a été réalisé lors de ma première année à Grenoble INP - Phelma. En collaboration avec trois camarades, nous avons développé
+                 un logiciel en C et C++ utilisant la bibliothèque graphique FLTK. Braket offre une interface graphique ergonomique permettant
+                  de simuler les probabilités associées aux composants d'un état quantique après diverses transformations par des portes quantiques. 
+                  Ce logiciel vise à rendre ces concepts accessibles et compréhensibles via une interface intuitive.</p>
+            <a href="project2.html" class="button">En savoir plus</a>
+        </div>
+
+        <div class="project project1" id="project1">
+            <h3>TIPE : Modélisation d'un système d'exploitation des énergies houlomotrices (Searev).</h3>
+            <p>Pendant mes deux années de classe préparatoire aux grandes écoles, j'ai travaillé sur un projet appelé TIPE (Travail d'Initiative Personnelle Encadré). 
+                Dans le cadre du thème "Enjeux Sociétaux", j'ai choisi de modéliser numériquement le Searev, un dispositif innovant pour convertir l'énergie de la houle 
+                en électricité à l'aide d'une bouée et d'une masse pendulaire. Mon objectif était d'étudier l'efficacité de ce système et de réaliser un prototype.</p>
+            <a href="project1.html" class="button">En savoir plus</a>
+        </div>
+    </div>
 
     <footer>
         <div class="container">

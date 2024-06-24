@@ -10,7 +10,7 @@ body {
 }
 
 .container {
-    max-width: 960px;
+    max-width: 1024px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -35,6 +35,7 @@ header {
 }
 
 h2 {
+    font-size: 30px;
     margin-top: 60px;
 }
 
@@ -131,13 +132,226 @@ footer {
     padding: 10px 0;
 }
 
-/* Project styles */
-.project img {
-    max-width: 100%;
+
+/* Styles pour les éléments de CV */
+.cv-item {
+    display: flex; /* Utilisation de flexbox pour la disposition en colonnes */
+    align-items: center; /* Alignement vertical en haut */
+    margin-bottom: 40px;
+}
+
+.cv-image {
+    flex: 0 0 175px; /* Largeur fixe de 200px pour la colonne de l'image */
+    margin-right: 30px; /* Espace entre l'image et le texte */
+}
+
+.cv-image img {
+    width: 100%; 
     height: auto;
+    object-fit: cover; /* Pour que l'image remplisse la zone sans être déformée */
+}
+
+.cv-content {
+    flex: 1; /* La colonne de texte prend l'espace restant */
+}
+
+.container h3 {
+    font-size: 25px;
+}
+
+.cv-content h4 {
+    font-size: 20px;
+}
+
+/* Media query pour les petits écrans */
+@media (max-width: 768px) {
+    .cv-item {
+        flex-direction: column; /* Disposition en colonne sur les petits écrans */
+    }
+
+    .cv-image {
+        flex: 0 0 100%; /* L'image prend toute la largeur sur les petits écrans */
+        margin-right: 0;
+        margin-bottom: 10px; 
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.skills-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.skills-list li {
     margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.skills-list li span {
+    font-weight: bold;
+}
+
+.skills-list .advanced {
+    background-color: #d6f3e7;
+    border-left: 5px solid #00796b;
+}
+
+.skills-list .intermediate {
+    background-color: #fff3e0;
+    border-left: 5px solid #fb8c00;
+}
+
+.skills-list .beginner {
+    background-color: #f3e5f5;
+    border-left: 5px solid #8e24aa;
+}
+
+.languages-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.languages-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #e3f2fd;
+    border-left: 5px solid #1e88e5;
+}
+
+.languages-list li span {
+    font-weight: bold;
+}
+
+.project {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 8px;
 }
 
 .project h3 {
     margin-top: 0;
+}
+
+.project h3 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.project p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.project-summary {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 30px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.project-summary-item {
+    margin: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.project-summary-item a {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.project1-summary {
+    background-color: #e0f7fa;
+    border: 1px solid #00acc1;
+}
+
+.project1-summary a {
+    color: #00acc1;
+}
+
+.project1 {
+    background-color: #e0f7fa;
+    border-left: 5px solid #00acc1;
+}
+
+.project2-summary {
+    background-color: #fff3e0;
+    border: 1px solid #fb8c00;
+}
+
+.project2-summary a {
+    color: #fb8c00;
+}
+.project2 {
+    background-color: #fff3e0;
+    border-left: 5px solid #fb8c00;
+}
+
+.project3-summary {
+    background-color: #f3e5f5;
+    border: 1px solid #8e24aa;
+}
+
+.project3-summary a {
+    color: #8e24aa;
+}
+
+.project3 {
+    background-color: #f3e5f5;
+    border-left: 5px solid #8e24aa;
+}
+
+.project4-summary {
+    background-color: #e8f5e9;
+    border: 1px solid #43a047;
+}
+
+.project4-summary a {
+    color: #43a047;
+}
+
+.project4 {
+    background-color: #e8f5e9;
+    border-left: 5px solid #43a047;
+}
+
+.project5-summary {
+    background-color: #e3f2fd;
+    border: 1px solid #1e88e5;
+}
+
+.project5-summary a {
+    color: #1e88e5;
+}
+
+.project5 {
+    background-color: #e3f2fd;
+    border-left: 5px solid #1e88e5;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #45a049;
 }
