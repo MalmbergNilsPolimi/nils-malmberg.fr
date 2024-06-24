@@ -1,9 +1,11 @@
 /* General styles */
 body {
-    font-family: Arial, sans-serif;
+    /* font-family: Arial, sans-serif; */
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    line-height: 2;
+    text-align: justify;
 }
 
 .container {
@@ -19,12 +21,16 @@ header {
 }
 
 #about .profile img {
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
     object-position: top;
+}
+
+#about h2 {
+    margin-top: 60px;
 }
 
 .profile {
