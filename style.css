@@ -18,12 +18,17 @@ header {
     text-align: center;
 }
 
-header .profile img {
+#about .profile img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
+    object-position: top;
+}
+
+.profile {
+    text-align: center;
 }
 
 nav ul {
@@ -74,33 +79,4 @@ footer {
 
 .project h3 {
     margin-top: 0;
-}
-
-/* Media queries for smaller screens */
-@media (max-width: 768px) {
-    header .profile {
-        text-align: center;
-    }
-
-    nav {
-        display: none; /* Hide navigation on small screens */
-    }
-
-    #navbar.responsive {
-        display: block;
-        text-align: center;
-    }
-
-    #navbar.responsive ul li {
-        display: block;
-        margin: 10px 0;
-    }
-
-    .container {
-        padding: 0 10px;
-    }
-
-    .project {
-        margin-bottom: 20px;
-    }
 }
