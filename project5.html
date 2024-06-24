@@ -7,44 +7,316 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>Nils Malmberg - Projets</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <div class="container">
+        <div class="containerbar">
+            <div class="logo-left">
+                <a href="index.html">
+                    <img src="media/favicons/apple-touch-icon-57x57.png" alt="Logo">
+                </a>
+            </div>
             <nav id="navbar">
                 <ul>
-                    <li><a href="index.html">À propos</a></li>
-                    <li><a href="cv.html">CV</a></li>
-                    <li><a href="projects.html" class="active">Projets</a></li>
+                    <li><a href="index.html" id="nav-home">À propos</a></li>
+                    <li><a href="cv.html" id="nav-cv">CV</a></li>
+                    <li><a href="projects.html" class="active" id="nav-projects">Projets</a></li>
                 </ul>
             </nav>
+            <div id="language-switcher">
+                <div class="current-language" onclick="toggleLanguageMenu()">
+                    <img  src="media/logo/logo_fr.svg" alt="Français">
+                    <div class="arrow-down"></div>
+                </div>
+                <div class="language-menu" id="language-menu">
+                    <div class="language-option" onclick="changeLanguage('fr')">
+                        <img src="media/logo/logo_fr.svg" alt="Français">
+                        <span>Français (FR)</span>
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('en')">
+                        <img src="media/logo/logo_en.svg" alt="English">
+                        <span>English (EN)</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
-    
-    <main>
+
+
+    <main id="project5-content-fr">
         <section id="project">
             <div class="container">
                 <h2>mdisd : une librairie C++/Python pour l'interpolation multi-dimensionnelle de données.</h2>
                 <h3>Contexte</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum euismod ex, quis imperdiet mauris aliquam eu. Aliquam et purus aliquam, rhoncus lectus et, tempus lorem. Pellentesque nec justo in lectus euismod sagittis vel vitae libero. Mauris ut nulla laoreet, tincidunt erat quis, viverra tellus. Mauris scelerisque, ante ut vulputate rhoncus, augue velit pharetra tellus, a cursus urna massa vitae elit. Fusce quis metus in quam vehicula consectetur.
-                </p>
+                <p></p>Considérons un système qui dépend directement de \(n\) paramètres et renvoie une quantité de sortie basée sur ces \(n\) paramètres. 
+                    Par exemple, considérons une usine dont la quantité de sortie est la quantité de produits finis. Les paramètres d'entrée peuvent être, par exemple,
+                    la quantité de matériaux, l'état des machines, la fatigue des employés etc. L'usine est représenté par la fonction \(f\),
+                    le nombre de produits finis par \(o\) et les paramètres d'entrée par \(\textbf{P}\).</p>
+
+                <div class="tikz">
+                    <img src="media/projets/project5/scheme.png" alt="TikZ Diagram">
+                </div>
+
+                <p>Il peut donc être difficile de créer un modèle qui prenne en compte tous ces paramètres afin d'estimer la quantité de produits finis pour 
+                    l'état actuel de l'usine. C'est pourquoi la méthode proposée ici vise à interpoler la quantité de produits finis à partir d'une 
+                    collecte de données effectuée au préalable et de l'état actuel de chacun des paramètres.</p>
 
                 <h3>Approche</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum euismod ex, quis imperdiet mauris aliquam eu. Aliquam et purus aliquam, rhoncus lectus et, tempus lorem. Pellentesque nec justo in lectus euismod sagittis vel vitae libero. Mauris ut nulla laoreet, tincidunt erat quis, viverra tellus. Mauris scelerisque, ante ut vulputate rhoncus, augue velit pharetra tellus, a cursus urna massa vitae elit. Fusce quis metus in quam vehicula consectetur.
-                </p>
+                <p>Pour ce faire, considérons que l'entreprise a pris soin de collecter les paramètres de l'usine et les quantités de produits finis correspondant 
+                    à ces paramètres à plusieurs intervalles de temps différents (sur plusieurs jours, mois ou années). Considérons les \(m\) mesures de ces paramètres 
+                    et des quantités de produits.</p>
+    
+                <p>Une quantité connue de produit fini \(o_i\) peut donc être associée à un état correspondant de l'usine 
+                    \(\textbf{P}_i\) for all \(i\) in \([\![1;m]\!]\). Ce qui donne en format matriciel:</p>
+            
+                <div style="text-align: center;">
+                    \[
+                    \textbf{P} = \begin{pmatrix} \textbf{P}_1\\ \textbf{P}_2 \\ \vdots \\ \textbf{P}_m \end{pmatrix}
+                    = \begin{pmatrix}
+                    p_{1,1} & p_{1,2} & \cdots & p_{1,n}  \\
+                    p_{2,1} & p_{2,2} & \cdots & p_{2,n}  \\
+                    \vdots & \vdots & \vdots & \vdots\\
+                    p_{m,1} & p_{m,2} & \cdots & p_{m,n}
+                    \end{pmatrix}~~~~ 
+                    \textbf{O} = \begin{pmatrix}
+                    o_1\\ o_2 \\ \vdots \\ o_m 
+                    \end{pmatrix}
+                    = \begin{pmatrix} 
+                    f(\textbf{P}_1)\\ f(\textbf{P}_2) \\ \vdots \\ f(\textbf{P}_m) 
+                    \end{pmatrix}
+                    \]
+                </div>
+            
+                <p>L'objectif est maintenant d'estimer une nouvelle sortie \(o_{\text{new}} = f(\textbf{P}_{\text{new}})\) à partir d'une nouvelle entrée 
+                    \(\textbf{P}_{\text{new}} = \begin{pmatrix} p_{\text{new,1}} & p_{\text{new,2}} &\dots & p_{\text{new,n}}\end{pmatrix}\).</p>
+                
+                <h4>Moindres Carrés Ordinaires/Ordinary Least Squares</h4>
+                <p>La méthode des moindres carrés ordinaires (MCO ou OLS en anglais) est une méthode fondamentale de modélisation statistique utilisée pour 
+                    estimer la relation entre une variable dépendante et une ou plusieurs variables indépendantes. Elle consiste essentiellement à minimiser 
+                    la somme des carrés des différences entre les valeurs observées et prédites. Ainsi, les MCO visent à trouver la droite 
+                    (dans la régression linéaire simple) ou le plan/hyperplan (dans la régression multivariée) qui s'ajuste le mieux aux points de données observés.</p>
+                <div style="text-align: center;">
+                    \[
+                    \widehat{o}_\text{new} = \widehat{\alpha} + \widehat{\beta}_1\times p_{\text{new},1} + \widehat{\beta}_2\times p_{\text{new},2} + \cdots + \widehat{\beta}_n\times p_{\text{new},n}\\
+                    \]
+                </div>
 
+                <p>L'idée principale derrière cette méthode est de trouver les coefficients \(\widehat{\alpha}, \widehat{\beta}_1, \cdots, \widehat{\beta}_n\)
+                     minimisant la somme suivante dans l'optique d'avoir la plus petite distance entre les points connus et leurs estimations par regression:</p>
+                <div style="text-align: center;">
+                    \[
+                    \sum\limits_{i=1}^m \left[o_i -\left( \widehat{\alpha} + \widehat{\beta}_1\times p_{\text{new},1} + \widehat{\beta}_2\times p_{\text{new},2} + \cdots + \widehat{\beta}_n\times p_{\text{new},n}\right)\right]^2
+                    \]
+                </div>
+
+                <p>Introduisons les notations matricielles suivantes:</p>
+                <div style="text-align: center;">
+                    \[  X = \begin{pmatrix}
+                        1 & p_{1,1} &p_{1,2}  & \cdots & p_{1,n}  \\
+                        1 & p_{2,1} &p_{2,2}  & \cdots & p_{2,n}  \\
+                        \vdots & \vdots & \vdots & \vdots & \vdots\\
+                        1 & p_{m,1} &p_{m,2}  & \cdots & p_{m,n}  \\
+                        \end{pmatrix}~~~~\widehat{\beta} = \begin{pmatrix}
+                        \widehat{\alpha} \\ \widehat{\beta}_1 \\ \vdots \\ \widehat{\beta}_n
+                        \end{pmatrix}~~~~O = \begin{pmatrix}
+                        o_1\\ o_2 \\ \vdots \\ o_m \end{pmatrix}
+                    \]
+                </div>
+
+                <p>Ainsi, les coefficients minimisant la somme sont:</p>
+                <div style="text-align: center;">
+                    \[
+                    \widehat{\beta} = \left(X^T X\right)^{-1} X^T O
+                    \]
+                </div>
+                
+                <h4>Fonction à Base Radiale/Radial Basis Function</h4>
+                <p>Idée : chaque point défini par  \(\textbf{P}_i\) and \(o_i\) "influence" sont voisinage dans chaque direction de manière identique 
+                    selon la fonctionnelle \(\Phi(r)\) où \(r\) est la distance radiale.</p>
+                <div style="text-align: center;">
+                    \[
+                    o_\text{new} = \sum\limits_{i=1}^m \omega_i\cdot \phi(||\textbf{p}_\text{new} - \textbf{p}_i||)
+                    \]
+                </div>
+
+                <p>Pour déterminer les poids \(w_i\), nous devons résoudre le système linéaire à \(m\) equations afin d'imposer que l'interpolation d'un point connu
+                    donne exactement la solution connue:</p>
+                <div style="text-align: center;">
+                    \[
+                    \forall i\in [\![1;m]\!],~~~~ o_i = \sum\limits_{k=1}^m \omega_k\cdot \phi(||\textbf{p}_i - \textbf{p}_k||)
+                    \]
+                </div>
+
+                <p>Le système peut être écrit sous la forme matricielle suivante:</p>
+
+                <div style="text-align: center;">
+                    \[\Phi \Omega = O\]
+                </div>
+
+                <p>où, \(\Phi = \begin{pmatrix}
+                \phi\left(||\textbf{P}_1-\textbf{P}_1||\right) &\phi\left(||\textbf{P}_2-\textbf{P}_1||\right)  & \cdots & \phi\left(||\textbf{P}_m-\textbf{P}_1||\right)  \\
+                \phi\left(||\textbf{P}_1-\textbf{P}_2||\right) &\phi\left(||\textbf{P}_2-\textbf{P}_2||\right)  & \cdots & \phi\left(||\textbf{P}_m-\textbf{P}_2||\right)  \\
+                \vdots & \vdots & \vdots & \vdots\\
+                \phi\left(||\textbf{P}_1-\textbf{P}_m||\right) &\phi\left(||\textbf{P}_2-\textbf{P}_m||\right)  & \cdots & \phi\left(||\textbf{P}_m-\textbf{P}_m||\right)  \\
+                \end{pmatrix}~~\) et \(~~\Omega = \begin{pmatrix}
+                \omega_1 \\ \omega_2 \\ \vdots \\ \omega_m\end{pmatrix}\)</p>
+                
                 <h3>Résultats</h3>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum euismod ex, quis imperdiet mauris aliquam eu. Aliquam et purus aliquam, rhoncus lectus et, tempus lorem. Pellentesque nec justo in lectus euismod sagittis vel vitae libero. Mauris ut nulla laoreet, tincidunt erat quis, viverra tellus. Mauris scelerisque, ante ut vulputate rhoncus, augue velit pharetra tellus, a cursus urna massa vitae elit. Fusce quis metus in quam vehicula consectetur.
+                    Ce projet a conduit au développement de la bibliothèque mdisd, qui peut être utilisée pour appliquer les MCO (moindres carrés ordinaires), 
+                    la RBF (fonction de base radiale) et d'autres méthodes telles que la NRBF (RBF normalisée) et la RBFP (RBF augmentée par des polynômes). Ce projet
+                     contient d'autres outils tels que des outils de mise à l'échelle et des fonctions de base radiales. Il génère également un fichier bibliothèque
+                      pour Python. Vous trouverez un rapport détaillé sur le Github de la bibliothèque dans le dossier doc/, ainsi que le code source et divers cas 
+                      tests.
                 </p>
             </div>
             <center>
                 <div>
                     <a href="projects.html" class="button">Retour</a>
+                    <a href="https://github.com/MalmbergNilsPolimi/mdisd" class="button" target="_blank">Lien vers le Github du projet</a>
+                </div>
+            </center>
+        </section>
+    </main>
+
+
+    <main id="project5-content-en">
+        <section id="project">
+            <div class="container">
+                <h2>mdisd: a C++/Python library for multi-dimensional interpolation of scattered data.</h2>
+                <h3>Context</h3>
+                <p>Let's consider a system that depends directly on \(n\) parameters and returns an output quantity based on these \(n\) parameters. 
+                    For example, consider a factory whose output quantity is the final product, or more precisely the quantity of finished products. 
+                    The input parameters of this factory are, for example, the flow of raw materials, the state of fatigue of the employees, the state of 
+                    the machines, and so on. The plant is represented by the function \(f\), the number of finished products by \(o\), and the input parameters 
+                    by the vector \(\textbf{P}\).</p>
+
+                <div class="tikz">
+                    <img src="media/projets/project5/scheme.png" alt="TikZ Diagram">
+                </div>
+
+                <p>It can therefore be difficult to create a model that takes all these parameters into account in order to estimate the quantity of finished 
+                    products for the current state of the plant. For this reason, the method proposed here aims to interpolate the quantity of finished 
+                    products from a collection of data made beforehand and from the current state of each of the parameters.</p>
+
+                <h3>Approach</h3>
+                <p>To do this, let's consider that the company has taken care to collect the factory parameters and the quantities of finished products 
+                    corresponding to these parameters at several different time intervals (over several days, months, or years). Consider \(m\) 
+                    measurements of these parameters and product quantities.</p>
+    
+                <p>A known quantity of finished product \(o_i\) can therefore be associated with the corresponding state of the plant 
+                    \(\textbf{P}_i\) for all \(i\) in \([\![1;m]\!]\). In matrix format, this gives:</p>
+            
+                <div style="text-align: center;">
+                    \[
+                    \textbf{P} = \begin{pmatrix} \textbf{P}_1\\ \textbf{P}_2 \\ \vdots \\ \textbf{P}_m \end{pmatrix}
+                    = \begin{pmatrix}
+                    p_{1,1} & p_{1,2} & \cdots & p_{1,n}  \\
+                    p_{2,1} & p_{2,2} & \cdots & p_{2,n}  \\
+                    \vdots & \vdots & \vdots & \vdots\\
+                    p_{m,1} & p_{m,2} & \cdots & p_{m,n}
+                    \end{pmatrix}~~~~ 
+                    \textbf{O} = \begin{pmatrix}
+                    o_1\\ o_2 \\ \vdots \\ o_m 
+                    \end{pmatrix}
+                    = \begin{pmatrix} 
+                    f(\textbf{P}_1)\\ f(\textbf{P}_2) \\ \vdots \\ f(\textbf{P}_m) 
+                    \end{pmatrix}
+                    \]
+                </div>
+            
+                <p>The aim now is to estimate a new output \(o_{\text{new}} = f(\textbf{P}_{\text{new}})\) from a new input 
+                    \(\textbf{P}_{\text{new}} = \begin{pmatrix} p_{\text{new,1}} & p_{\text{new,2}} &\dots & p_{\text{new,n}}\end{pmatrix}\).</p>
+                
+                <h4>Ordinary Least Squares</h4>
+                <p>Ordinary Least Squares (OLS) is a fundamental method in statistical modeling used to estimate the relationship between a dependent variable 
+                    and one or more independent variables. Its essence lies in minimizing the sum of the squared of the differences between the observed and 
+                    predicted values. Thus, OLS aims to find the line (in simple linear regression) or plane/hyperplane (in multivariate regression) that best 
+                    fits the observed data points.</p>
+                <div style="text-align: center;">
+                    \[
+                    \widehat{o}_\text{new} = \widehat{\alpha} + \widehat{\beta}_1\times p_{\text{new},1} + \widehat{\beta}_2\times p_{\text{new},2} + \cdots + \widehat{\beta}_n\times p_{\text{new},n}\\
+                    \]
+                </div>
+
+                <p>The main idea behind the ordinary least squares method is to choose the coefficients 
+                    \(\widehat{\alpha}, \widehat{\beta}_1, \cdots, \widehat{\beta}_n\) to minimize the following sum in order to have the smallest 
+                    distance between the known points and the estimates of these same points by regression:</p>
+                <div style="text-align: center;">
+                    \[
+                    \sum\limits_{i=1}^m \left[o_i -\left( \widehat{\alpha} + \widehat{\beta}_1\times p_{\text{new},1} + \widehat{\beta}_2\times p_{\text{new},2} + \cdots + \widehat{\beta}_n\times p_{\text{new},n}\right)\right]^2
+                    \]
+                </div>
+
+                <p>Let's introduce the following matrix notations:</p>
+                <div style="text-align: center;">
+                    \[  X = \begin{pmatrix}
+                        1 & p_{1,1} &p_{1,2}  & \cdots & p_{1,n}  \\
+                        1 & p_{2,1} &p_{2,2}  & \cdots & p_{2,n}  \\
+                        \vdots & \vdots & \vdots & \vdots & \vdots\\
+                        1 & p_{m,1} &p_{m,2}  & \cdots & p_{m,n}  \\
+                        \end{pmatrix}~~~~\widehat{\beta} = \begin{pmatrix}
+                        \widehat{\alpha} \\ \widehat{\beta}_1 \\ \vdots \\ \widehat{\beta}_n
+                        \end{pmatrix}~~~~O = \begin{pmatrix}
+                        o_1\\ o_2 \\ \vdots \\ o_m \end{pmatrix}
+                    \]
+                </div>
+
+                <p>Then, the coefficients that minimizes the sum are</p>
+                <div style="text-align: center;">
+                    \[
+                    \widehat{\beta} = \left(X^T X\right)^{-1} X^T O
+                    \]
+                </div>
+                
+                <h4>Radial Basis Function</h4>
+                <p>Idea : each point defined by \(\textbf{P}\) and \(\textbf{O}\) "influences" its surroundings in the same way and in all directions 
+                    according to the functionnal form \(\Phi(r)\) where \(r\) is the radial distance.</p>
+                <div style="text-align: center;">
+                    \[
+                    o_\text{new} = \sum\limits_{i=1}^m \omega_i\cdot \phi(||\textbf{p}_\text{new} - \textbf{p}_i||)
+                    \]
+                </div>
+
+                <p>To determine the weights \(w_i\), we have to solve the \(m\) linear equations to impose that the interpolation is 
+                    exact at all known data points:</p>
+                <div style="text-align: center;">
+                    \[
+                    \forall i\in [\![1;m]\!],~~~~ o_i = \sum\limits_{k=1}^m \omega_k\cdot \phi(||\textbf{p}_i - \textbf{p}_k||)
+                    \]
+                </div>
+
+                <p>This system can be written in the following matrix form:</p>
+
+                <div style="text-align: center;">
+                    \[\Phi \Omega = O\]
+                </div>
+
+                <p>where, \(\Phi = \begin{pmatrix}
+                \phi\left(||\textbf{P}_1-\textbf{P}_1||\right) &\phi\left(||\textbf{P}_2-\textbf{P}_1||\right)  & \cdots & \phi\left(||\textbf{P}_m-\textbf{P}_1||\right)  \\
+                \phi\left(||\textbf{P}_1-\textbf{P}_2||\right) &\phi\left(||\textbf{P}_2-\textbf{P}_2||\right)  & \cdots & \phi\left(||\textbf{P}_m-\textbf{P}_2||\right)  \\
+                \vdots & \vdots & \vdots & \vdots\\
+                \phi\left(||\textbf{P}_1-\textbf{P}_m||\right) &\phi\left(||\textbf{P}_2-\textbf{P}_m||\right)  & \cdots & \phi\left(||\textbf{P}_m-\textbf{P}_m||\right)  \\
+                \end{pmatrix}~~\) and \(~~\Omega = \begin{pmatrix}
+                \omega_1 \\ \omega_2 \\ \vdots \\ \omega_m\end{pmatrix}\)</p>
+                
+                <h3>Results</h3>
+                <p>
+                    This project led to the development of the mdisd library, which can be used to apply OLS (Ordinary Least Squares), RBF (Radial Basis Function) and 
+                    other methods such as NRBF (Normalized RBF) and RBFP (RBF augmented with Polynomials). It contains other tools such as rescaling tools and 
+                    radial basis functions. It also generates a library file for Python use. You'll find a detailed report on the library's Github in the doc/ folder, 
+                    as well as source code and various test cases.
+                </p>
+            </div>
+            <center>
+                <div>
+                    <a href="projects.html" class="button">Back</a>
+                    <a href="https://github.com/MalmbergNilsPolimi/mdisd" class="button" target="_blank">Link to the Github repository</a>
                 </div>
             </center>
         </section>

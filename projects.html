@@ -12,18 +12,39 @@
 </head>
 <body>
     <header>
-        <div class="container">
+        <div class="containerbar">
+            <div class="logo-left">
+                <a href="index.html">
+                    <img src="media/favicons/apple-touch-icon-57x57.png" alt="Logo">
+                </a>
+            </div>
             <nav id="navbar">
                 <ul>
-                    <li><a href="index.html">À propos</a></li>
-                    <li><a href="cv.html">CV</a></li>
-                    <li><a href="projects.html" class="active">Projets</a></li>
+                    <li><a href="index.html" id="nav-home">À propos</a></li>
+                    <li><a href="cv.html" id="nav-cv">CV</a></li>
+                    <li><a href="projects.html" class="active" id="nav-projects">Projets</a></li>
                 </ul>
             </nav>
+            <div id="language-switcher">
+                <div class="current-language" onclick="toggleLanguageMenu()">
+                    <img  src="media/logo/logo_fr.svg" alt="Français">
+                    <div class="arrow-down"></div>
+                </div>
+                <div class="language-menu" id="language-menu">
+                    <div class="language-option" onclick="changeLanguage('fr')">
+                        <img src="media/logo/logo_fr.svg" alt="Français">
+                        <span>Français (FR)</span>
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('en')">
+                        <img src="media/logo/logo_en.svg" alt="English">
+                        <span>English (EN)</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <div class="container">
+    <div class="container" id="projects-content-fr">
         <h2>Sommaire</h2>
         <ul class="project-summary">
             <li class="project-summary-item project5-summary"><a href="#project5">mdisd : une librairie C++/Python pour l'interpolation multi-dimensionnelle de données.</a></li>
@@ -46,7 +67,9 @@
 
         <div class="project project4" id="project4">
             <h3>Design d'un NAS sous Fusion 360.</h3>
-            <p>A venir...</p>
+            <p>Ce projet consiste en la conception d'un NAS personnalisé, intégrant des emplacements pour une alimentation, un Raspberry Pi avec système de ventilation,
+                 des SSD et des HDD. Des protections anti-vibrations pour les disques durs ont été modélisées, ainsi que des caches pour le câblage et une finition
+                  en plexiglas pensée.</p>
             <a href="project4.html" class="button">En savoir plus</a>
         </div>
 
@@ -76,6 +99,63 @@
                 Dans le cadre du thème "Enjeux Sociétaux", j'ai choisi de modéliser numériquement le Searev, un dispositif innovant pour convertir l'énergie de la houle 
                 en électricité à l'aide d'une bouée et d'une masse pendulaire. Mon objectif était d'étudier l'efficacité de ce système et de réaliser un prototype.</p>
             <a href="project1.html" class="button">En savoir plus</a>
+        </div>
+    </div>
+
+
+
+    <div class="container" id="projects-content-en">
+        <h2>Contents</h2>
+        <ul class="project-summary">
+            <li class="project-summary-item project5-summary"><a href="#project5">mdisd: a C++/Python library for multi-dimensional data interpolation.</a></li>
+            <li class="project-summary-item project4-summary"><a href="#project4">Design of a NAS under Fusion 360.</a></li>
+            <li class="project-summary-item project3-summary"><a href="#project3">nils-malmberg.fr website.</a></li>
+            <li class="project-summary-item project2-summary"><a href="#project2">Braket project: quantum calculation software.</a></li>
+            <li class="project-summary-item project1-summary"><a href="#project1">TIPE: Modeling of a wave energy exploitation system (Searev).</a></li>
+        </ul>
+
+        <h2>Projects</h2>
+        <div class="project project5" id="project5">
+            <h3>mdisd: a C++/Python library for multi-dimensional interpolation of scattered data.</h3>
+            <p>During my course "Advanced Programming for Scientific Computing" at Politecnico di Milano, I developed the mdisd library in C++. 
+                This library aims to interpolate functions with several variables from scattered data sets. The library uses methods such as "Radial Basis Functions" 
+                and "Ordinary Least Squares" for these interpolations. I also created bindings allowing you to use this library effectively in Python projects.
+            </p>
+            <a href="project5.html" class="button">Learn more</a>
+        </div>
+
+        <div class="project project4" id="project4">
+            <h3>Design of a NAS under Fusion 360.</h3>
+            <p>This project involves designing a custom NAS, incorporating slots for a power supply, a Raspberry Pi with ventilation supports, SSDs, and HDDs. 
+                Anti-vibration bumpers for the hard drives were modeled, along with cable management covers and a plexiglass finish.</p>
+            <a href="project4.html" class="button">Learn more</a>
+        </div>
+
+        <div class="project project3" id="project3">
+            <h3>nils-malmberg.fr website.</h3>
+            <p>During my first year of engineering school, I started developing my personal website out of passion. The first version, simple and basic, 
+                combined mostly HTML with some PHP, little CSS, and no JavaScript. During my stay in Milan, I took on the challenge of completely rebuilding 
+                my site in one weekend. I used a site builder to create a mockup on the first day, then learned the basics of web development through OpenClassrooms.
+                 On the second day, I completely recoded the site, giving birth to its second version. The next goal was to optimize the site for mobile devices 
+                 using media queries. For this, I decided to recode a large part of the site, giving rise to the third version on which you are currently browsing.</p>
+            <a href="project3.html" class="button">Learn more</a>
+        </div>
+
+        <div class="project project2" id="project2">
+            <h3>Braket project: quantum calculation software.</h3>
+            <p>The Braket Project was carried out during my first year at Grenoble INP - Phelma. In collaboration with three classmates, we developed software
+                 in C and C++ using the FLTK graphics library. Braket offers an ergonomic graphical interface allowing you to simulate the probabilities associated
+                  with the components of a quantum state after various transformations by quantum gates. This software aims to make these concepts accessible and
+                   understandable via an intuitive interface.</p>
+            <a href="project2.html" class="button">Learn more</a>
+        </div>
+
+        <div class="project project1" id="project1">
+            <h3>TIPE: Modeling of a wave energy exploitation system (Searev).</h3>
+            <p>During my two-year university intensive course, I worked on a project called TIPE (Supervised Personal Initiative Work). As part of the "Societal Issues"
+                 theme, I chose to numerically model the Searev, an innovative device for converting wave energy into electricity using a buoy and a pendulum mass. 
+                 My goal was to study the effectiveness of this system and create a prototype.</p>
+            <a href="project1.html" class="button">Learn more</a>
         </div>
     </div>
 

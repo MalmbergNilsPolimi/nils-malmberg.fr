@@ -1,12 +1,13 @@
 /* General styles */
 body {
-    /* font-family: Arial, sans-serif; */
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
     text-align: justify;
     font-size: 18px;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
 .container {
@@ -16,13 +17,63 @@ body {
 }
 
 header {
-    background-color: #dddddd;
+    background-color: #ffffff;
     padding: 20px 0;
     text-align: center;
     width: 100%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
     position: sticky;
     top: 0;
+    z-index: 1;
+}
+
+.containerbar {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center; /* Centre les éléments verticalement */
+    justify-content: space-between; /* Espace équitablement entre les éléments */
+}
+
+.logo-left {
+    flex: 0 0 auto; /* Les logos ne vont pas se réduire */
+}
+
+.logo-left img {
+    width: 50px; /* Taille du logo */
+    height: auto;
+}
+
+#navbar {
+    flex: 1; /* La colonne centrale prend tout l'espace disponible */
+    text-align: center; /* Centre les éléments du nav */
+}
+
+#navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+    display: flex;
+    justify-content: center; /* Centre les éléments de la liste */
+}
+
+#navbar ul li {
+    margin-right: 20px;
+}
+
+#navbar ul li:last-child {
+    margin-right: 0; /* Aucun margin à droite pour le dernier élément */
+}
+
+#navbar ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+#navbar ul li a.active {
+    font-weight: bold;
 }
 
 #about .profile img {
@@ -97,6 +148,10 @@ nav ul {
     padding: 0;
     margin: 0;
     font-size: 20px;
+}
+
+nav a:hover {
+    text-shadow: 0 0 5px rgba(89, 89, 202, 0.5);
 }
 
 nav ul li {
@@ -174,14 +229,6 @@ footer {
         margin-right: 0;
         margin-bottom: 10px; 
     }
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    margin: 0;
-    padding: 0;
 }
 
 .skills-list {
@@ -265,6 +312,7 @@ body {
     margin: 10px;
     padding: 10px 15px;
     border-radius: 5px;
+    width: 100%;
 }
 
 .project-summary-item a {
@@ -278,7 +326,7 @@ body {
 }
 
 .project1-summary a {
-    color: #00acc1;
+    color: #000000;
 }
 
 .project1 {
@@ -292,7 +340,7 @@ body {
 }
 
 .project2-summary a {
-    color: #fb8c00;
+    color: #000000;
 }
 .project2 {
     background-color: #fff3e0;
@@ -305,7 +353,7 @@ body {
 }
 
 .project3-summary a {
-    color: #8e24aa;
+    color: #000000;
 }
 
 .project3 {
@@ -319,7 +367,7 @@ body {
 }
 
 .project4-summary a {
-    color: #43a047;
+    color: #000000;
 }
 
 .project4 {
@@ -333,7 +381,7 @@ body {
 }
 
 .project5-summary a {
-    color: #1e88e5;
+    color: #000000;
 }
 
 .project5 {
@@ -354,4 +402,69 @@ body {
 
 .button:hover {
     background-color: #45a049;
+}
+
+#language-switcher {
+    position: relative;
+    margin-right: 40px;
+}
+
+.current-language {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.arrow-down {
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    margin-left: 5px;
+}
+
+.language-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    right: 0px; /* Ajustez si nécessaire */
+    background-color: #fff;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+}
+
+.language-option {
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.current-language img,
+.language-option img {
+    width: 20px; /* Ajustez la largeur souhaitée */
+    height: 20px; /* Ajustez la hauteur souhaitée */
+    margin-right: 10px;
+}
+
+.tikz {
+    text-align: center;
+}
+
+.tikz img {
+    width: 70%;
+    height: auto;
+}
+
+.project4-img {
+    text-align: center;
+    padding: 20px;
+}
+
+.project4-img img {
+    width: 40%;
+    height: auto;
 }

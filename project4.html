@@ -12,45 +12,147 @@
 </head>
 <body>
     <header>
-        <div class="container">
+        <div class="containerbar">
+            <div class="logo-left">
+                <a href="index.html">
+                    <img src="media/favicons/apple-touch-icon-57x57.png" alt="Logo">
+                </a>
+            </div>
             <nav id="navbar">
                 <ul>
-                    <li><a href="index.html">À propos</a></li>
-                    <li><a href="cv.html">CV</a></li>
-                    <li><a href="projects.html" class="active">Projets</a></li>
+                    <li><a href="index.html" id="nav-home">À propos</a></li>
+                    <li><a href="cv.html" id="nav-cv">CV</a></li>
+                    <li><a href="projects.html" class="active" id="nav-projects">Projets</a></li>
                 </ul>
             </nav>
+            <div id="language-switcher">
+                <div class="current-language" onclick="toggleLanguageMenu()">
+                    <img  src="media/logo/logo_fr.svg" alt="Français">
+                    <div class="arrow-down"></div>
+                </div>
+                <div class="language-menu" id="language-menu">
+                    <div class="language-option" onclick="changeLanguage('fr')">
+                        <img src="media/logo/logo_fr.svg" alt="Français">
+                        <span>Français (FR)</span>
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('en')">
+                        <img src="media/logo/logo_en.svg" alt="English">
+                        <span>English (EN)</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
     
-    <main>
+    <main id="project4-content-fr">
         <section id="project">
             <div class="container">
                 <h2>Design d'un NAS sous Fusion 360.</h2>
 
                 <h3>Contexte</h3>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum euismod ex, quis imperdiet mauris aliquam eu. Aliquam et purus aliquam, rhoncus lectus et, tempus lorem. Pellentesque nec justo in lectus euismod sagittis vel vitae libero. Mauris ut nulla laoreet, tincidunt erat quis, viverra tellus. Mauris scelerisque, ante ut vulputate rhoncus, augue velit pharetra tellus, a cursus urna massa vitae elit. Fusce quis metus in quam vehicula consectetur.
+                    Étant fortement intéressé par les systèmes Linux, j'ai plusieurs fois créé des machines virtuelles ou partitionné mes ordinateurs dans le but de
+                     m'amuser un peu. J'ai ensuite découvert des systèmes comme OpenMediaVault (OMV) ou TrueNas (anciennement FreeNas), basés respectivement
+                      sur Debian et FreeBSD. Ces systèmes permettent, à l'aide d'un système d'exploitation léger, d'héberger un serveur NAS
+                       (Network Attached Storage) sur un ordinateur ou une tour, même ancien(ne).
                 </p>
+                
+                <p>Après m'être amusé à récupérer des tours destinées à être jetées et à les recomposer, j'ai installé ces deux systèmes afin de tester plusieurs 
+                    choses et de me confronter notamment à la gestion de réseau, comme :</p>
+                <ul>
+                    <li>Mettre le routeur WiFi en IP fixe afin d'utiliser la redirection de port pour accéder à distance (hors réseau local) au NAS ;</li>
+                    <li>Essayer d'implémenter des certificats Let's Encrypt afin de passer les connexions en HTTPS...</li>
+                </ul>
+
+                <p>Au bout d'un certain temps, après avoir fait l'acquisition d'un Raspberry Pi 4 et étant en possession d'une imprimante 3D, j'ai voulu réaliser
+                     à partir de zéro un NAS, me permettant ainsi de choisir le design et les composants. J'ai donc conçu sur Fusion 360 un modèle de NAS dont
+                      vous trouverez des visuels ci-dessous, ainsi que les fichiers .obj, .dxf et .f3d.</p>
 
                 <h3>Approche</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum euismod ex, quis imperdiet mauris aliquam eu. Aliquam et purus aliquam, rhoncus lectus et, tempus lorem. Pellentesque nec justo in lectus euismod sagittis vel vitae libero. Mauris ut nulla laoreet, tincidunt erat quis, viverra tellus. Mauris scelerisque, ante ut vulputate rhoncus, augue velit pharetra tellus, a cursus urna massa vitae elit. Fusce quis metus in quam vehicula consectetur.
-                </p>
+                <p>Il faut penser à plusieurs choses:</p>
+                <ul>
+                    <li>Il faut un emplacement pour une alimentation. Je pensais à une alimentation BeQuiet! ATX qui se situerai dans la partie droite (voir figure de gauche ci-dessous);</li>
+                    <li>Il faut un emplacement pour le Raspberry avec des supports pour la ventilation. Voir partie gauche de la figure de gauche ci-dessous;</li>
+                    <li>Il faut au moins un emplacement de SSD pour le système d'exploitation et j'ai modélisé 6 emplacement pour des disques durs HDD;</li>
+                    <li>Des bumpers ont été modélisés pour réduire les vibrations des HDD (à imprimer en filament flexible);</li>
+                    <li>Un emplacement est prévu pour le câblage à l'arrière et en dessous des disques durs (voir figure de droite ci-dessous);</li>
+                    <li>Un cache arrière avec cache câble a été modélisé. Pour le cache avant je pensais à une plaque de plexiglas découpée sur mesure.</li>
+                </ul>
 
                 <h3>Résultats</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum euismod ex, quis imperdiet mauris aliquam eu. Aliquam et purus aliquam, rhoncus lectus et, tempus lorem. Pellentesque nec justo in lectus euismod sagittis vel vitae libero. Mauris ut nulla laoreet, tincidunt erat quis, viverra tellus. Mauris scelerisque, ante ut vulputate rhoncus, augue velit pharetra tellus, a cursus urna massa vitae elit. Fusce quis metus in quam vehicula consectetur.
-                </p>
-                <a href="projects.html" class="button">Retour</a>
+                <div class="project4-img">
+                    <img src="media/projets/project4/NAS_coque_1.png" alt="NAS Coque 1">
+                    <img src="media/projets/project4/NAS_coque_2.png" alt="NAS Coque 2">
+                </div>
+
+                <p>Finalement je n'ai jaimais procédé à l'impression de ce NAS car je me suis procuré lors du lancement de la gamme NASync de UGREEN le modèle 
+                    DXP6800 Pro qui me permet grâce à ces caractéristiques (RAM 64Go, intel i5 -1235U) de répondre à plusieurs de mes demandes: hébergement de conteneurs,
+                    virtualisation et possiblement bientôt hébergement de mon site web.</p>
+                
             </div>
             <center>
                 <div>
                     <a href="projects.html" class="button">Retour</a>
+                    <a href="media/projets/project4/Fusion_360.zip" class="button">Télécharger le projet</a>
                 </div>
             </center>
         </section>
     </main>
+
+
+
+    <main id="project4-content-en">
+        <section id="project">
+            <div class="container">
+                <h2>Design of a NAS under Fusion 360.</h2>
+
+                <h3>Context</h3>
+                <p>
+                    Being highly interested in Linux systems, I have created virtual machines or partitioned my computers several times just for fun. I then 
+                    discovered systems like OpenMediaVault (OMV) or TrueNas (formerly FreeNas), based respectively on Debian and FreeBSD. These systems allow, 
+                    with the help of a lightweight operating system, to host a NAS (Network Attached Storage) server on an old computers.
+                </p>
+                
+                <p>After having fun recovering towers destined to be discarded and recomposing them, I installed these two systems to test various things and to
+                     confront myself with network management, such as:</p>
+                <ul>
+                    <li>Setting the WiFi router to a fixed IP to use port forwarding to access the NAS remotely (outside the local network);</li>
+                    <li>Trying to implement Let's Encrypt certificates to switch connections to HTTPS...</li>
+                </ul>
+
+                <p>After a while, having acquired a Raspberry Pi 4 and owning a 3D printer, I wanted to create a NAS from scratch, allowing me to choose the design
+                     and components. So, I designed a NAS model on Fusion 360, of which you will find visuals below, as well as the .obj, .dxf, and .f3d files.</p>
+
+                <h3>Approach</h3>
+                <p>Several things need to be considered:</p>
+                <ul>
+                    <li>There needs to be a space for a power supply. I was thinking of a BeQuiet! ATX power supply that would be located on the right side (see left figure below);</li>
+                    <li>There needs to be a space for the Raspberry Pi with supports for ventilation. See the left side of the left figure below;</li>
+                    <li>There needs to be at least one space for an SSD for the operating system, and I modeled six spaces for HDDs;</li>
+                    <li>Bumpers have been modeled to reduce HDD vibrations (to be printed in flexible filament);</li>
+                    <li>A space is provided for cabling at the back and below the hard drives (see right figure below);</li>
+                    <li>A rear cover with a cable cover has been modeled. For the front cover, I was thinking of a custom-cut plexiglass plate.</li>
+                </ul>
+
+                <h3>Results</h3>
+                <div class="project4-img">
+                    <img src="media/projets/project4/NAS_coque_1.png" alt="NAS Coque 1">
+                    <img src="media/projets/project4/NAS_coque_2.png" alt="NAS Coque 2">
+                </div>
+
+                <p>In the end, I never printed this NAS because I acquired the UGREEN NASync DXP6800 Pro model during its launch, which, with its specifications
+                     (64GB RAM, Intel i5-1235U), meets several of my needs: container hosting, virtualization, and possibly soon hosting my website.</p>
+                
+            </div>
+            <center>
+                <div>
+                    <a href="projects.html" class="button">Back</a>
+                    <a href="media/projets/project4/Fusion_360.zip" class="button">Download the project</a>
+                </div>
+            </center>
+        </section>
+    </main>
+
 
     <footer>
         <div class="container">

@@ -12,18 +12,39 @@
 </head>
 <body>
     <header>
-        <div class="container">
+        <div class="containerbar">
+            <div class="logo-left">
+                <a href="index.html">
+                    <img src="media/favicons/apple-touch-icon-57x57.png" alt="Logo">
+                </a>
+            </div>
             <nav id="navbar">
                 <ul>
-                    <li><a href="index.html">À propos</a></li>
-                    <li><a href="cv.html" class="active">CV</a></li>
-                    <li><a href="projects.html">Projets</a></li>
+                    <li><a href="index.html" id="nav-home">À propos</a></li>
+                    <li><a href="cv.html" class="active" id="nav-cv">CV</a></li>
+                    <li><a href="projects.html" id="nav-projects">Projets</a></li>
                 </ul>
             </nav>
+            <div id="language-switcher">
+                <div class="current-language" onclick="toggleLanguageMenu()">
+                    <img  src="media/logo/logo_fr.svg" alt="Français">
+                    <div class="arrow-down"></div>
+                </div>
+                <div class="language-menu" id="language-menu">
+                    <div class="language-option" onclick="changeLanguage('fr')">
+                        <img src="media/logo/logo_fr.svg" alt="Français">
+                        <span>Français (FR)</span>
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('en')">
+                        <img src="media/logo/logo_en.svg" alt="English">
+                        <span>English (EN)</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <main>
+    <main id="cv-content-fr">
         <section id="cv">
             <div class="container">
                 <h2>Curriculum Vitae</h2>
@@ -116,6 +137,105 @@
                 <ul class="languages-list">
                     <li><span>Français</span> : langue maternelle</li>
                     <li><span>Anglais</span> : CEFR C1 (Linguaskill)</li>
+                </ul>
+                </div>
+
+        </section>
+    </main>
+
+    <main id="cv-content-en">
+        <section id="cv">
+            <div class="container">
+                <h2>Resume</h2>
+
+                <h3>Training</h3>
+                <div class="cv-item">
+                    <div class="cv-image">
+                        <img src="media/logo/logo_polimi.svg" alt="Image formation 1">
+                    </div>
+                    <div class="cv-content">
+                        <h4>September 2023 - ongoing</h4>
+                        <h4>MSc. in nuclear engineering</h4>
+                        <p>Politecnico di Milano, Milan, Italy</p>
+                        <p>Neutronics, multiphase thermal-hydraulics, CFD (Ansys Fluent), thermomechanical fuel analysis, reliability and safety, 
+                            space propulsion, quantum optics and information, C++, Git and Italian.</p>
+                    </div>
+                </div>
+                <div class="cv-item">
+                    <div class="cv-image">
+                        <img src="media/logo/logo_phelma.png" alt="Image formation 2">
+                    </div>
+                    <div class="cv-content">
+                        <h4>September 2021 - ongoing</h4>
+                        <h4>MSc. in nuclear engineering</h4>
+                        <p>Grenoble INP - Phelma, Grenoble, France</p>
+                        <p>Nuclear physics, neutronics, single-phase thermal-hydraulics, quantum physics, plasmas, materials, electronics,
+                             semiconductors, C and Matlab.</p>
+                    </div>
+                </div>
+                <div class="cv-item">
+                    <div class="cv-image">
+                        <img src="media/logo/logo_prepareims.png" alt="Image formation 3">
+                    </div>
+                    <div class="cv-content">
+                        <h4>September 2019 - August 2021</h4>
+                        <h4>Two-year university intensive course (CPGE) - 2 years</h4>
+                        <p>High Schools Clémenceau (MPSI) & Lycée Roosevelt (PSI*), Reims, France</p>
+                        <p>Mathematics, physics, chemistry, engineering sciences and Python.
+                            <br>PSI* : 2020 - 2021
+                            <br>MPSI : 2019 - 2020</p>
+                    </div>
+                </div>
+
+                <h3>Work experience</h3>
+                <div class="cv-item">
+                    <div class="cv-image">
+                        <img src="media/logo/logo_cea.png" alt="Image expérience 1">
+                    </div>
+                    <div class="cv-content">
+                        <h4>May 2023 - September 2023</h4>
+                        <h4>End of Master 1 internship - 3.5 months</h4>
+                        <p>CEA - SERMA/LTSD, Saclay, France</p>
+                        <p>Topic : Evaluation of uncertainties in fixed-source subcritical calculations using the Monte-Carlo calculation code TRIPOLI-4®.
+                            <br><br>Study of statistical distributions and construction of confidence intervals on the multiplication factor.
+                            <br><br><u>Skills :</u> Statistical inference, Monte-Carlo simulation, Python/C++/Git.</p>
+                    </div>
+                </div>
+                <div class="cv-item">
+                    <div class="cv-image">
+                        <img src="media/logo/logo_bda.png" alt="Image expérience 2">
+                    </div>
+                    <div class="cv-content">
+                        <h4>April 2022 - April 2023</h4>
+                        <h4>Vice-Treasurer of Phelma's Arts Office (BDA) - 1 year</h4>
+                        <p>Grenoble INP - Phelma, Grenoble, France</p>
+                        <p>Vice-treasurer of a student association that organises cultural, artistic and international events.
+                            <br><br><u>Skills :</u> Financial management, team management, administrative procedures, event organisation...</p>
+                    </div>
+                </div>
+                <div class="cv-item">
+                    <div class="cv-image">
+                        <img src="media/logo/logo_optitec.png" alt="Image expérience 2">
+                    </div>
+                    <div class="cv-content">
+                        <h4>June 2022 - July 2022</h4>
+                        <h4>Internship - versatile worker - 7 weeks</h4>
+                        <p>Technocoat OPTITEC, Chassieu, France</p>
+                        <p>Work internship in an industrial painting company as part of my Bachelor's degree at Grenoble INP - Phelma.
+                            <br><br><u>Skills :</u> Production line work, parts preparation before treatment (painting), teamwork...</p>
+                    </div>
+                </div>
+
+                <h3>Compétences techniques</h3>
+                    <ul class="skills-list">
+                        <li class="advanced">Advanced level : <span>Python, LaTeX, Git, Office</span></li>
+                        <li class="intermediate">Intermediate level : <span>C, C++, Matlab, HTML, CSS, Fusion 360</span></li>
+                        <li class="beginner">Beginner level : <span>JavaScript, PHP</span></li>
+                    </ul>
+                <h3>Langues</h3>
+                <ul class="languages-list">
+                    <li><span>French</span> : native</li>
+                    <li><span>English</span> : CEFR C1 (Linguaskill)</li>
                 </ul>
                 </div>
 

@@ -6,8 +6,8 @@ function changeLanguage(language) {
     document.documentElement.lang = language;
 
     // Mettre à jour le contenu de la navigation en fonction de la langue
-    document.getElementById('nav-home').innerText = (language === 'fr') ? 'Accueil' : 'Home';
-    document.getElementById('nav-cv').innerText = (language === 'fr') ? 'CV' : 'CV';
+    document.getElementById('nav-home').innerText = (language === 'fr') ? 'À propos' : 'About me';
+    document.getElementById('nav-cv').innerText = (language === 'fr') ? 'CV' : 'Resume';
     document.getElementById('nav-projects').innerText = (language === 'fr') ? 'Projets' : 'Projects';
 
     // Mettre à jour d'autres éléments de la page en fonction de la langue

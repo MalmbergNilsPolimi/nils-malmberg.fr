@@ -12,24 +12,45 @@
 </head>
 <body>
     <header>
-        <div class="container">
+        <div class="containerbar">
+            <div class="logo-left">
+                <a href="index.html">
+                    <img src="media/favicons/apple-touch-icon-57x57.png" alt="Logo">
+                </a>
+            </div>
             <nav id="navbar">
                 <ul>
-                    <li><a href="index.html" class="active">À propos</a></li>
-                    <li><a href="cv.html">CV</a></li>
-                    <li><a href="projects.html">Projets</a></li>
+                    <li><a href="index.html" class="active" id="nav-home">À propos</a></li>
+                    <li><a href="cv.html" id="nav-cv">CV</a></li>
+                    <li><a href="projects.html" id="nav-projects">Projets</a></li>
                 </ul>
             </nav>
+            <div id="language-switcher">
+                <div class="current-language" onclick="toggleLanguageMenu()">
+                    <img  src="media/logo/logo_fr.svg" alt="Français">
+                    <div class="arrow-down"></div>
+                </div>
+                <div class="language-menu" id="language-menu">
+                    <div class="language-option" onclick="changeLanguage('fr')">
+                        <img src="media/logo/logo_fr.svg" alt="Français">
+                        <span>Français (FR)</span>
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('en')">
+                        <img src="media/logo/logo_en.svg" alt="English">
+                        <span>English (EN)</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <main>
+    <main id="home-content-fr">
         <section id="about">
             <div class="container">
                 <div class="profile">
                     <img src="media/accueil/photo_nils.jpg" alt="Photo de profil">
                     <h1>Nils Malmberg</h1>
-                    <p>Elève ingénieur en génie énergétique et nucléaire <br>Double diplôme Grenoble INP - Phelma & Politecnico di Milano</p>
+                    <p>Elève ingénieur en génie énergétique et nucléaire <br>Double diplôme à Grenoble INP - Phelma & Politecnico di Milano</p>
                 </div>
                 <div class="about-logo">
                     <a href="https://www.linkedin.com/in/nils-malmberg/" target="_blank">
@@ -57,7 +78,7 @@
                     Mon intérêt pour la technologie ne s'arrête pas là : je m'intéresse également à la modélisation 3D avec Fusion 360 et à l'impression 3D.</p>
 
                 <p>Avant de me consacrer entièrement à mes études, j'ai pratiqué le hockey sur glace pendant 12 ans, un sport qui m'a appris la discipline et le travail en équipe.</p>                
-                <p>Je m'intéresse aussi à la gestion de NAS (Network Attached Storage) et à l'utilisation de Docker, des outils qui me permettent d'explorer et de maîtriser l'univers des serveurs et de la virtualisation.</p>
+                <p>Je m'intéresse aussi à la gestion de NAS (Network Attached Storage) et à l'utilisation de Docker, des outils qui me permettent d'explorer l'univers des serveurs et de la virtualisation.</p>
                 
                 <div class="about-loisirs">
                     <img src="media/accueil/photo_assemblage.jpeg" alt="Assemblage">
@@ -73,6 +94,64 @@
             <div class="container">
                 <h2>Me contacter</h2>
                 <p>Si vous souhaitez me contacter, je vous invite à le faire via Linkedin.</p>
+            </div>
+            <div class="about-contact">
+                <a href="https://www.linkedin.com/in/nils-malmberg/" target="_blank">
+                    <img src="media/logo/logo_linkedin.png" alt="Logo LinkedIn">
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <main id="home-content-en">
+        <section id="about">
+            <div class="container">
+                <div class="profile">
+                    <img src="media/accueil/photo_nils.jpg" alt="Photo de profil">
+                    <h1>Nils Malmberg</h1>
+                    <p>Engineering student in nuclear engineering <br>Double degree at Grenoble INP - Phelma & Politecnico di Milano</p>
+                </div>
+                <div class="about-logo">
+                    <a href="https://www.linkedin.com/in/nils-malmberg/" target="_blank">
+                        <img src="media/logo/logo_linkedin.png" alt="Logo LinkedIn">
+                    </a>
+                    <a href="https://github.com/MalmbergNilsPolimi" target="_blank">
+                        <img src="media/logo/logo_github.png" alt="Logo Github">
+                    </a>
+                </div>
+                <h2>About me</h2>
+                <p>Welcome to my website! My name is Nils Malmberg and I'm currently an engineering student, specializing in nuclear engineering. 
+                    I'm doing a double degree at Grenoble INP - Phelma and at the Politecnico di Milano, where I'm doing my final year of a master's degree.</p>
+                
+                <div class="about-uni">
+                    <a href="https://phelma.grenoble-inp.fr/en" target="_blank">
+                        <img src="media/logo/logo_phelma.png" alt="Logo Phelma">
+                    </a>
+                    <a href="https://www.polimi.it/en" target="_blank">
+                        <img src="media/logo/logo_polimi.svg" alt="Logo Polimi">
+                    </a>
+                </div>
+
+                <p>Apart from my studies in the nuclear field, I'm passionate about programming. I work with several languages, including Python, C, C++, HTML,
+                     PHP, CSS and JavaScript. My interest in technology doesn't stop there: I'm also interested in 3D modeling with Fusion 360 and 3D printing.</p>
+
+                <p>Before devoting myself entirely to my studies, I played ice hockey for 12 years, a sport that taught me discipline and teamwork.</p>                
+                <p>I'm also interested in NAS (Network Attached Storage) management and the use of Docker, tools that enable me to explore the world of servers and virtualization.</p>
+                
+                <div class="about-loisirs">
+                    <img src="media/accueil/photo_assemblage.jpeg" alt="Assemblage">
+                    <img src="media/accueil/photo_code.jpeg" alt="Code">
+                    <img src="media/accueil/photo_hockey.jpeg" alt="Hockey">
+                </div>
+                
+                <p>I invite you to explore my website to learn more about my projects, skills and passions. Don't hesitate to contact me via Linkedin if you have any questions.</p>
+            </div>
+        </section>
+
+        <section id="Contact">
+            <div class="container">
+                <h2>Contact me</h2>
+                <p>If you wish to contact me, please do so via Linkedin.</p>
             </div>
             <div class="about-contact">
                 <a href="https://www.linkedin.com/in/nils-malmberg/" target="_blank">
