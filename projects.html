@@ -1,203 +1,66 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nils Malmberg - Projets</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="media/favicons/favicon.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-    <meta name="keywords" content="engineering, ingénieur, ingénierie, nuclear, nucléaire, quantique, quantum, fluid, fluide, mécanique, CDF, ansys, fluent, mechanics, materials, matériaux, électronique, electronics, PHELMA, Grenoble INP, Grenoble, French, Français, Anglais, English, LaTeX, Python, Matlab, C, C++, SQL, HTML, CSS, JavaScript, js, PHP, computing, programmation, code, projet, projects, nils, selma, richard, nathalie, malmberg">
-    <title>Nils Malmberg</title>
 </head>
 <body>
     <header>
-        <div id="logo">
-            <a href="index.html">
-                <img src="media/favicons/apple-touch-icon-57x57.png" alt="Logo de Nils Malmberg">
-            </a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="nav-link" id="nav-home" aria-label="Accueil">Accueil</a></li>
-                <li><a href="cv.html" class="nav-link" id="nav-cv" aria-label="CV">CV</a></li>
-                <li><a href="projects.html" class="nav-link" id="nav-projects" aria-label="Projets">Projets</a></li>
-            </ul>
-        </nav>
-        <div id="language-switcher">
-            <div class="current-language" onclick="toggleLanguageMenu()">
-                <img src="media/logo/logo_fr.svg" alt="Langue actuelle : Français">
-                <div class="arrow-down"></div>
+        <div class="container">
+            <div class="profile">
+                <img src="images/profile.jpg" alt="Photo de profil">
+                <h1>Nils Malmberg</h1>
+                <p>Étudiant en génie industriel à Politecnico di Milano</p>
             </div>
-            <div class="language-menu" id="language-menu">
-                <div class="language-option" onclick="changeLanguage('fr')">
-                    <img src="media/logo/logo_fr.svg" alt="Français">
-                    <span>Français (FR)</span>
-                </div>
-                <div class="language-option" onclick="changeLanguage('en')">
-                    <img src="media/logo/logo_en.svg" alt="English">
-                    <span>English (EN)</span>
-                </div>
-            </div>
+            <nav id="navbar">
+                <ul>
+                    <li><a href="index.html">À propos</a></li>
+                    <li><a href="cv.html">CV</a></li>
+                    <li><a href="projects.html" class="active">Projets</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <div id="projects-content-fr">
-        <h1>Quelques projets</h1>
+    <main>
+        <section id="projects">
+            <div class="container">
+                <h2>Projets</h2>
 
-        <div class="project-section">
-            <div class="project-text">
-                <h3><a href="https://github.com/MalmbergNilsPolimi/mdisd" style="color: blue; text-decoration: underline;" target="_blank">mdisd</a> : une librairie C++ pour l'interpolation multi-dimensionnelle de données.<br>(utilisable également en Python)</h3>
-                <p>Lors de mon cours intitulé "Advanced Programming for Scientific Computing", et dispensé à <a href="https://polimi.it/en/" style="color: blue; text-decoration: underline;" target="_blank">Politecnico di Milano</a>, j'ai eu l'occasion de développé une librairie entièrement codée en C++ ayant pour but d’interpoler des jeux de données. Le point de départ est que nous avons un système dépendant de plusieurs variables et retournant une valeur. Par exemple, considérons une usine fabriquant des pâtes et qui dépend de plusieurs paramètres : nombre de machines de fabrication disponibles, état des machines et nombre d’employés présents. Supposons que ces données soient suffisantes ici pour nous permettre de déduire le nombre de kilogrammes de pâtes produites à la fin de la journée (en supposant les stocks de chaque ingrédient illimités). Le directeur de l’usine souhaite savoir comment va évoluer la production s’il ajoute une machine sans augmenter le nombre d’employés dans le but de produire plus à moindre coût. Afin d’estimer la nouvelle quantité de pâtes produites à la fin de la journée, une méthode peut être la suivante : tout d’abord, sur plusieurs jours, semaines, mois, années, des mesures seront effectuées. Pour chacune des mesures faites à la fin de la journée, on connaîtra la valeur de chacun des paramètres définis précédemment et la quantité de pâtes produite associée. À partir de ces données, on peut utiliser une méthode d’interpolation afin de voir quelle sera une estimation de la quantité de pâtes produites en lors de l'ajout d'une machine (et pour un état des machines et un nombre d’employés présents donnés).
-                <br><br>Le but de la librairie que j’ai développée est donc de permettre ce type d’interpolations en utilisant des méthodes comme la méthode des "Radial Basis Functions" ou des "Ordinary Least Squares". Cette librairie permet d’interpoler à la fois la valeur associée à plusieurs configurations et permet également de récupérer des poids permettant de remonter à une fonction décrivant le système. De plus, les bindings pour utiliser cette librairie dans un projet Python ont été écrits et sont fonctionnels.
-                <br><br>Pour plus d’informations, vous pouvez vous rendre sur le Github de la librairie et consulter le rapport que j’ai rédigé dans le répertoire doc/.</p>
-                
-                <div style="text-align: center; margin-top: 20px;">
-                    <a href="https://github.com/MalmbergNilsPolimi/mdisd" download class="download-button" target="_blank">
-                        Github de la librairie mdisd
+                <div class="project">
+                    <a href="project1.html">
+                        <img src="images/project1.jpg" alt="Projet 1">
+                        <h3>Projet 1</h3>
+                        <p>Développement d'une application web pour la prédiction des pannes de machines industrielles.</p>
                     </a>
-                    <br><br><br><br>
                 </div>
-            </div>
-            <div class="project-image">
-                <img src="media/projets/mdisd.png" alt="Interpolation de la fonction f">
-                <p style="text-align:center;">Exemple d'interpolation d'une fonction f à une variable dont on connait les valeurs en 3 points.
-                <br>f(1) = 1 ; f(2) = 0.2 ; f(3) = 0.1
-                <br>RBF = Radial Basis Function ; NRFB = Normalized RBF ;
-                <br>RBFP = RBF augmentée de polynômes ; OLS = Ordinary Least Squares</p>
-            </div>
-        </div>
 
-        <div class="project-section">
-            <div class="project-image">
-                <img src="media/projets/website.jpg" alt="Image du site web">
-            </div>
-            <div class="project-text">
-                <h3>Le site nils-malmberg.fr</h3>
-                <p>Pendant ma première année d'école d'ingénieur, j'ai commencé à coder la <a href="ancien_site/index.php" style="color: blue; text-decoration: underline;" target="_blank">première version</a> de mon site web juste pour le plaisir. La première version était assez basique et pas très jolie (beaucoup de HTML, un peu de php, pas beaucoup de CSS et pas de JavaScript).
-                <br><br>Puis, pendant mon année à Milan, j'ai décidé de me lancer un défi : recoder tout mon site en un week-end en partant de 0. Le premier jour, j'ai utilisé un constructeur de site fourni par Hostinger pour créer une maquette. Ensuite, j'ai appris les bases en utilisant OpenClassrom. Le deuxième jour, j'ai recodé tout le site.
-                <br><br>Prochaine étape pour le site : utiliser les media queries afin d'avoir un site présentable sur téléphone et tablettes.</p>
-            </div>
-        </div>
+                <div class="project">
+                    <a href="project2.html">
+                        <img src="images/project2.jpg" alt="Projet 2">
+                        <h3>Projet 2</h3>
+                        <p>Création d'un modèle de classification pour la détection des fraudes bancaires.</p>
+                    </a>
+                </div>
 
-        <div class="project-section">
-            <div class="project-text">
-                <h3>Projet Braket : logiciel de calculs quantiques.</h3>
-                <p>Le projet Braket est un projet réalisé lors de ma première année à <a href="https://phelma.grenoble-inp.fr/" style="color: blue; text-decoration: underline;" target="_blank">Grenoble INP - Phelma</a>. Nous avons dû, avec trois autres camarades, développer un logiciel avec interface graphique. Les langages utilisés sont le C et le C++ et la librairie graphique est <a href="https://www.fltk.org/" style="color: blue; text-decoration: underline;" target="_blank">FLTK</a>.
-                <br><br>Le projet BraKet offre, via une interface ergonomique et simple à prendre en main, la possibilité de simuler les différentes probabilités associées à chaque composante d'un état quantique ayant subi une ou plusieurs transformations par le passage à travers une ou plusieurs portes quantiques.</p>
-                
-                <div style="text-align: center; margin-top: 20px;">
-                    <a href="media/projets/BRAKET_nils-malmberg.fr.zip" download class="download-button">
-                        Télécharger le projet
+                <div class="project">
+                    <a href="project3.html">
+                        <img src="images/project3.jpg" alt="Projet 3">
+                        <h3>Projet 3</h3>
+                        <p>Optimisation de la chaîne logistique d'une entreprise de e-commerce.</p>
                     </a>
                 </div>
             </div>
-            <div class="project-image">
-                <img src="media/projets/braket.avif" alt="Image du projet Braket">
-            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Nils Malmberg</p>
         </div>
-
-        <div class="project-section">
-            <div class="project-image">
-                <img src="media/projets/searev.webp" alt="Image du projet Searev">
-            </div>
-            <div class="project-text">
-                <h3>TIPE : Modélisation d'un système d'exploitation des énergies houlomotrices (Searev).</h3>
-                <p>Lors de mes deux années de classe préparatoire aux grandes écoles, j'ai dû travailler sur un projet appelé TIPE (travail d'initiative personnelle encadré). J'ai donc dû choisir un sujet en lien avec le thème de l'année (Enjeux Sociétaux), en dégager une problématique et essayer de la résoudre.
-                    <br><br>Le Searev, est un projet intéressant puisqu'il permet de convertir l'énergie de la houle en énergie électrique à l'aide d'une bouée et d'une masse pendulaire.
-                    <br><br>J'ai donc lors de ce TIPE décidé de modéliser numériquement le Searev afin d'étudier son efficacité et construit un prototype se déclinant en deux versions.</p>
-                
-                <div style="text-align: center; margin-top: 20px;">
-                    <a href="media/projets/TIPE_nils-malmberg.fr.zip" download class="download-button">
-                        Télécharger le projet
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <footer>
-            Ce site a été conçu en intégralité par Nils Malmberg.
-        </footer>
-    </div>
-
-    <div id="projects-content-en">
-        <h1>Some projects</h1>
-
-        <div class="project-section">
-            <div class="project-text">
-                <h3><a href="https://github.com/MalmbergNilsPolimi/mdisd" style="color: blue; text-decoration: underline;" target="_blank">mdisd</a> : a C++ library for multidimensional interpolation of scattered data.<br>(also usable in Python)</h3>
-                <p>During a course titled "Advanced Programming for Scientific Computing," taught at <a href="https://polimi.it/en/" style="color: blue; text-decoration: underline;" target="_blank">Politecnico di Milano</a>, I had the opportunity to develop a library entirely coded in C++ with the purpose of interpolating datasets. The starting point is that we have a system dependent on multiple variables and returning a value. For example, consider a factory producing pasta, which depends on several parameters: the number of available manufacturing machines, the state of the machines, and the number of employees present. Suppose that this data is sufficient here to allow us to deduce the number of kilograms of pasta produced at the end of the day (assuming unlimited stocks of each ingredient). The factory manager wants to know how production will evolve if they add a machine without increasing the number of employees in order to produce more at a lower cost. To estimate the new quantity of pasta produced at the end of the day, one method could be as follows: first, over several days, weeks, months, years, measurements will be taken. For each of the measurements taken at the end of the day, we will know the value of each of the parameters defined previously and the quantity of pasta produced associated with it. From this data, we can use an interpolation method to see what the estimated quantity of pasta produced will be when adding a machine (and for a given state of the machines and number of employees present).
-                <br><br>The purpose of the library I developed is therefore to enable this type of interpolation using methods such as "Radial Basis Functions" or "Ordinary Least Squares." This library allows for interpolation of both the value associated with multiple configurations and also allows for the recovery of weights to reconstruct a function describing the system. Additionally, bindings to use this library in a Python project have been written and are functional.
-                <br><br>For more information, you can visit the library's GitHub and consult the report I wrote in the doc/ directory.</p>
-                
-                <div style="text-align: center; margin-top: 20px;">
-                    <a href="https://github.com/MalmbergNilsPolimi/mdisd" download class="download-button" target="_blank">
-                        GitHub of the mdisd library
-                    </a>
-                    <br><br><br><br>
-                </div>
-            </div>
-            <div class="project-image">
-                <img src="media/projets/mdisd.png" alt="Interpolation example of a function f">
-                <p style="text-align:center;">Interpolation example of a single-variable function f for which the values at 3 points are known.
-                <br>f(1) = 1 ; f(2) = 0.2 ; f(3) = 0.1
-                <br>RBF = Radial Basis Function ; NRFB = Normalized RBF ;
-                <br>RBFP = RBF augmented with Polynomials ; OLS = Ordinary Least Squares</p>
-            </div>
-        </div>
-
-        <div class="project-section">
-            <div class="project-image">
-                <img src="media/projets/website.jpg" alt="Image of the website">
-            </div>
-            <div class="project-text">
-                <h3>The nils-malmberg.fr website.</h3>
-                <p>During my first year at engineering school I started coding the <a href="ancien_site/index.php" style="color: blue; text-decoration: underline;" target="_blank">first version</a> of my website just for fun. The first version was pretty basic and not very pretty (a lot of HTML, a little bit of php, not much CSS and no JavaScript).
-                <br><br>Then, during my year in Milan, I decided to set myself a challenge: recode my entire site in a weekend from nothing. On the first day I used a site builder provided by Hostinger to create a mock-up. Then I learnt the basics using OpenClassrom. Then on the second day I recoded the whole site.
-                <br><br>The next step for the site is to use media queries so that the site can be presented on phones and tablets.</p>
-            </div>
-        </div>
-
-        <div class="project-section">
-            <div class="project-text">
-                <h3>Braket Project: quantum computing software.</h3>
-                <p>The Braket project is a project realized during my first year at <a href="https://phelma.grenoble-inp.fr/en" style="color: blue; text-decoration: underline;" target="_blank">Grenoble INP - Phelma</a>. With three other students, we had to develop a software with a graphical interface. The languages used are C and C++ and we used the graphic library <a href="https://www.fltk.org/" style="color: blue; text-decoration: underline;" target="_blank">FLTK</a>.
-                <br><br>The BraKet project offers, via an ergonomic and easy-to-use interface, the possibility to simulate the different probabilities associated with each component of a quantum state having undergone one or more transformations by passing through one or more quantum gates.</p>
-                
-                <div style="text-align: center; margin-top: 20px;">
-                    <a href="media/projets/BRAKET_nils-malmberg.fr.zip" download class="download-button">
-                        Download the project
-                    </a>
-                </div>
-            </div>
-            <div class="project-image">
-                <img src="media/projets/braket.avif" alt="Image of the Braket project">
-            </div>
-        </div>
-
-        <div class="project-section">
-            <div class="project-image">
-                <img src="media/projets/searev.webp" alt="Image of the Searev project">
-            </div>
-            <div class="project-text">
-                <h3>TIPE : Modeling of a wave energy exploitation system (Searev).</h3>
-                <p>During my two-year university intensive course, I had to work on a project called TIPE (work of personal initiative). I had to choose a subject in connection with the theme of the year (Social Issues), to find a problematic and to try to solve it.
-                    <br><br>The Searev is an interesting project since it converts wave energy into electrical energy using a buoy and a pendulum mass.
-                    <br><br>During this project, I decided to numerically model the Searev in order to study its efficiency and built a prototype in two versions.</p>
-                
-                <div style="text-align: center; margin-top: 20px;">
-                    <a href="media/projets/TIPE_nils-malmberg.fr.zip" download class="download-button">
-                        Download the project
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <footer>
-            The entire website was designed by Nils Malmberg.
-        </footer>
-    </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

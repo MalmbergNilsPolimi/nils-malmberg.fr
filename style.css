@@ -1,372 +1,106 @@
+/* General styles */
 body {
-    font-family: 'Inter', sans-serif;
-    margin: 20px;
+    font-family: Arial, sans-serif;
+    margin: 0;
     padding: 0;
-    font-size: 1.2em;
-    margin-top: 70px;
+    line-height: 1.6;
 }
 
-/* Header */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 header {
-    background-color: #fff;
-    color: #000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    font-size: 1em;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    margin: 0 -20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: #f4f4f4;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header .profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
 }
 
 nav ul {
-    list-style-type: none;
-    margin: 0;
+    list-style: none;
     padding: 0;
-    display: flex;
+    margin: 0;
 }
 
-nav {
-    margin-left: auto;
+nav ul li {
+    display: inline;
+    margin-right: 20px;
 }
 
-nav li {
-    margin-right: 40px;
-}
-
-nav a {
+nav ul li a {
     text-decoration: none;
-    color: #000;
+    color: #333;
 }
 
-nav a:hover {
-    text-shadow: 0 0 5px rgba(89, 89, 202, 0.5);
-}
-
-/* Footer */
-footer {
-    margin: 80px -20px -40px -20px;
-    background-color: blanchedalmond;
-    text-align: center;
-    padding: 30px;
-}
-
-#logo img {
-    max-width: 80%;
-    height: auto;
-}
-
-/* Language Switcher */
-#language-switcher {
-    position: relative;
-    margin-right: 40px;
-}
-
-.current-language {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    margin: 0 10px;
-}
-
-.arrow-down {
-    border: solid black;
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    padding: 3px;
-    transform: rotate(45deg);
-    margin-left: 5px;
-}
-
-.language-menu {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    right: 0;
-    background-color: #fff;
-    z-index: 1;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    white-space: nowrap;
-}
-
-.language-option {
-    cursor: pointer;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-}
-
-.current-language img,
-.language-option img {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-}
-
-/* Home Page */
-#home-content-fr, #home-content-en {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-#home-content-fr p, #home-content-en p {
-    text-align: justify;
-}
-
-.home-section {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 50px;
-    margin-bottom: 50px;
-}
-
-.home-text {
-    display: flex;
-    flex-direction: column;
-    align-items: justify;
-    margin-top: 50px;
-}
-
-.home-image img {
-    max-width: 60%;
-    height: auto;
-    margin-left: 40px;
-    border-radius: 28px;
-    background: #e0e0e0;
-    box-shadow: 25px 25px 50px #848484, -25px -25px 50px #ffffff;
-}
-
-.home-logo img {
-    max-width: 80%;
-    height: auto;
-    margin-left: -80px;
-    margin-top: 130%;
-}
-
-.home-aero img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 50px;
-}
-
-.home-section2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    margin-bottom: 50px;
-}
-
-.home-image2 img {
-    max-width: 40%;
-    height: auto;
-}
-
-.home-section3 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 50px;
-    width: 100%;
-}
-
-.home-image3 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.home-image3 img {
-    width: 60%;
-    height: auto;
-    border-radius: 28px;
-    background: #e0e0e0;
-    box-shadow: 25px 25px 50px #848484, -25px -25px 50px #ffffff;
-}
-
-.home-logo4 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.home-logo4 img {
-    max-width: 40%;
-    height: auto;
-}
-
-/* CV Page */
-#cv-content-fr, #cv-content-en {
-    margin: 100px 30px 0 30px;
-    display: grid;
-    justify-content: center;
-    gap: 100px;
-    grid-template-columns: 1fr;
-}
-
-.experience {
-    display: grid;
-    grid-template-columns: 2fr 6fr;
-    gap: 50px;
-    justify-content: center;
-    margin-bottom: 100px;
-}
-
-.company-logo {
-    max-width: 100%;
-    max-height: 150px;
-    height: auto;
-    justify-content: center;
-}
-
-.experience-details {
-    display: grid;
-    gap: 10px;
-}
-
-.photo-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.date {
+nav ul li a.active {
     font-weight: bold;
 }
 
-.position h2 {
-    margin: 0;
+main {
+    padding: 40px 0;
 }
 
-.description {
-    margin-top: -20px;
-    text-align: justify;
+section {
+    margin-bottom: 40px;
 }
 
-/* Projects Page */
-#projects-content-fr, #projects-content-en {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+section h2 {
+    margin-bottom: 20px;
 }
 
-.project-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    margin-bottom: 50px;
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
 }
 
-.project-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.project-image img {
+/* Project styles */
+.project img {
     max-width: 100%;
     height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-bottom: 10px;
 }
 
-#projects-content-fr p, #projects-content-en p {
-    text-align: justify;
-    margin-bottom: 30px;
+.project h3 {
+    margin-top: 0;
 }
 
-#projects-content-fr h1, #projects-content-en h1 {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-#projects-content-fr h3, #projects-content-en h3 {
-    text-align: center;
-    margin-bottom: -5px;
-}
-
-.download-button {
-    background: linear-gradient(0deg,#A47CF3,#683FEA);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    text-decoration: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.download-button:hover {
-    background: linear-gradient(0deg,#A47CF3,#683FEA);
-    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
-                inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
-                0px 0px 0px 4px rgba(255, 255, 255, 0.2),
-                0px 0px 180px 0px #9917FF;
-    transform: translateY(-2px);
-}
-
-/* Media Queries for Responsive Design */
-
-/* For tablets and larger screens */
+/* Media queries for smaller screens */
 @media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-    }
-
-    .home-section, .home-section2, .home-section3, .project-section, .experience {
-        grid-template-columns: 1fr; /* Single column layout */
-    }
-
-    .home-text, .project-text, .experience-details {
+    header .profile {
         text-align: center;
     }
 
-    .home-image img, .project-image img {
-        margin: 0 auto;
-    }
-}
-
-/* For mobile devices */
-@media (max-width: 480px) {
-    body {
-        font-size: 1em;
-        margin-top: 50px;
+    nav {
+        display: none; /* Hide navigation on small screens */
     }
 
-    header {
-        flex-direction: column;
-        padding: 5px;
+    #navbar.responsive {
+        display: block;
+        text-align: center;
     }
 
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav li {
+    #navbar.responsive ul li {
+        display: block;
         margin: 10px 0;
     }
 
-    .home-image img, .project-image img, .home-logo img, .home-image2 img, .home-image3 img, .home-logo4 img {
-        max-width: 100%;
-        margin: 0 auto;
+    .container {
+        padding: 0 10px;
     }
 
-    .home-section, .home-section2, .home-section3, .project-section, .experience {
-        grid-template-columns: 1fr; /* Single column layout */
-    }
-
-    .home-text, .project-text, .experience-details {
-        text-align: center;
-        margin: 0 auto;
-    }
-
-    footer {
-        margin: 50px -20px -20px -20px;
+    .project {
+        margin-bottom: 20px;
     }
 }

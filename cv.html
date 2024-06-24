@@ -1,322 +1,65 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nils Malmberg - CV</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="media/favicons/favicon.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-    <meta name="keywords" content="engineering, ingénieur, ingénierie, nuclear, nucléaire, quantique, quantum, optics, information, fluid, fluide, mécanique, CDF, ansys, fluent, mechanics, materials, matériaux, électronique, electronics, PHELMA, Grenoble INP, Grenoble, French, Français, Anglais, English, LaTeX, Python, Matlab, C, C++, Git, SQL, HTML, CSS, JavaScript, js, PHP, computing, programmation, code, projet, projects, nils, selma, richard, nathalie, malmberg">
-    <title>Nils Malmberg</title>
 </head>
 <body>
     <header>
-        <div id="logo">
-            <a href="index.html">
-                <img src="media/favicons/apple-touch-icon-57x57.png" alt="Logo de Nils Malmberg">
-            </a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="nav-link" id="nav-home" aria-label="Accueil">Accueil</a></li>
-                <li><a href="cv.html" class="nav-link" id="nav-cv" aria-label="CV">CV</a></li>
-                <li><a href="projects.html" class="nav-link" id="nav-projects" aria-label="Projets">Projets</a></li>
-            </ul>
-        </nav>
-        <div id="language-switcher">
-            <div class="current-language" onclick="toggleLanguageMenu()">
-                <img src="media/logo/logo_fr.svg" alt="Langue actuelle : Français">
-                <div class="arrow-down"></div>
+        <div class="container">
+            <div class="profile">
+                <img src="images/profile.jpg" alt="Photo de profil">
+                <h1>Nils Malmberg</h1>
+                <p>Étudiant en génie industriel à Politecnico di Milano</p>
             </div>
-            <div class="language-menu" id="language-menu">
-                <div class="language-option" onclick="changeLanguage('fr')">
-                    <img src="media/logo/logo_fr.svg" alt="Français">
-                    <span>Français (FR)</span>
-                </div>
-                <div class="language-option" onclick="changeLanguage('en')">
-                    <img src="media/logo/logo_en.svg" alt="English">
-                    <span>English (EN)</span>
-                </div>
-            </div>
+            <nav id="navbar">
+                <ul>
+                    <li><a href="index.html">À propos</a></li>
+                    <li><a href="cv.html" class="active">CV</a></li>
+                    <li><a href="projects.html">Projets</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
- 
-    <div id="cv-content-fr">
-        <h1>Formation</h1>
-        
-        <!-- Formation 1 -->
-        <div class="experience">
-            <div class="photo-container">
-                <a href="https://polimi.it/en" target="_blank">
-                    <img class="company-logo" src="media/logo/logo_polimi.webp" alt="Logo du Politecnico di Milano" style="height: 5em;">
-                </a>
+
+    <main>
+        <section id="cv">
+            <div class="container">
+                <h2>Curriculum Vitae</h2>
+                <h3>Formation</h3>
+                <ul>
+                    <li>2021-Présent : Master en génie industriel, Politecnico di Milano</li>
+                    <li>2018-2021 : Licence en mathématiques appliquées, Université de Nice Sophia Antipolis</li>
+                </ul>
+                <h3>Expériences professionnelles</h3>
+                <ul>
+                    <li>Juin-Août 2023 : Stage en développement logiciel, XYZ Corporation</li>
+                    <li>Été 2022 : Stage en analyse de données, ABC Consulting</li>
+                </ul>
+                <h3>Compétences techniques</h3>
+                <ul>
+                    <li>Langages de programmation : Python, C++, Java, JavaScript</li>
+                    <li>Outils et frameworks : TensorFlow, Keras, PyTorch, Scikit-learn</li>
+                    <li>Bases de données : SQL, MongoDB</li>
+                    <li>Méthodes : Analyse statistique, Machine Learning, Deep Learning</li>
+                </ul>
+                <h3>Langues</h3>
+                <ul>
+                    <li>Français (langue maternelle)</li>
+                    <li>Anglais (courant)</li>
+                    <li>Italien (intermédiaire)</li>
+                </ul>
             </div>
-            <div class="experience-details">
-                <div class="date">Septembre 2023 - en cours</div>
-                <div class="position">
-                    <h2>Diplôme d'ingénieur en ingénierie nucléaire</h2>
-                    <p>Politecnico di Milano, Milan, Italie</p>
-                </div>
-                <div class="description">
-                    <p>Neutronique, thermohydraulique multiphasique, CFD (Ansys Fluent), analyse thermomécanique du combustible, fiabilité et sécurité, propulsion spatiale, optique et information quantique, C++, Git et italien.</p>
-                </div>
-            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Nils Malmberg</p>
         </div>
-
-        <!-- Formation 2 -->
-        <div class="experience">
-            <div class="photo-container">
-                <a href="https://phelma.grenoble-inp.fr/" target="_blank">
-                    <img class="company-logo" src="media/logo/logo_phelma.png" alt="Logo de Grenoble INP - Phelma" style="height: 4em;">
-                </a>
-            </div>
-            
-            <div class="experience-details">
-                <div class="date">Septembre 2021 - en cours</div>
-                <div class="position">
-                    <h2>Diplôme d'ingénieur en génie énergétique et nucléaire</h2>
-                    <p>Grenoble INP - Phelma, Grenoble, France</p>
-                </div>
-                <div class="description">
-                    <p>Physique nucléaire, neutronique, thermohydraulique monophasique, physique quantique, plasmas, matériaux, électronique, semi-conducteurs, C et Matlab.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Formation 3 -->
-        <div class="experience">
-            <div class="photo-container">
-                <a href="https://prepareims.org/" target="_blank">
-                    <img class="company-logo" src="media/logo/logo_prepareims.png" alt="Logo de Prépa" style="height: 6em;">
-                </a>
-            </div>
-            <div class="experience-details">
-                <div class="date">Septembre 2019 - Août 2021</div>
-                <div class="position">
-                    <h2>Classe préparatoire aux grandes écoles (CPGE) - 2 ans</h2>
-                    <p>Lycée Clémenceau (MPSI) & Lycée Roosevelt (PSI*), Reims, France</p>
-                </div>
-                <div class="description">
-                    <p>Mathématiques, physique, chimie, sciences de l'ingénieur et Python.
-                    <br>PSI* : 2020 - 2021
-                    <br>MPSI : 2019 - 2020
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <h1>Expériences professionnelles</h1>
-
-        <!-- Expérience 1 -->
-        <div class="experience">
-            <div class="photo-container">
-                <a href="https://www.cea.fr/" target="_blank">
-                    <img class="company-logo" src="media/logo/logo_cea.png" alt="Logo du CEA" style="height: 8em;">
-                </a>
-            </div>
-            <div class="experience-details">
-                <div class="date">Mai 2023 - Septembre 2023</div>
-                <div class="position">
-                    <h2>Stage de fin de Master 1 - 3.5 mois</h2>
-                    <p>CEA - SERMA/LTSD, Saclay, France</p>
-                </div>
-                <div class="description">
-                    <p>Evaluation des incertitudes sur des calculs sous-critiques à source fixe avec le code de calcul Monte-Carlo TRIPOLI-4®.
-                    <br><br><em>Étude de distributions statistiques et construction d'intervalles de confiance sur le facteur de multiplication.</em>
-                    <br><br><u>Compétences :</u> Inférence statistique, simulation Monte-Carlo, Python/C++/Git.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Expérience 2 -->
-        <div class="experience">
-            <div class="photo-container">
-                <a href="https://phelma.grenoble-inp.fr/fr/vie-etudiante/clubs-et-associations" target="_blank">
-                    <img class="company-logo" src="media/logo/logo_bda.png" alt="Logo du BDA de Phelma" style="height: 15em;">
-                </a>
-            </div>
-            <div class="experience-details">
-                <div class="date">Avril 2022 - Avril 2023</div>
-                <div class="position">
-                    <h2>Vice-trésorier du Bureau des Arts (BDA) de Phelma - 1 an</h2>
-                    <p>Grenoble INP - Phelma, Grenoble, France</p>
-                </div>
-                <div class="description">
-                    <p>Vice-trésorier d'une association étudiante ayant pour but d'organiser des évènements culturels, artistiques et internationaux.
-                    <br><br><u>Compétences :</u> Gestion financière, gestion d'équipe, démarches administratives, organisation évènementielle...
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Expérience 3 -->
-        <div class="experience">
-            <div class="photo-container">
-                <a href="https://www.peinture-industrielle.fr/" target="_blank">
-                    <img class="company-logo" src="media/logo/logo_optitec.jpeg" alt="Logo d'Optitec" style="height: 8em;">
-                </a>
-            </div> 
-            <div class="experience-details">
-                <div class="date">Juin 2022 - Juillet 2022</div>
-                <div class="position">
-                    <h2>Stage - ouvrier polyvalent - 7 semaines</h2>
-                    <p>Technocoat OPTITEC, Chassieu, France</p>
-                </div>
-                <div class="description">
-                    <p>Stage ouvrier dans une entreprise faisant de la peinture industrielle dans le cadre de la validation de mon diplôme de Bachelor à Grenoble INP - Phelma.
-                    <br><br><u>Compétences :</u> Travail à la chaîne, préparation des pièces avant traitement (peinture), travail d'équipe...
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <footer>
-            Ce site a été conçu en intégralité par Nils Malmberg.
-        </footer>
-
-    </div>
-
-
-    <div id="cv-content-en">
-    
-        <h1>Training</h1>
-        
-        <!-- Formation 1 -->
-        <div class="experience">
-            <div class="photo-container">
-                <a href="https://polimi.it/en" target="_blank">
-                    <img class="company-logo" src="media/logo/logo_polimi.webp" alt="Politecnico di Milano logo" style="height: 110px;">
-                </a>
-            </div>
-            <div class="experience-details">
-                <div class="date">September 2023 - ongoing</div>
-                <div class="position">
-                    <h2>MSc. in nuclear engineering</h2>
-                    <p>Politecnico di Milano, Milan, Italy</p>
-                </div>
-                <div class="description">
-                    <p>Neutronics, multiphase thermal-hydraulics, CFD (Ansys Fluent), thermomechanical fuel analysis, reliability and safety, space propulsion, quantum optics and information, C++, Git and Italian.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Formation 2 -->
-        <div class="experience">
-            <div class="photo-container">
-                <a href="https://phelma.grenoble-inp.fr/en" target="_blank">
-                    <img class="company-logo" src="media/logo/logo_phelma.png" alt="Grenoble INP - Phelma logo" style="height: 80px;">
-                </a>
-            </div>
-            
-            <div class="experience-details">
-                <div class="date">September 2021 - ongoing</div>
-                <div class="position">
-                    <h2>MSc. in nuclear engineering</h2>
-                    <p>Grenoble INP - Phelma, Grenoble, France</p>
-                </div>
-                <div class="description">
-                    <p>Nuclear physics, neutronics, single-phase thermal-hydraulics, quantum physics, plasmas, materials, electronics, semiconductors, C and Matlab.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Formation 3 -->
-        <div class="experience">
-            <div class="photo-container">
-                <a href="https://prepareims.org/" target="_blank">
-                    <img class="company-logo" src="media/logo/logo_prepareims.png" alt="Prepareims logo">
-                </a>
-                
-            </div>
-            <div class="experience-details">
-                <div class="date">September 2019 - August 2021</div>
-                <div class="position">
-                    <h2>Two-year university intensive course (CPGE) - 2 years</h2>
-                    <p>High Schools Clémenceau (MPSI) & Lycée Roosevelt (PSI*), Reims, France</p>
-                </div>
-                <div class="description">
-                    <p>Mathematics, physics, chemistry, engineering sciences and Python.
-                    <br>PSI* : 2020 - 2021
-                    <br>MPSI : 2019 - 2020
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <h1>Work experience</h1>
-
-        <!-- Expérience 1 -->
-        <div class="experience">
-            <div class="photo-container">
-                <a href="https://www.cea.fr/english" target="_blank">
-                    <img class="company-logo" src="media/logo/logo_cea.png" alt="CEA logo">
-                </a>
-            </div>
-            <div class="experience-details">
-                <div class="date">May 2023 - September 2023</div>
-                <div class="position">
-                    <h2>End of Master 1 internship - 3.5 months</h2>
-                    <p>CEA - SERMA/LTSD, Saclay, France</p>
-                </div>
-                <div class="description">
-                    <p>Evaluation of uncertainties in fixed-source subcritical calculations using the Monte-Carlo calculation code TRIPOLI-4®.
-                    <br><br><em>Study of statistical distributions and construction of confidence intervals on the multiplication factor.</em>
-                    <br><br><u>Skills :</u> Statistical inference, Monte-Carlo simulation, Python/C++/Git.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Expérience 2 -->
-        <div class="experience">
-            <div class="photo-container">
-                <a href="https://phelma.grenoble-inp.fr/en/student-life/clubs-and-associations" target="_blank">
-                    <img class="company-logo" src="media/logo/logo_bda.png" alt="Phelma's BDA logo">
-                </a>
-            </div>
-            <div class="experience-details">
-                <div class="date">April 2022 - April 2023</div>
-                <div class="position">
-                    <h2>Vice-Treasurer of Phelma's Arts Office (BDA) - 1 year</h2>
-                    <p>Grenoble INP - Phelma, Grenoble, France</p>
-                </div>
-                <div class="description">
-                    <p>Vice-treasurer of a student association that organises cultural, artistic and international events.
-                    <br><br><u>Skills :</u> Financial management, team management, administrative procedures, event organisation...
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Expérience 3 -->
-        <div class="experience">
-            <div class="photo-container">
-                <a href="https://www.peinture-industrielle.fr/" target="_blank">
-                    <img class="company-logo" src="media/logo/logo_optitec.jpeg" alt="Optitec logo">
-                </a>
-            </div> 
-            <div class="experience-details">
-                <div class="date">June 2022 - July 2022</div>
-                <div class="position">
-                    <h2>Internship - versatile worker - 7 weeks</h2>
-                    <p>Technocoat OPTITEC, Chassieu, France</p>
-                </div>
-                <div class="description">
-                    <p>Work internship in an industrial painting company as part of my Bachelor's degree at Grenoble INP - Phelma.
-                    <br><br><u>Skills :</u> Production line work, parts preparation before treatment (painting), teamwork...
-                    </p>
-                </div>
-            </div>
-        </div>
-    
-        <footer>
-            The entire website was designed by Nils Malmberg.
-        </footer>
-    
-    </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
