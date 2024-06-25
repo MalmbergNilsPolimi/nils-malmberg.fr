@@ -247,17 +247,17 @@ footer {
 }
 
 .skills-list .advanced {
-    background-color: #d6f3e7;
-    border-left: 5px solid #00796b;
+    background-color: #a9dfb9;
+    border-left: 5px solid #00611f;
 }
 
 .skills-list .intermediate {
-    background-color: #fff3e0;
-    border-left: 5px solid #fb8c00;
+    background-color: #f1d4a4;
+    border-left: 5px solid #a05903;
 }
 
 .skills-list .beginner {
-    background-color: #f3e5f5;
+    background-color: #d4b7d8;
     border-left: 5px solid #8e24aa;
 }
 
@@ -270,8 +270,8 @@ footer {
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
-    background-color: #e3f2fd;
-    border-left: 5px solid #1e88e5;
+    background-color: #b6d0f7;
+    border-left: 5px solid #2a00c1;
 }
 
 .languages-list li span {
@@ -306,6 +306,10 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
+    background-color: #e9e8e8;
+    border-radius: 5px;
+    width: 100%;
 }
 
 .project-summary-item {
@@ -321,8 +325,8 @@ footer {
 }
 
 .project1-summary {
-    background-color: #e0f7fa;
-    border: 1px solid #00acc1;
+    background-color: #97bdf5;
+    border-left: 5px solid #2a00c1;
 }
 
 .project1-summary a {
@@ -330,26 +334,26 @@ footer {
 }
 
 .project1 {
-    background-color: #e0f7fa;
-    border-left: 5px solid #00acc1;
+    background-color: #97bdf5;
+    border-left: 5px solid #2a00c1;
 }
 
 .project2-summary {
-    background-color: #fff3e0;
-    border: 1px solid #fb8c00;
+    background-color: #8fd89e;
+    border-left: 5px solid #017c26;
 }
 
 .project2-summary a {
     color: #000000;
 }
 .project2 {
-    background-color: #fff3e0;
-    border-left: 5px solid #fb8c00;
+    background-color: #8fd89e;
+    border-left: 5px solid #017c26;
 }
 
 .project3-summary {
-    background-color: #f3e5f5;
-    border: 1px solid #8e24aa;
+    background-color: #e0e694;
+    border-left: 5px solid #a4af00;
 }
 
 .project3-summary a {
@@ -357,13 +361,13 @@ footer {
 }
 
 .project3 {
-    background-color: #f3e5f5;
-    border-left: 5px solid #8e24aa;
+    background-color: #e0e694;
+    border-left: 5px solid #a4af00;
 }
 
 .project4-summary {
-    background-color: #e8f5e9;
-    border: 1px solid #43a047;
+    background-color: #f09a9a;
+    border-left: 5px solid #ad0600;
 }
 
 .project4-summary a {
@@ -371,13 +375,13 @@ footer {
 }
 
 .project4 {
-    background-color: #e8f5e9;
-    border-left: 5px solid #43a047;
+    background-color: #f09a9a;
+    border-left: 5px solid #ad0600;
 }
 
 .project5-summary {
-    background-color: #e3f2fd;
-    border: 1px solid #1e88e5;
+    background-color: #d396e2;
+    border-left: 5px solid #a300a8;
 }
 
 .project5-summary a {
@@ -385,8 +389,8 @@ footer {
 }
 
 .project5 {
-    background-color: #e3f2fd;
-    border-left: 5px solid #1e88e5;
+    background-color: #d396e2;
+    border-left: 5px solid #a300a8;
 }
 
 .button {
