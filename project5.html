@@ -10,6 +10,8 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- <meta name="keywords" content="engineering, ingénieur, ingénierie, nuclear, nucléaire, quantique, quantum, fluid, fluide, mécanique, CDF, ansys, fluent, mechanics, materials, matériaux, électronique, electronics, PHELMA, Grenoble INP, Grenoble, French, Français, Anglais, English, LaTeX, Python, Matlab, C, C++, SQL, HTML, CSS, JavaScript, js, PHP, computing, programmation, code, projet, projects, nils, selma, richard, nathalie, malmberg, POLIMI, Milan, Milano, Italie, Italy, Politecnico, NAS, interpolation, mdisd"> -->
+    <meta name="keywords" id="meta-keywords" content="">
     <title>Nils Malmberg - Projets</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -75,21 +77,22 @@
                     \(\textbf{P}_i\) for all \(i\) in \([\![1;m]\!]\). Ce qui donne en format matriciel:</p>
             
                 <div style="text-align: center;">
-                    \[
+                    \(
                     \textbf{P} = \begin{pmatrix} \textbf{P}_1\\ \textbf{P}_2 \\ \vdots \\ \textbf{P}_m \end{pmatrix}
                     = \begin{pmatrix}
                     p_{1,1} & p_{1,2} & \cdots & p_{1,n}  \\
                     p_{2,1} & p_{2,2} & \cdots & p_{2,n}  \\
                     \vdots & \vdots & \vdots & \vdots\\
                     p_{m,1} & p_{m,2} & \cdots & p_{m,n}
-                    \end{pmatrix}~~~~ 
+                    \end{pmatrix}\)
+                    \(
                     \textbf{O} = \begin{pmatrix}
                     o_1\\ o_2 \\ \vdots \\ o_m 
                     \end{pmatrix}
                     = \begin{pmatrix} 
                     f(\textbf{P}_1)\\ f(\textbf{P}_2) \\ \vdots \\ f(\textbf{P}_m) 
                     \end{pmatrix}
-                    \]
+                    \)
                 </div>
             
                 <p>L'objectif est maintenant d'estimer une nouvelle sortie \(o_{\text{new}} = f(\textbf{P}_{\text{new}})\) à partir d'une nouvelle entrée 
@@ -102,7 +105,7 @@
                     (dans la régression linéaire simple) ou le plan/hyperplan (dans la régression multivariée) qui s'ajuste le mieux aux points de données observés.</p>
                 <div style="text-align: center;">
                     \[
-                    \widehat{o}_\text{new} = \widehat{\alpha} + \widehat{\beta}_1\times p_{\text{new},1} + \widehat{\beta}_2\times p_{\text{new},2} + \cdots + \widehat{\beta}_n\times p_{\text{new},n}\\
+                    \widehat{o}_\text{new} = \widehat{\alpha} + \sum\limits_{i=1}^n \widehat{\beta}_i \times p_{\text{new},i}\\
                     \]
                 </div>
 
@@ -110,22 +113,24 @@
                      minimisant la somme suivante dans l'optique d'avoir la plus petite distance entre les points connus et leurs estimations par regression:</p>
                 <div style="text-align: center;">
                     \[
-                    \sum\limits_{i=1}^m \left[o_i -\left( \widehat{\alpha} + \widehat{\beta}_1\times p_{\text{new},1} + \widehat{\beta}_2\times p_{\text{new},2} + \cdots + \widehat{\beta}_n\times p_{\text{new},n}\right)\right]^2
+                    \sum\limits_{i=1}^m \left[o_i - \underbrace{\left(\widehat{\alpha} + \sum\limits_{i=1}^n \widehat{\beta}_i \times p_{\text{new},i}\right)}_{\widehat{o}_\text{new}}\right]^2
                     \]
                 </div>
 
                 <p>Introduisons les notations matricielles suivantes:</p>
                 <div style="text-align: center;">
-                    \[  X = \begin{pmatrix}
+                    \(  X = \begin{pmatrix}
                         1 & p_{1,1} &p_{1,2}  & \cdots & p_{1,n}  \\
                         1 & p_{2,1} &p_{2,2}  & \cdots & p_{2,n}  \\
                         \vdots & \vdots & \vdots & \vdots & \vdots\\
                         1 & p_{m,1} &p_{m,2}  & \cdots & p_{m,n}  \\
-                        \end{pmatrix}~~~~\widehat{\beta} = \begin{pmatrix}
+                        \end{pmatrix}\)
+                        \(\widehat{\beta} = \begin{pmatrix}
                         \widehat{\alpha} \\ \widehat{\beta}_1 \\ \vdots \\ \widehat{\beta}_n
-                        \end{pmatrix}~~~~O = \begin{pmatrix}
+                        \end{pmatrix}\) 
+                        \(O = \begin{pmatrix}
                         o_1\\ o_2 \\ \vdots \\ o_m \end{pmatrix}
-                    \]
+                    \)
                 </div>
 
                 <p>Ainsi, les coefficients minimisant la somme sont:</p>
@@ -137,7 +142,7 @@
                 
                 <h4>Fonction à Base Radiale/Radial Basis Function</h4>
                 <p>Idée : chaque point défini par  \(\textbf{P}_i\) and \(o_i\) "influence" sont voisinage dans chaque direction de manière identique 
-                    selon la fonctionnelle \(\Phi(r)\) où \(r\) est la distance radiale.</p>
+                    selon la fonctionnelle \(\phi(r)\) où \(r\) est la distance radiale.</p>
                 <div style="text-align: center;">
                     \[
                     o_\text{new} = \sum\limits_{i=1}^m \omega_i\cdot \phi(||\textbf{p}_\text{new} - \textbf{p}_i||)
@@ -158,13 +163,8 @@
                     \[\Phi \Omega = O\]
                 </div>
 
-                <p>où, \(\Phi = \begin{pmatrix}
-                \phi\left(||\textbf{P}_1-\textbf{P}_1||\right) &\phi\left(||\textbf{P}_2-\textbf{P}_1||\right)  & \cdots & \phi\left(||\textbf{P}_m-\textbf{P}_1||\right)  \\
-                \phi\left(||\textbf{P}_1-\textbf{P}_2||\right) &\phi\left(||\textbf{P}_2-\textbf{P}_2||\right)  & \cdots & \phi\left(||\textbf{P}_m-\textbf{P}_2||\right)  \\
-                \vdots & \vdots & \vdots & \vdots\\
-                \phi\left(||\textbf{P}_1-\textbf{P}_m||\right) &\phi\left(||\textbf{P}_2-\textbf{P}_m||\right)  & \cdots & \phi\left(||\textbf{P}_m-\textbf{P}_m||\right)  \\
-                \end{pmatrix}~~\) et \(~~\Omega = \begin{pmatrix}
-                \omega_1 \\ \omega_2 \\ \vdots \\ \omega_m\end{pmatrix}\)</p>
+                <p>où, \(\Phi = \left[\phi(||\textbf{P}_j-\textbf{P}_i||)\right]_{(i,j)\in[\![1,m]\!]^2}\) (ligne i, colonne j)</p>
+                <p>et \(\Omega = \begin{pmatrix} \omega_1 & \omega_2  & \cdots & \omega_m\end{pmatrix}^T\) (T désigne la transposée)</p>
                 
                 <h3>Résultats</h3>
                 <p>
@@ -183,6 +183,8 @@
             </center>
         </section>
     </main>
+
+
 
 
     <main id="project5-content-en">
@@ -213,21 +215,22 @@
                     \(\textbf{P}_i\) for all \(i\) in \([\![1;m]\!]\). In matrix format, this gives:</p>
             
                 <div style="text-align: center;">
-                    \[
+                    \(
                     \textbf{P} = \begin{pmatrix} \textbf{P}_1\\ \textbf{P}_2 \\ \vdots \\ \textbf{P}_m \end{pmatrix}
                     = \begin{pmatrix}
                     p_{1,1} & p_{1,2} & \cdots & p_{1,n}  \\
                     p_{2,1} & p_{2,2} & \cdots & p_{2,n}  \\
                     \vdots & \vdots & \vdots & \vdots\\
                     p_{m,1} & p_{m,2} & \cdots & p_{m,n}
-                    \end{pmatrix}~~~~ 
+                    \end{pmatrix}\)
+                    \(
                     \textbf{O} = \begin{pmatrix}
                     o_1\\ o_2 \\ \vdots \\ o_m 
                     \end{pmatrix}
                     = \begin{pmatrix} 
                     f(\textbf{P}_1)\\ f(\textbf{P}_2) \\ \vdots \\ f(\textbf{P}_m) 
                     \end{pmatrix}
-                    \]
+                    \)
                 </div>
             
                 <p>The aim now is to estimate a new output \(o_{\text{new}} = f(\textbf{P}_{\text{new}})\) from a new input 
@@ -240,7 +243,7 @@
                     fits the observed data points.</p>
                 <div style="text-align: center;">
                     \[
-                    \widehat{o}_\text{new} = \widehat{\alpha} + \widehat{\beta}_1\times p_{\text{new},1} + \widehat{\beta}_2\times p_{\text{new},2} + \cdots + \widehat{\beta}_n\times p_{\text{new},n}\\
+                    \widehat{o}_\text{new} = \widehat{\alpha} + \sum\limits_{i=1}^n \widehat{\beta}_i \times p_{\text{new},i}\\
                     \]
                 </div>
 
@@ -249,22 +252,24 @@
                     distance between the known points and the estimates of these same points by regression:</p>
                 <div style="text-align: center;">
                     \[
-                    \sum\limits_{i=1}^m \left[o_i -\left( \widehat{\alpha} + \widehat{\beta}_1\times p_{\text{new},1} + \widehat{\beta}_2\times p_{\text{new},2} + \cdots + \widehat{\beta}_n\times p_{\text{new},n}\right)\right]^2
+                    \sum\limits_{i=1}^m \left[o_i - \underbrace{\left(\widehat{\alpha} + \sum\limits_{i=1}^n \widehat{\beta}_i \times p_{\text{new},i}\right)}_{\widehat{o}_\text{new}}\right]^2
                     \]
                 </div>
 
                 <p>Let's introduce the following matrix notations:</p>
                 <div style="text-align: center;">
-                    \[  X = \begin{pmatrix}
+                    \(  X = \begin{pmatrix}
                         1 & p_{1,1} &p_{1,2}  & \cdots & p_{1,n}  \\
                         1 & p_{2,1} &p_{2,2}  & \cdots & p_{2,n}  \\
                         \vdots & \vdots & \vdots & \vdots & \vdots\\
                         1 & p_{m,1} &p_{m,2}  & \cdots & p_{m,n}  \\
-                        \end{pmatrix}~~~~\widehat{\beta} = \begin{pmatrix}
+                        \end{pmatrix}\)
+                        \(\widehat{\beta} = \begin{pmatrix}
                         \widehat{\alpha} \\ \widehat{\beta}_1 \\ \vdots \\ \widehat{\beta}_n
-                        \end{pmatrix}~~~~O = \begin{pmatrix}
+                        \end{pmatrix}\) 
+                        \(O = \begin{pmatrix}
                         o_1\\ o_2 \\ \vdots \\ o_m \end{pmatrix}
-                    \]
+                    \)
                 </div>
 
                 <p>Then, the coefficients that minimizes the sum are</p>
@@ -276,7 +281,7 @@
                 
                 <h4>Radial Basis Function</h4>
                 <p>Idea : each point defined by \(\textbf{P}\) and \(\textbf{O}\) "influences" its surroundings in the same way and in all directions 
-                    according to the functionnal form \(\Phi(r)\) where \(r\) is the radial distance.</p>
+                    according to the functionnal form \(\phi(r)\) where \(r\) is the radial distance.</p>
                 <div style="text-align: center;">
                     \[
                     o_\text{new} = \sum\limits_{i=1}^m \omega_i\cdot \phi(||\textbf{p}_\text{new} - \textbf{p}_i||)
@@ -297,13 +302,8 @@
                     \[\Phi \Omega = O\]
                 </div>
 
-                <p>where, \(\Phi = \begin{pmatrix}
-                \phi\left(||\textbf{P}_1-\textbf{P}_1||\right) &\phi\left(||\textbf{P}_2-\textbf{P}_1||\right)  & \cdots & \phi\left(||\textbf{P}_m-\textbf{P}_1||\right)  \\
-                \phi\left(||\textbf{P}_1-\textbf{P}_2||\right) &\phi\left(||\textbf{P}_2-\textbf{P}_2||\right)  & \cdots & \phi\left(||\textbf{P}_m-\textbf{P}_2||\right)  \\
-                \vdots & \vdots & \vdots & \vdots\\
-                \phi\left(||\textbf{P}_1-\textbf{P}_m||\right) &\phi\left(||\textbf{P}_2-\textbf{P}_m||\right)  & \cdots & \phi\left(||\textbf{P}_m-\textbf{P}_m||\right)  \\
-                \end{pmatrix}~~\) and \(~~\Omega = \begin{pmatrix}
-                \omega_1 \\ \omega_2 \\ \vdots \\ \omega_m\end{pmatrix}\)</p>
+                <p>where, \(\Phi = \left[\phi(||\textbf{P}_j-\textbf{P}_i||)\right]_{(i,j)\in [\![1;m]\!]^2}\) (row: i, column: j)</p>
+                <p>and \(\Omega = \begin{pmatrix} \omega_1 & \omega_2  & \cdots & \omega_m\end{pmatrix}^T\) (transpose: T)</p>
                 
                 <h3>Results</h3>
                 <p>
