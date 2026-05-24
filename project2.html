@@ -1,93 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="media/favicons/favicon.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-    <!-- <meta name="keywords" content="engineering, ingénieur, ingénierie, nuclear, nucléaire, quantique, quantum, fluid, fluide, mécanique, CDF, ansys, fluent, mechanics, materials, matériaux, électronique, electronics, PHELMA, Grenoble INP, Grenoble, French, Français, Anglais, English, LaTeX, Python, Matlab, C, C++, SQL, HTML, CSS, JavaScript, js, PHP, computing, programmation, code, projet, projects, nils, selma, richard, nathalie, malmberg, POLIMI, Milan, Milano, Italie, Italy, Politecnico, NAS, interpolation, mdisd"> -->
-    <meta name="keywords" id="meta-keywords" content="">
-    <title>Nils Malmberg - Projets</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="media/favicons/favicon.ico" type="image/x-icon">
+  <title>Braket - Nils Malmberg</title>
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="containerbar">
-            <div class="logo-left">
-                <a href="index.html">
-                    <img src="media/favicons/apple-touch-icon-57x57.png" alt="Logo">
-                </a>
-            </div>
-            <nav id="navbar">
-                <ul>
-                    <li><a href="index.html" id="nav-home">Accueil</a></li>
-                    <li><a href="cv.html" id="nav-cv">CV</a></li>
-                    <li><a href="projects.html" class="active" id="nav-projects">Projets</a></li>
-                </ul>
-            </nav>
-            <div id="language-switcher">
-                <div class="current-language" onclick="toggleLanguageMenu()">
-                    <img  src="media/logo/logo_fr.svg" alt="Français">
-                    <div class="arrow-down"></div>
-                </div>
-                <div class="language-menu" id="language-menu">
-                    <div class="language-option" onclick="changeLanguage('fr')">
-                        <img src="media/logo/logo_fr.svg" alt="Français">
-                        <span>Français (FR)</span>
-                    </div>
-                    <div class="language-option" onclick="changeLanguage('en')">
-                        <img src="media/logo/logo_en.svg" alt="English">
-                        <span>English (EN)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    
-    <main id="project2-content-fr">
-        <section id="project">
-            <div class="container">
-                <h2>Projet Braket : logiciel de calculs quantiques.</h2>
-                <p>Le Projet Braket a été réalisé lors de ma première année à Grenoble INP - Phelma. En collaboration avec trois camarades, nous avons développé
-                    un logiciel en C et C++ utilisant la bibliothèque graphique FLTK. Braket offre une interface graphique ergonomique permettant
-                    de simuler les probabilités associées aux composants d'un état quantique après diverses transformations par des portes quantiques. 
-                    Ce logiciel vise à rendre ces concepts accessibles et compréhensibles via une interface intuitive.</p>
-            </div>
-            <center>
-                <div>
-                    <a href="projects.html" class="button">Retour</a>
-                    <a href="media/projets/project2/BRAKET_nils-malmberg.fr.zip" class="button">Télécharger le projet</a>
-                </div>
-            </center>
-        </section>
-    </main>
-
-    <main id="project2-content-en">
-        <section id="project">
-            <div class="container">
-                <h2>Braket project: quantum calculation software.</h2>
-                <p>The Braket Project was carried out during my first year at Grenoble INP - Phelma. In collaboration with three classmates, we developed software
-                    in C and C++ using the FLTK graphics library. Braket offers an ergonomic graphical interface allowing you to simulate the probabilities associated
-                    with the components of a quantum state after various transformations by quantum gates. This software aims to make these concepts accessible and
-                    understandable via an intuitive interface.</p>
-            </div>
-            <center>
-                <div>
-                    <a href="projects.html" class="button">Back</a>
-                    <a href="media/projets/project2/BRAKET_nils-malmberg.fr.zip" class="button">Download the project</a>
-                </div>
-            </center>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Nils Malmberg</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<header><div class="header-inner">
+  <a href="index.html" class="site-logo"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="currentColor" opacity="0.15"/><path d="M7 21V7h3l7 10V7h3v14h-3L10 11v10H7z" fill="currentColor"/></svg><span>Nils <em>Malmberg</em></span></a>
+  <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <nav id="navbar"><ul>
+    <li><a href="index.html" id="nav-home">Accueil</a></li>
+    <li><a href="cv.html" id="nav-cv">CV</a></li>
+    <li><a href="projects.html" id="nav-projects" class="active">Projets</a></li>
+  </ul></nav>
+  <div class="header-controls">
+    <button class="theme-toggle" aria-label="Basculer le thème"></button>
+    <div id="language-switcher" onclick="toggleLanguageMenu()">
+      <div class="current-language" role="button" tabindex="0"><img src="media/logo/logo_fr.svg" alt="Langue" width="18" height="18"><span class="lang-label">FR</span><span class="arrow-down"></span></div>
+      <div class="language-menu" id="language-menu">
+        <div class="language-option" onclick="changeLanguage('fr')"><img src="media/logo/logo_fr.svg" alt="" width="18" height="18"> Français</div>
+        <div class="language-option" onclick="changeLanguage('en')"><img src="media/logo/logo_en.svg" alt="" width="18" height="18"> English</div>
+      </div>
+    </div>
+  </div>
+</div></header>
+<main>
+  <div id="project2-content-fr">
+    <div class="container project-page">
+      <a href="projects.html" class="project-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Retour aux projets</a>
+      <div class="project-page-header">
+        <h1>Braket - Simulateur de calculs quantiques</h1>
+      </div>
+      <div class="project-content">
+        <h2>Contexte</h2>
+        <p>Le Projet Braket a été réalisé lors de ma première année à Grenoble INP - Phelma, en collaboration avec trois camarades. L'objectif était de développer un logiciel permettant de simuler des circuits quantiques de manière intuitive.</p>
+        <h2>Réalisation</h2>
+        <p>Nous avons développé un logiciel en <strong>C et C++</strong> utilisant la bibliothèque graphique <strong>FLTK</strong>. Braket offre une interface graphique ergonomique permettant de :</p>
+        <ul>
+          <li>Définir un état quantique initial</li>
+          <li>Appliquer des portes quantiques (Hadamard, CNOT, Pauli X/Y/Z, etc.)</li>
+          <li>Visualiser les probabilités associées aux composants de l'état quantique</li>
+          <li>Exporter les résultats de simulation</li>
+        </ul>
+        <h2>Objectif pédagogique</h2>
+        <p>Ce logiciel vise à rendre les concepts de la physique quantique accessibles et compréhensibles via une interface intuitive — idéal pour des étudiants découvrant le domaine.</p>
+      </div>
+      <a href="projects.html" class="btn btn-secondary">Retour</a>
+      <a href="media/projets/project2/braket.zip" class="btn btn-primary">Télécharger le projet</a>
+      <br><br>
+      <div class="project-meta"><span class="tag">C/C++</span><span class="tag">FLTK</span><span class="tag">Qbits</span><span class="tag">2021-2022</span></div>
+    </div>
+  </div>
+  <div id="project2-content-en" style="display:none">
+    <div class="container project-page">
+      <a href="projects.html" class="project-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Back to projects</a>
+      <div class="project-page-header">
+        <div class="project-meta"><span class="tag">C/C++</span><span class="tag">FLTK</span><span class="tag">Grenoble INP</span><span class="tag">2021–2022</span></div>
+        <h1>Braket – Quantum Computing Simulator</h1>
+      </div>
+      <div class="project-content">
+        <h2>Context</h2>
+        <p>The Braket project was carried out during my first year at Grenoble INP – Phelma, in collaboration with three classmates. The goal was to develop a user-friendly quantum circuit simulator.</p>
+        <h2>Implementation</h2>
+        <p>We built the software in <strong>C and C++</strong> using the <strong>FLTK</strong> graphical library. Braket provides an ergonomic GUI to define quantum states, apply quantum gates and visualize probability amplitudes.</p>
+      </div>
+    </div>
+  </div>
+</main>
+<footer><div class="footer-inner"><span class="footer-copy">© 2025 Nils Malmberg</span><div class="footer-links"><a href="index.html">Accueil</a><a href="cv.html">CV</a><a href="projects.html">Projets</a></div></div></footer>
+<script src="script.js"></script>
+</body></html>

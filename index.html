@@ -1,174 +1,233 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="media/favicons/favicon.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-    <!-- <meta name="keywords" content="engineering, ingénieur, ingénierie, nuclear, nucléaire, quantique, quantum, fluid, fluide, mécanique, CDF, ansys, fluent, mechanics, materials, matériaux, électronique, electronics, PHELMA, Grenoble INP, Grenoble, French, Français, Anglais, English, LaTeX, Python, Matlab, C, C++, SQL, HTML, CSS, JavaScript, js, PHP, computing, programmation, code, projet, projects, nils, selma, richard, nathalie, malmberg, POLIMI, Milan, Milano, Italie, Italy, Politecnico, NAS, interpolation, mdisd"> -->
-    <meta name="keywords" id="meta-keywords" content="">
-    <title>Nils Malmberg</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="media/favicons/favicon.ico" type="image/x-icon">
+  <title>Nils Malmberg</title>
+  <meta name="keywords" id="meta-keywords" content="">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="containerbar">
-            <div class="logo-left">
-                <a href="index.html">
-                    <img src="media/favicons/apple-touch-icon-57x57.png" alt="Logo">
-                </a>
-            </div>
-            <nav id="navbar">
-                <ul>
-                    <li><a href="index.html" class="active" id="nav-home">Accueil</a></li>
-                    <li><a href="cv.html" id="nav-cv">CV</a></li>
-                    <li><a href="projects.html" id="nav-projects">Projets</a></li>
-                </ul>
-            </nav>
-            <div id="language-switcher">
-                <div class="current-language" onclick="toggleLanguageMenu()">
-                    <img  src="media/logo/logo_fr.svg" alt="Français">
-                    <div class="arrow-down"></div>
-                </div>
-                <div class="language-menu" id="language-menu">
-                    <div class="language-option" onclick="changeLanguage('fr')">
-                        <img src="media/logo/logo_fr.svg" alt="Français">
-                        <span>Français (FR)</span>
-                    </div>
-                    <div class="language-option" onclick="changeLanguage('en')">
-                        <img src="media/logo/logo_en.svg" alt="English">
-                        <span>English (EN)</span>
-                    </div>
-                </div>
-            </div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="site-logo" aria-label="Nils Malmberg">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <rect width="28" height="28" rx="6" fill="currentColor" opacity="0.15"/>
+        <path d="M7 21V7h3l7 10V7h3v14h-3L10 11v10H7z" fill="currentColor"/>
+      </svg>
+      <span>Nils <em>Malmberg</em></span>
+    </a>
+    <button class="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="navbar" role="navigation">
+      <ul>
+        <li><a href="index.html" id="nav-home" class="active">Accueil</a></li>
+        <li><a href="cv.html" id="nav-cv">CV</a></li>
+        <li><a href="projects.html" id="nav-projects">Projets</a></li>
+      </ul>
+    </nav>
+    <div class="header-controls">
+      <button class="theme-toggle" aria-label="Basculer le thème"></button>
+      <div id="language-switcher" onclick="toggleLanguageMenu()">
+        <div class="current-language" role="button" tabindex="0" aria-haspopup="listbox">
+          <img src="media/logo/logo_fr.svg" alt="Langue" width="18" height="18">
+          <span class="lang-label">FR</span>
+          <span class="arrow-down" aria-hidden="true"></span>
         </div>
-    </header>
-
-    <main id="home-content-fr">
-        <section id="about">
-            <div class="container">
-                <div class="profile">
-                    <img src="media/accueil/photo_nils.JPEG" alt="Photo de profil">
-                    <h1>Nils Malmberg</h1>
-                    <p>Ingénieur en génie énergétique et nucléaire <br>Double diplôme à Grenoble INP - Phelma & Politecnico di Milano</p>
-                </div>
-                <div class="about-logo">
-                    <a href="https://www.linkedin.com/in/nils-malmberg/" target="_blank">
-                        <img src="media/logo/logo_linkedin.png" alt="Logo LinkedIn">
-                    </a>
-                    <a href="https://github.com/MalmbergNilsPolimi" target="_blank">
-                        <img src="media/logo/logo_github.png" alt="Logo Github">
-                    </a>
-                </div>
-                <h2>À propos de moi</h2>
-                <p>Bonjour et bienvenue sur mon site web ! Je m'appelle Nils Malmberg et je suis ingénieur spécialisé en génie énergétique et nucléaire.
-                    Après deux années de classes préparatoires aux grandes écoles (MPSI & PSI*) j'ai intégré Grenoble INP - Phelma où j'ai pu développer de nombreuses compétences en lien avec le domaine de l'ingénierie nucléaire et la simulation. J'ai ensuite effectué un double diplôme au Politecnico di Milano toujours en lien avec le nucléaire.</p>
-                
-                <div class="about-uni">
-                    <a href="https://phelma.grenoble-inp.fr/" target="_blank">
-                        <img src="media/logo/logo_phelma.png" alt="Logo Phelma">
-                    </a>
-                    <a href="https://www.polimi.it/en" target="_blank">
-                        <img src="media/logo/logo_polimi.svg" alt="Logo Polimi">
-                    </a>
-                </div>
-
-                <p>En dehors de mes études dans le domaine du nucléaire, je suis passionné par la programmation.
-                    Je travaille avec plusieurs langages, notamment Python, C, C++, HTML, PHP, CSS et JavaScript.
-                    Mon intérêt pour la technologie ne s'arrête pas là : je m'intéresse également à la modélisation 3D avec Fusion 360 et à l'impression 3D.</p>
-
-                <p>Avant de me consacrer entièrement à mes études, j'ai pratiqué le hockey sur glace pendant 12 ans, un sport qui m'a appris la discipline et le travail en équipe.</p>                
-                <p>Je m'intéresse aussi à la gestion de NAS (Network Attached Storage) et à l'utilisation de Docker, des outils qui me permettent d'explorer l'univers des serveurs et de la virtualisation.</p>
-                
-                <div class="about-loisirs">
-                    <img src="media/accueil/photo_assemblage.jpeg" alt="Assemblage">
-                    <img src="media/accueil/photo_code.jpeg" alt="Code">
-                    <img src="media/accueil/photo_hockey.jpeg" alt="Hockey">
-                </div>
-                
-                <p>Je vous invite à explorer mon site pour en savoir plus sur mes projets, mes compétences et mes passions. N'hésitez pas à me contacter via Linkedin pour toute question.</p>
-            </div>
-        </section>
-
-        <section id="Contact">
-            <div class="container">
-                <h2>Me contacter</h2>
-                <p>Si vous souhaitez me contacter, je vous invite à le faire via Linkedin.</p>
-            </div>
-            <div class="about-contact">
-                <a href="https://www.linkedin.com/in/nils-malmberg/" target="_blank">
-                    <img src="media/logo/logo_linkedin.png" alt="Logo LinkedIn">
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <main id="home-content-en">
-        <section id="about">
-            <div class="container">
-                <div class="profile">
-                    <img src="media/accueil/photo_nils.JPEG" alt="Photo de profil">
-                    <h1>Nils Malmberg</h1>
-                    <p>Nuclear engineer <br>Double degree at Grenoble INP - Phelma & Politecnico di Milano</p>
-                </div>
-                <div class="about-logo">
-                    <a href="https://www.linkedin.com/in/nils-malmberg/" target="_blank">
-                        <img src="media/logo/logo_linkedin.png" alt="Logo LinkedIn">
-                    </a>
-                    <a href="https://github.com/MalmbergNilsPolimi" target="_blank">
-                        <img src="media/logo/logo_github.png" alt="Logo Github">
-                    </a>
-                </div>
-                <h2>About me</h2>
-                <p>Welcome to my website! My name is Nils Malmberg and I'm an engineer specialized in nuclear engineering. 
-                    After a two-year university intensive course called CPGE (MPSI & PSI*), I joined Grenoble INP - Phelma, where I was able to develop skills related to nuclear engineering and simulation. I then did a double degree at the Politecnico di Milano, again in the nuclear field.</p>
-                
-                <div class="about-uni">
-                    <a href="https://phelma.grenoble-inp.fr/en" target="_blank">
-                        <img src="media/logo/logo_phelma.png" alt="Logo Phelma">
-                    </a>
-                    <a href="https://www.polimi.it/en" target="_blank">
-                        <img src="media/logo/logo_polimi.svg" alt="Logo Polimi">
-                    </a>
-                </div>
-
-                <p>Apart from my studies in the nuclear field, I'm passionate about programming. I work with several languages, including Python, C, C++, HTML,
-                     PHP, CSS and JavaScript. My interest in technology doesn't stop there: I'm also interested in 3D modeling with Fusion 360 and 3D printing.</p>
-
-                <p>Before devoting myself entirely to my studies, I played ice hockey for 12 years, a sport that taught me discipline and teamwork.</p>                
-                <p>I'm also interested in NAS (Network Attached Storage) management and the use of Docker, tools that enable me to explore the world of servers and virtualization.</p>
-                
-                <div class="about-loisirs">
-                    <img src="media/accueil/photo_assemblage.jpeg" alt="Assemblage">
-                    <img src="media/accueil/photo_code.jpeg" alt="Code">
-                    <img src="media/accueil/photo_hockey.jpeg" alt="Hockey">
-                </div>
-                
-                <p>I invite you to explore my website to learn more about my projects, skills and passions. Don't hesitate to contact me via Linkedin if you have any questions.</p>
-            </div>
-        </section>
-
-        <section id="Contact">
-            <div class="container">
-                <h2>Contact me</h2>
-                <p>If you wish to contact me, please do so via Linkedin.</p>
-            </div>
-            <div class="about-contact">
-                <a href="https://www.linkedin.com/in/nils-malmberg/" target="_blank">
-                    <img src="media/logo/logo_linkedin.png" alt="Logo LinkedIn">
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Nils Malmberg</p>
+        <div class="language-menu" id="language-menu" role="listbox">
+          <div class="language-option" onclick="changeLanguage('fr')" role="option" tabindex="0">
+            <img src="media/logo/logo_fr.svg" alt="Français" width="18" height="18"> Français
+          </div>
+          <div class="language-option" onclick="changeLanguage('en')" role="option" tabindex="0">
+            <img src="media/logo/logo_en.svg" alt="English" width="18" height="18"> English
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </div>
+</header>
 
-    <script src="script.js"></script>
+<main>
+  <!-- ════════════════ FRANÇAIS ════════════════ -->
+  <div id="home-content-fr">
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <div class="hero-eyebrow">Ingénieur nucléaire & passionné de tech</div>
+          <h1>Nils <em>Malmberg</em></h1>
+          <p class="hero-subtitle">Ingénieur en génie énergétique et nucléaire — double diplômé Grenoble INP Phelma &amp; Politecnico di Milano. Passionné de cuisine, bricolage, programmation et impression 3D.</p>
+          <div class="hero-cta">
+            <a href="projects.html" class="btn btn-primary">Voir mes projets</a>
+            <a href="cv.html" class="btn btn-secondary">Mon CV</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="media/accueil/photo_nils.JPEG" alt="Photo de Nils Malmberg" width="220" height="220" loading="eager">
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="section-label">À propos</div>
+        <h2 class="section-title">Ingénieur du nucléaire, bidouilleur du weekend</h2>
+        <div class="about-grid">
+          <div class="about-card">
+            <h3>🎓 Formation &amp; Parcours</h3>
+            <p>Diplômé de Grenoble INP Phelma en génie énergétique et nucléaire, avec un double diplôme au Politecnico di Milano. Après deux années de CPGE (MPSI/PSI*) à Reims, j'ai développé de solides bases en physique et simulation numérique.</p>
+            <div class="about-chips">
+              <span class="chip">Neutronique</span>
+              <span class="chip">Thermohydraulique</span>
+              <span class="chip">Mécanique des fluides</span>
+              <span class="chip">Quantique</span>
+              <span class="chip">Programmation</span>
+            </div>
+          </div>
+          <div class="about-card">
+            <h3>💻 Tech &amp; Développement</h3>
+            <p>Passionné de programmation depuis longtemps, je travaille majoritairement en Python. J'ai également des connaissances en C/C++ et mon prochain projet est d'apprendre le Rust. Je m'intéresse beaucoup à ce qui touche à la Data Science, au Machine Learning, aux NAS et à l'auto-hébergement de services comme les LLM.</p>
+            <div class="about-chips">
+              <span class="chip">Python</span>
+              <span class="chip">C/C++</span>
+              <span class="chip">Machine Learning</span>
+              <span class="chip">Linux</span>
+              <span class="chip">NAS</span>
+              <span class="chip">Docker</span>
+            </div>
+          </div>
+          <div class="about-card">
+            <h3>🖨️ Conception &amp; Fabrication</h3>
+            <p>Je conçois des pièces sur Fusion 360 et les fabrique par impression 3D. Ce hobby m'a conduit à modéliser un NAS complet basé sur une carte Raspberry Pi et sur un OS open source.</p>
+            <div class="about-chips">
+              <span class="chip">Fusion 360</span>
+              <span class="chip">Impression 3D</span>
+            </div>
+          </div>
+          <div class="about-card">
+            <h3>🏒👨‍🍳 Autres hobbies</h3>
+            <p>J'ai pratiqué le hockey sur glace pendant une dizaine d'années. Je m'intéresse aussi à la gastronomie.</p>
+            <div class="about-chips">
+              <span class="chip">Hockey sur glace</span>
+              <span class="chip">Gastronomie</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="container">
+        <div class="section-label">Contact</div>
+        <h2 class="section-title">Me contacter</h2>
+        <p style="color:var(--color-text-muted);margin-bottom:var(--space-4);max-width:50ch;">Pour toute question ou opportunité professionnelle, n'hésitez pas à me contacter via LinkedIn.</p>
+        <a href="https://www.linkedin.com/in/nils-malmberg/" class="contact-link" target="_blank" rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn - Nils Malmberg
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <!-- ════════════════ ENGLISH ════════════════ -->
+  <div id="home-content-en" style="display:none">
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <div class="hero-eyebrow">Engineer &amp; Developer</div>
+          <h1>Nils <em>Malmberg</em></h1>
+          <p class="hero-subtitle">Nuclear and energy engineer — double degree from Grenoble INP Phelma &amp; Politecnico di Milano. Passionate about programming, 3D modeling and Linux systems.</p>
+          <div class="hero-cta">
+            <a href="projects.html" class="btn btn-primary">See my projects</a>
+            <a href="cv.html" class="btn btn-secondary">My Resume</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="media/accueil/photo_nils.JPEG" alt="Nils Malmberg photo" width="220" height="220" loading="eager">
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section" id="about-en">
+      <div class="container">
+        <div class="section-label">About</div>
+        <h2 class="section-title">Nuclear engineer, weekend tinkerer</h2>
+        <div class="about-grid">
+          <div class="about-card">
+            <h3>🎓 Education &amp; Background</h3>
+            <p>Graduated from Grenoble INP Phelma in nuclear and energy engineering, with a double degree from Politecnico di Milano. After two years of CPGE (MPSI/PSI*), I developed strong skills in physics and numerical simulation.</p>
+            <div class="about-chips">
+              <span class="chip">Nuclear</span>
+              <span class="chip">Neutronics</span>
+              <span class="chip">CFD</span>
+              <span class="chip">Monte-Carlo</span>
+            </div>
+          </div>
+          <div class="about-card">
+            <h3>💻 Tech &amp; Development</h3>
+            <p>A long-standing passion for programming — I work in Python, C/C++, Rust, and build tools focused on local AI and data. I also run a Ugreen DXP6800 Pro NAS on UGOS with Docker and an Nvidia GPU.</p>
+            <div class="about-chips">
+              <span class="chip">Python</span>
+              <span class="chip">Docker</span>
+              <span class="chip">Ollama</span>
+              <span class="chip">Linux</span>
+              <span class="chip">Rust</span>
+            </div>
+          </div>
+          <div class="about-card">
+            <h3>🖨️ Design &amp; Fabrication</h3>
+            <p>I design parts with Fusion 360 and manufacture them with 3D printing. This hobby led me to model a full custom NAS before acquiring the Ugreen DXP6800 Pro.</p>
+            <div class="about-chips">
+              <span class="chip">Fusion 360</span>
+              <span class="chip">3D Printing</span>
+              <span class="chip">CAD</span>
+            </div>
+          </div>
+          <div class="about-card">
+            <h3>🏒 Beyond Engineering</h3>
+            <p>12 years of ice hockey — a sport that builds discipline and teamwork. I'm also interested in gastronomy, photography, and I'm learning Swedish.</p>
+            <div class="about-chips">
+              <span class="chip">Hockey</span>
+              <span class="chip">Gastronomy</span>
+              <span class="chip">Swedish</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="container">
+        <div class="section-label">Contact</div>
+        <h2 class="section-title">Get in touch</h2>
+        <p style="color:var(--color-text-muted);margin-bottom:var(--space-4);max-width:50ch;">For any question or professional opportunity, feel free to reach out via LinkedIn.</p>
+        <a href="https://www.linkedin.com/in/nils-malmberg/" class="contact-link" target="_blank" rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn – Nils Malmberg
+        </a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-copy">© 2025 Nils Malmberg</span>
+    <div class="footer-links">
+      <a href="index.html">Accueil</a>
+      <a href="cv.html">CV</a>
+      <a href="projects.html">Projets</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

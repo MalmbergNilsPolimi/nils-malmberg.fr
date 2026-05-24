@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="media/favicons/favicon.ico" type="image/x-icon">
+  <title>NAS Lab - Nils Malmberg</title>
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="header-inner">
+  <a href="index.html" class="site-logo"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="currentColor" opacity="0.15"/><path d="M7 21V7h3l7 10V7h3v14h-3L10 11v10H7z" fill="currentColor"/></svg><span>Nils <em>Malmberg</em></span></a>
+  <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <nav id="navbar"><ul>
+    <li><a href="index.html" id="nav-home">Accueil</a></li>
+    <li><a href="cv.html" id="nav-cv">CV</a></li>
+    <li><a href="projects.html" id="nav-projects" class="active">Projets</a></li>
+  </ul></nav>
+  <div class="header-controls">
+    <button class="theme-toggle" aria-label="Basculer le thème"></button>
+    <div id="language-switcher" onclick="toggleLanguageMenu()">
+      <div class="current-language" role="button" tabindex="0"><img src="media/logo/logo_fr.svg" alt="Langue" width="18" height="18"><span class="lang-label">FR</span><span class="arrow-down"></span></div>
+      <div class="language-menu" id="language-menu">
+        <div class="language-option" onclick="changeLanguage('fr')"><img src="media/logo/logo_fr.svg" alt="" width="18" height="18"> Français</div>
+        <div class="language-option" onclick="changeLanguage('en')"><img src="media/logo/logo_en.svg" alt="" width="18" height="18"> English</div>
+      </div>
+    </div>
+  </div>
+</div></header>
+
+<main>
+<!-- ════════ FRANÇAIS ════════ -->
+<div id="project6-content-fr">
+<div class="container project-page">
+  <a href="projects.html" class="project-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Retour aux projets</a>
+  <div class="project-page-header">
+    <h1>Ugreen DXP6800 Pro – NAS Lab</h1>
+  </div>
+  
+  <div class="project-content">
+    <h2>Le matériel</h2>
+    <p>Le NAS <strong>Ugreen DXP6800 Pro</strong> est un NAS de la gamme NASync équipé d'un Intel i5-1235U (10 cœurs). J'y ai installé 64 Go de RAM DDR4 et j'utilise le système d'exploitation fournit par UGREEN : <strong>UGOS</strong> — un système basé sur Debian 12 (Bookworm). J'ai ajouté une carte graphique <strong>Nvidia RTX 3050 (6Gb de VRAM) de la marque Yeston en low-profile</strong> via le slot PCIe (x4) interne pour les workloads IA.</p>
+    <p>Ce NAS est ma plateforme d'expérimentation principale : conteneurs Docker, IA locale, hébergement de services. Les tutos ci-dessous documentent les défis rencontrés et les solutions trouvées.</p>
+    
+    <div class="tuto-toc">
+      <h4>📋 Tutos disponibles</h4>
+      <ol>
+        <li><a href="#tuto-nvidia">Accès au NAS à distance</a></li>
+        <li><a href="#tuto-ollama">Déployer Ollama + OpenWebUI sur le NAS (stack Docker complète)</a></li>
+        <li><a href="#tuto-nvidia">Corriger les packages UGOS pour accéder au GPU Nvidia dans Docker</a></li>
+        <li><a href="#tuto-nvidia">Déployer OpenCode sur le NAS</a></li>
+      </ol>
+    </div>
+    
+    <!-- TUTO 1 -->
+    <h2 id="tuto-ollama">Tuto 1 — Ollama + OpenWebUI sur DXP6800 Pro</h2>
+    <p>Ollama permet de faire tourner des LLM open source(grands modèles de langage) en local. OpenWebUI offre une interface type ChatGPT pour les interroger. L'objectif : une stack IA locale auto-hébergée sur le NAS, accessible depuis mon réseau local.</p>
+    
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">1</span>
+        <span class="tuto-card-title">Prérequis : activer SSH sur UGOS</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body">
+        <p>Dans l'interface UGOS, activer le terminal SSH :</p>
+        <p><strong>Panneau de configuration → Terminal → SSH → Activer → Appliquer</strong></p>
+        <p>Puis se connecter depuis PowerShell ou un terminal :</p>
+        <div class="code-block"><pre>ssh votre_utilisateur@adresse_ip_du_nas</pre></div>
+        <p>Passer en root :</p>
+        <div class="code-block"><pre>sudo -i</pre></div>
+      </div>
+    </div>
+    
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">2</span>
+        <span class="tuto-card-title">Créer le dossier et le fichier docker-compose.yml</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body">
+        <p>Créer un dossier dédié sur le volume de données partagées:</p>
+        <div class="code-block"><pre>mkdir -p /volume1/docker/ai-stack
+          cd /volume1/docker/ai-stack
+          vim docker-compose.yml</pre></div>
+          <p>Coller la configuration suivante :</p>
+          <div class="code-label">docker-compose.yml</div>
+          <div class="code-block"><pre>services:
+            
+  ollama:
+  image: ollama/ollama:latest
+  container_name: ollama
+  restart: unless-stopped
+  ports:
+  - "11434:11434"
+  volumes:
+  - ollama_data:/root/.ollama
+  deploy:
+  resources:
+  reservations:
+  devices:
+  - driver: nvidia
+  count: all
+  capabilities: [gpu]
+  environment:
+  - OLLAMA_HOST=0.0.0.0
+  - OLLAMA_ORIGINS=*
+  healthcheck:
+  test: ["CMD", "ollama", "list"]
+  interval: 30s
+      timeout: 10s
+      retries: 3
+
+  open-webui:
+  image: ghcr.io/open-webui/open-webui:main
+  container_name: open-webui
+    restart: unless-stopped
+    ports:
+      - "3000:8080"
+    volumes:
+      - open_webui_data:/app/backend/data
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - WEBUI_SECRET_KEY=changez_cette_cle_secrete
+    depends_on:
+      ollama:
+      condition: service_healthy
+      
+      volumes:
+  ollama_data:
+  open_webui_data:</pre></div>
+        <p>Sauvegarder : <kbd>:wq</kbd></p>
+      </div>
+    </div>
+
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">3</span>
+        <span class="tuto-card-title">Lancer la stack et accéder à l'interface</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body">
+        <div class="code-block"><pre>docker compose up -d</pre></div>
+        <p>Attendre quelques minutes le téléchargement des images. Une fois démarré, ouvrir dans le navigateur :</p>
+        <div class="code-block"><pre>http://&lt;ip_nas&gt;:3000/</pre></div>
+        <p>Créer un compte administrateur, puis importer un modèle depuis l'interface (ex. : <code>llama3.2</code>, <code>qwen2.5</code>).</p>
+        <div class="warning-block"><strong>⚠️ Note :</strong> Si le NAS se déconnecte brièvement au démarrage de la stack, c'est normal — la montée en charge réseau de Docker peut temporairement saturer la connexion.</div>
+      </div>
+    </div>
+
+    <!-- TUTO 2 -->
+    <h2 id="tuto-nvidia">Tuto 2 — Corriger les packages UGOS pour le GPU Nvidia dans Docker</h2>
+    <p>Le problème est classique : les drivers Nvidia et CUDA/cuDNN sont installés sur le NAS (disponibles dans le store ugreen), mais il manque le <strong>NVIDIA Container Toolkit</strong> — le composant qui fait le pont entre Docker et les drivers GPU. Sans lui, Docker ne voit pas la carte graphique.</p>
+    <p>Sur UGOS (Debian 12), une difficulté supplémentaire vient des dépôts locaux CUDA/cuDNN installés par Ugreen qui ont des fichiers <code>Release</code> manquants, bloquant <code>apt</code>.</p>
+
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">1</span>
+        <span class="tuto-card-title">Ajouter le dépôt NVIDIA Container Toolkit</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body">
+        <p>En SSH en tant que root :</p>
+        <div class="code-block"><pre>curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey \
+          | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
+
+          curl -fsSL https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list \
+  | sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' \
+  | sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+
+  sudo apt-get update</pre></div>
+  <p>Si vous voyez des erreurs du type <em>"The repository does not have a Release file"</em> pour les dépôts CUDA locaux, passez à l'étape suivante.</p>
+</div>
+</div>
+
+<div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">2</span>
+        <span class="tuto-card-title">Désactiver les dépôts CUDA/cuDNN locaux cassés</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body">
+        <p>Les dépôts locaux installés par UGOS pour CUDA 12.8 et cuDNN 9.10.0 ont des fichiers <code>Release</code> manquants. Il faut les désactiver temporairement :</p>
+        <div class="code-block"><pre>sudo mv /etc/apt/sources.list.d/cuda-debian12-12-8-local.list /tmp/ 2>/dev/null || true
+sudo mv /etc/apt/sources.list.d/cudnn-local-repo-debian12-9.10.0.list /tmp/ 2>/dev/null || true</pre></div>
+        <div class="warning-block"><strong>Pourquoi ?</strong> Ces dépôts locaux pointent vers des fichiers <code>/var/cuda-repo-*/Release</code> absents. Apt refuse alors de mettre à jour, bloquant toute installation.</div>
+      </div>
+    </div>
+    
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">3</span>
+        <span class="tuto-card-title">Réparer les dépendances et installer le toolkit</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body">
+        <div class="code-block"><pre># Mettre à jour les listes de paquets
+          sudo apt-get update
+
+# Corriger les dépendances cassées (libglib2.0, libexiv2, etc.)
+sudo apt --fix-broken install -y
+
+# Installer le NVIDIA Container Toolkit
+sudo apt-get install -y nvidia-container-toolkit</pre></div>
+        <p>Cette séquence installe <code>libnvidia-container1</code>, <code>libnvidia-container-tools</code>, <code>nvidia-container-toolkit-base</code> et <code>nvidia-container-toolkit</code>.</p>
+      </div>
+    </div>
+    
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">4</span>
+        <span class="tuto-card-title">Configurer Docker et vérifier l'accès GPU</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body">
+        <p>Configurer le runtime NVIDIA pour Docker :</p>
+        <div class="code-block"><pre>sudo nvidia-ctk runtime configure --runtime=docker
+sudo systemctl restart docker</pre></div>
+<p>Vérifier que Docker voit bien le GPU :</p>
+        <div class="code-block"><pre>docker run --rm --gpus all nvidia/cuda:12.0-base nvidia-smi</pre></div>
+        <p>Si la commande affiche les infos de votre carte Nvidia, tout est en ordre. Vous pouvez maintenant relancer la stack Ollama avec accélération GPU.</p>
+      </div>
+    </div>
+
+  </div>
+  <a href="projects.html" class="btn btn-secondary">Retour</a>
+  <br><br>
+  <div class="project-meta">
+    <span class="tag">NAS</span><span class="tag">Linux</span><span class="tag">Docker</span>
+    <span class="tag">Ollama</span><span class="tag">LLM</span><span class="tag">en cours</span>
+  </div>
+</div>
+</div>
+
+<!-- ════════ ENGLISH ════════ -->
+<div id="project6-content-en" style="display:none">
+<div class="container project-page">
+  <a href="projects.html" class="project-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Back to projects</a>
+  <div class="project-page-header">
+    <div class="project-meta">
+      <span class="tag">NAS</span><span class="tag">Docker</span><span class="tag">NVIDIA</span>
+      <span class="tag">Ollama</span><span class="tag">UGOS</span><span class="tag">2024–present</span>
+    </div>
+    <h1>Ugreen DXP6800 Pro – NAS Lab</h1>
+  </div>
+
+  <div class="project-content">
+    <h2>The Hardware</h2>
+    <p>The <strong>Ugreen DXP6800 Pro</strong> is a NAS from the NASync lineup, powered by an Intel i5-1235U (10 cores), 64 GB DDR4 RAM, running <strong>UGOS</strong> — a Debian 12 (Bookworm) based OS. I added an <strong>Nvidia GPU</strong> via the internal PCIe slot for AI workloads.</p>
+    <p>This NAS is my main experimentation platform: Docker containers, local AI, self-hosted services. The tutorials below document the challenges encountered and solutions found.</p>
+
+    <div class="tuto-toc">
+      <h4>📋 Available tutorials</h4>
+      <ol>
+        <li><a href="#tuto-ollama-en">Deploy Ollama + OpenWebUI on the NAS (full Docker stack)</a></li>
+        <li><a href="#tuto-nvidia-en">Fix UGOS packages to access the Nvidia GPU in Docker</a></li>
+      </ol>
+    </div>
+
+    <h2 id="tuto-ollama-en">Tutorial 1 — Ollama + OpenWebUI on DXP6800 Pro</h2>
+    <p>Ollama runs LLMs locally. OpenWebUI provides a ChatGPT-like interface. Goal: a self-hosted local AI stack accessible from the local network.</p>
+
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">1</span>
+        <span class="tuto-card-title">Enable SSH on UGOS</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body">
+        <p><strong>Control Panel → Terminal → SSH → Enable → Apply</strong></p>
+        <div class="code-block"><pre>ssh your_user@192.168.1.XX
+sudo -i</pre></div>
+      </div>
+    </div>
+
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">2</span>
+        <span class="tuto-card-title">Create the docker-compose.yml</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body">
+        <div class="code-block"><pre>mkdir -p /volume1/docker/ai-stack
+cd /volume1/docker/ai-stack
+nano docker-compose.yml</pre></div>
+        <div class="code-label">docker-compose.yml</div>
+        <div class="code-block"><pre>services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+      - OLLAMA_ORIGINS=*
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    restart: unless-stopped
+    ports:
+      - "3000:8080"
+    volumes:
+      - open_webui_data:/app/backend/data
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - WEBUI_SECRET_KEY=change_this_secret_key
+    depends_on:
+      ollama:
+        condition: service_healthy
+
+volumes:
+  ollama_data:
+  open_webui_data:</pre></div>
+      </div>
+    </div>
+
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">3</span>
+        <span class="tuto-card-title">Start and access the interface</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body">
+        <div class="code-block"><pre>docker compose up -d</pre></div>
+        <p>Then open: <code>http://&lt;nas_ip&gt;:3000/</code> — create an admin account and pull a model.</p>
+      </div>
+    </div>
+
+    <h2 id="tuto-nvidia-en">Tutorial 2 — Fix UGOS packages for Nvidia GPU in Docker</h2>
+    <p>The classic issue: Nvidia drivers and CUDA/cuDNN are installed, but the <strong>NVIDIA Container Toolkit</strong> — the bridge between Docker and the GPU drivers — is missing. UGOS also ships broken local CUDA/cuDNN repos that block <code>apt</code>.</p>
+
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">1</span>
+        <span class="tuto-card-title">Add the NVIDIA Container Toolkit repository</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body">
+        <div class="code-block"><pre>curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey \
+  | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
+
+curl -fsSL https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list \
+  | sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' \
+  | sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+
+sudo apt-get update</pre></div>
+      </div>
+    </div>
+
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">2</span>
+        <span class="tuto-card-title">Disable broken local CUDA/cuDNN repos</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body">
+        <div class="code-block"><pre>sudo mv /etc/apt/sources.list.d/cuda-debian12-12-8-local.list /tmp/ 2>/dev/null || true
+sudo mv /etc/apt/sources.list.d/cudnn-local-repo-debian12-9.10.0.list /tmp/ 2>/dev/null || true</pre></div>
+        <div class="warning-block"><strong>Why?</strong> Ugreen's local repos point to missing <code>Release</code> files, causing apt to fail on every update.</div>
+      </div>
+    </div>
+
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">3</span>
+        <span class="tuto-card-title">Fix dependencies and install the toolkit</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body">
+        <div class="code-block"><pre>sudo apt-get update
+sudo apt --fix-broken install -y
+sudo apt-get install -y nvidia-container-toolkit</pre></div>
+      </div>
+    </div>
+
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">4</span>
+        <span class="tuto-card-title">Configure Docker and verify GPU access</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body">
+        <div class="code-block"><pre>sudo nvidia-ctk runtime configure --runtime=docker
+sudo systemctl restart docker
+docker run --rm --gpus all nvidia/cuda:12.0-base nvidia-smi</pre></div>
+        <p>If the command shows your GPU info, you're all set. Restart the Ollama stack with GPU acceleration.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</main>
+<footer><div class="footer-inner"><span class="footer-copy">© 2025 Nils Malmberg</span><div class="footer-links"><a href="index.html">Accueil</a><a href="cv.html">CV</a><a href="projects.html">Projets</a></div></div></footer>
+<script src="script.js"></script>
+</body></html>

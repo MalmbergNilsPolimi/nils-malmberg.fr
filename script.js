@@ -1,137 +1,148 @@
-// script.js
+// ── Theme toggle ──
+(function() {
+  const root = document.documentElement;
+  const savedTheme = sessionStorage.getItem('theme');
+  const sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  let currentTheme = savedTheme || (sysDark ? 'dark' : 'light');
+  root.setAttribute('data-theme', currentTheme);
 
-// Fonction pour changer la langue
+  function applyThemeIcon(btn, theme) {
+    if (!btn) return;
+    btn.setAttribute('aria-label', theme === 'dark' ? 'Passer en mode clair' : 'Passer en mode sombre');
+    btn.innerHTML = theme === 'dark'
+      ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+      : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.querySelector('.theme-toggle');
+    applyThemeIcon(btn, currentTheme);
+    if (btn) {
+      btn.addEventListener('click', function() {
+        currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', currentTheme);
+        sessionStorage.setItem('theme', currentTheme);
+        applyThemeIcon(btn, currentTheme);
+      });
+    }
+  });
+})();
+
+// ── Language system ──
 function changeLanguage(language) {
-    // Définir la langue sélectionnée
-    document.documentElement.lang = language;
+  document.documentElement.lang = language;
 
-    // Mettre à jour le contenu de la navigation en fonction de la langue
-    document.getElementById('nav-home').innerText = (language === 'fr') ? 'Accueil' : 'Home';
-    document.getElementById('nav-cv').innerText = (language === 'fr') ? 'CV' : 'Resume';
-    document.getElementById('nav-projects').innerText = (language === 'fr') ? 'Projets' : 'Projects';
+  const navHome = document.getElementById('nav-home');
+  const navCv = document.getElementById('nav-cv');
+  const navProjects = document.getElementById('nav-projects');
+  if (navHome) navHome.textContent = language === 'fr' ? 'Accueil' : 'Home';
+  if (navCv) navCv.textContent = language === 'fr' ? 'CV' : 'Resume';
+  if (navProjects) navProjects.textContent = language === 'fr' ? 'Projets' : 'Projects';
 
-    // Mettre à jour d'autres éléments de la page en fonction de la langue
+  const flagImage = document.querySelector('.current-language img');
+  if (flagImage) flagImage.src = `media/logo/logo_${language}.svg`;
 
-    // Mettre à jour l'image du drapeau dans le switcher de langue
-    const flagImage = document.querySelector('.current-language img');
-    flagImage.src = `media/logo/logo_${language}.svg`;
+  const langText = document.querySelector('.current-language .lang-label');
+  if (langText) langText.textContent = language === 'fr' ? 'FR' : 'EN';
 
-    // Cacher le menu déroulant
-    const languageMenu = document.getElementById('language-menu');
-    languageMenu.style.display = 'none';
+  const menu = document.getElementById('language-menu');
+  if (menu) menu.style.display = 'none';
 
-    
-    // Obtenir le chemin d'accès de l'URL
-    const pathName = window.location.pathname;
-    // Extraire le nom de la page à partir du chemin d'accès
-    let currentPage = pathName.substring(pathName.lastIndexOf('/') + 1).replace('.html', '');
-    if (currentPage=="index") {
-        currentPage="home"
-    }
+  const pathName = window.location.pathname;
+  let currentPage = pathName.substring(pathName.lastIndexOf('/') + 1).replace('.html', '');
+  if (currentPage === 'index' || currentPage === '') currentPage = 'home';
 
-    // Mettre à jour le texte de la page
-    updateContent(language, currentPage);
+  updateContent(language, currentPage);
 
-    // Sauvegarder la langue sélectionnée dans le stockage local du navigateur
-    localStorage.setItem('language', language);
-}
-
-// Fonction pour afficher/cacher le menu déroulant
-function toggleLanguageMenu() {
-    const languageMenu = document.getElementById('language-menu');
-    const currentLanguage = document.querySelector('.current-language');
-
-    if (languageMenu.style.display === 'block') {
-        languageMenu.style.display = 'none';
-    } else {
-        languageMenu.style.display = 'block';
-        languageMenu.style.top = `${currentLanguage.offsetHeight}px`; // Ajustez si nécessaire
-    }
-}
-
-// Fonction pour gérer l'affichage du menu déroulant au survol
-function toggleLanguageMenuOnHover() {
-    const languageSwitcher = document.getElementById('language-switcher');
-    const languageMenu = document.getElementById('language-menu');
-
-    languageSwitcher.addEventListener('mouseenter', function () {
-        languageMenu.style.display = 'flex';
-    });
-
-    languageSwitcher.addEventListener('mouseleave', function () {
-        languageMenu.style.display = 'none';
-    });
-}
-
-// Fonction pour gérer le soulignement au survol des options du menu
-function handleHoverEffectOnOptions() {
-    const languageOptions = document.querySelectorAll('.language-option');
-
-    languageOptions.forEach(function (option) {
-        option.addEventListener('mouseenter', function () {
-            option.style.textDecoration = 'underline';
-        });
-
-        option.addEventListener('mouseleave', function () {
-            option.style.textDecoration = 'none';
-        });
-    });
-}
-
-// Fonction pour gérer le soulignement au survol des éléments de la bannière
-function handleHoverEffectOnNavLinks() {
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    navLinks.forEach(function (link) {
-        link.addEventListener('mouseenter', function () {
-            link.style.textDecoration = 'underline';
-        });
-
-        link.addEventListener('mouseleave', function () {
-            link.style.textDecoration = 'none';
-        });
-    });
+  try { localStorage.setItem('language', language); } catch(e) {}
 }
 
 function updateContent(language, page) {
-    const pageContentFr = document.getElementById(`${page}-content-fr`);
-    const pageContentEn = document.getElementById(`${page}-content-en`);
-
-    if (language === 'fr') {
-        pageContentFr.style.display = 'block';
-        pageContentEn.style.display = 'none';
-    } else {
-        pageContentFr.style.display = 'none';
-        pageContentEn.style.display = 'block';
-    }
+  const fr = document.getElementById(`${page}-content-fr`);
+  const en = document.getElementById(`${page}-content-en`);
+  if (fr) fr.style.display = language === 'fr' ? 'block' : 'none';
+  if (en) en.style.display = language === 'fr' ? 'none' : 'block';
 }
 
+function toggleLanguageMenu() {
+  const menu = document.getElementById('language-menu');
+  if (!menu) return;
+  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+}
 
+// ── Mobile nav burger ──
+document.addEventListener('DOMContentLoaded', function() {
+  const burger = document.querySelector('.burger');
+  const navbar = document.getElementById('navbar');
+  if (burger && navbar) {
+    burger.addEventListener('click', function() {
+      navbar.classList.toggle('open');
+    });
+  }
 
-// Initialiser la gestion du survol des éléments de la bannière
-handleHoverEffectOnNavLinks();
+  // Language menu hover
+    const switcher = document.getElementById('language-switcher');
+    const menu = document.getElementById('language-menu');
 
-// Initialiser la gestion du survol du menu déroulant
-toggleLanguageMenuOnHover();
+    if (switcher && menu) {
+    let closeTimeout;
 
-// Initialiser la gestion du survol des options du menu
-handleHoverEffectOnOptions();
+    const openMenu = () => {
+        clearTimeout(closeTimeout);
+        menu.style.display = 'flex';
+    };
 
-// Initialiser la langue du document
-const browserLanguage = navigator.language.substr(0, 2);
-const savedLanguage = localStorage.getItem('language') || browserLanguage;
+    const closeMenu = () => {
+        closeTimeout = setTimeout(() => {
+        menu.style.display = 'none';
+        }, 300); // 150–300ms recommandé
+    };
 
-changeLanguage(savedLanguage);
+    switcher.addEventListener('mouseenter', openMenu);
+    switcher.addEventListener('mouseleave', closeMenu);
 
+    menu.addEventListener('mouseenter', openMenu);
+    menu.addEventListener('mouseleave', closeMenu);
+    }
 
-// Load keywords
-document.addEventListener("DOMContentLoaded", function() {
-    fetch('keywords.json')
-        .then(response => response.json())
-        .then(data => {
-            const keywords = data.keywords.join(', ');
-            document.getElementById('meta-keywords').setAttribute('content', keywords);
-            // console.log('Keywords loaded:', keywords);
-        })
-        .catch(error => console.error('Error loading keywords:', error));
+  // Close menu on outside click
+  document.addEventListener('click', function(e) {
+    if (menu && switcher && !switcher.contains(e.target)) {
+      menu.style.display = 'none';
+    }
+  });
+
+  // Tuto accordion
+  document.querySelectorAll('.tuto-card-header').forEach(function(header) {
+    header.addEventListener('click', function() {
+      const body = header.nextElementSibling;
+      const isOpen = body && body.classList.contains('open');
+      // close all
+      document.querySelectorAll('.tuto-card-body').forEach(b => b.classList.remove('open'));
+      document.querySelectorAll('.tuto-card-header').forEach(h => h.classList.remove('open'));
+      if (!isOpen && body) {
+        body.classList.add('open');
+        header.classList.add('open');
+      }
+    });
+  });
+
+  // Init language
+  let savedLang;
+  try { savedLang = localStorage.getItem('language'); } catch(e) {}
+  const browserLang = (navigator.language || 'fr').substring(0, 2);
+  changeLanguage(savedLang || (browserLang === 'fr' ? 'fr' : 'en'));
+
+  // Mark active nav
+  const pathName = window.location.pathname;
+  const currentPage = pathName.substring(pathName.lastIndexOf('/') + 1).replace('.html', '');
+  document.querySelectorAll('#navbar a').forEach(function(a) {
+    const href = a.getAttribute('href') || '';
+    const linkPage = href.replace('.html', '').replace('index', '');
+    if ((currentPage === '' || currentPage === 'index') && (linkPage === '' || href === 'index.html')) {
+      a.classList.add('active');
+    } else if (currentPage && href.includes(currentPage)) {
+      a.classList.add('active');
+    }
+  });
 });

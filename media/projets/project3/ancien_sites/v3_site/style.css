@@ -1,0 +1,523 @@
+/* General styles */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    text-align: justify;
+    font-size: 18px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.container {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.containerbar {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center; /* Centre les éléments verticalement */
+    justify-content: space-between; /* Espace équitablement entre les éléments */
+}
+
+.logo-left {
+    flex: 0 0 auto; /* Les logos ne vont pas se réduire */
+}
+
+.logo-left img {
+    width: 50px; /* Taille du logo */
+    height: auto;
+}
+
+#navbar {
+    flex: 1; /* La colonne centrale prend tout l'espace disponible */
+    text-align: center; /* Centre les éléments du nav */
+}
+
+#navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+    display: flex;
+    justify-content: center; /* Centre les éléments de la liste */
+}
+
+#navbar ul li:last-child {
+    margin-right: 1%; /* Aucun margin à droite pour le dernier élément */
+}
+
+#navbar ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+#navbar ul li a.active {
+    font-weight: bold;
+}
+
+#about .profile img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    object-position: top;
+}
+
+h2 {
+    font-size: 30px;
+    margin-top: 60px;
+}
+
+.profile {
+    text-align: center;
+}
+
+.about-logo img {
+    width: 50px;
+    height: auto;
+    margin-inline: 10px;
+    display: block;
+}
+
+.about-logo {
+    text-align: center;
+}
+
+.about-uni {
+    text-align: center;
+}
+
+.about-uni img {
+    width: 300px;
+    height: auto;
+    margin-inline: 10px;
+}
+
+.about-loisirs {
+    text-align: center;
+    padding: 20px;
+}
+
+.about-loisirs img {
+    width: 30%;
+    height: auto;
+    border-radius: 20px;
+    margin-inline: 10px;
+    box-shadow: 10px 10px 10px #848484, -10px -10px 10px #ffffff;
+}
+
+.about-contact img {
+    width: 80px;
+    height: auto;
+    margin-inline: 10px;
+    display: block;
+}
+
+.about-contact {
+    text-align: center;
+}
+
+a {
+    display: inline-block;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+}
+
+nav a:hover {
+    text-shadow: 0 0 5px rgba(89, 89, 202, 0.5);
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+nav ul li a.active {
+    font-weight: bold;
+}
+
+main {
+    padding: 40px 0;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+section h2 {
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+
+/* Styles pour les éléments de CV */
+.cv-item {
+    display: flex; /* Utilisation de flexbox pour la disposition en colonnes */
+    align-items: center; /* Alignement vertical en haut */
+    margin-bottom: 40px;
+}
+
+.cv-image {
+    flex: 0 0 175px; /* Largeur fixe de 200px pour la colonne de l'image */
+    margin-right: 30px; /* Espace entre l'image et le texte */
+}
+
+.cv-image img {
+    width: 100%; 
+    height: auto;
+    object-fit: cover; /* Pour que l'image remplisse la zone sans être déformée */
+}
+
+.cv-content {
+    flex: 1; /* La colonne de texte prend l'espace restant */
+}
+
+.container h3 {
+    font-size: 25px;
+}
+
+.cv-content h4 {
+    font-size: 20px;
+}
+
+/* Media query pour les petits écrans */
+@media (max-width: 768px) {
+    .cv-item {
+        flex-direction: column; /* Disposition en colonne sur les petits écrans */
+    }
+
+    .cv-image {
+        flex: 0 0 100%; /* L'image prend toute la largeur sur les petits écrans */
+        margin-right: 0;
+        margin-bottom: 10px; 
+    }
+
+    .containerbar {
+        max-width: 100%;
+        align-items: center; /* Centre les éléments verticalement */
+        justify-content: space-between; /* Espace équitablement entre les éléments */
+        flex-direction: column;
+    }
+
+    #language-switcher {
+        position: relative;
+        /* margin-right: 40px; */
+        margin-top: 20px;
+    }
+}
+
+.skills-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.skills-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.skills-list li span {
+    font-weight: bold;
+}
+
+.skills-list .advanced {
+    background-color: #2ed9a6;
+    border-left: 5px solid #007451;
+}
+
+.skills-list .intermediate {
+    background-color: #4cc9c4;
+    border-left: 5px solid #005c59;
+}
+
+.skills-list .beginner {
+    background-color: #5aadd3;
+    border-left: 5px solid #004463;
+}
+
+.languages-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.languages-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #6391dd;
+    border-left: 5px solid #01245c;
+}
+
+.languages-list li span {
+    font-weight: bold;
+}
+
+.project {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.project h3 {
+    margin-top: 0;
+}
+
+.project h3 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.project p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.project-summary {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 30px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    background-color: #e9e8e8;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.project-summary-item {
+    margin: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.project-summary-item a {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/*
+19f2a9
+2ed9a6
+4cc9c4
+5aadd3
+6391dd
+6973e7
+*/
+
+.project1-summary {
+    background-color: #6973e7;
+    border-left: 5px solid #000647;
+}
+
+.project1-summary a {
+    color: #000000;
+}
+
+.project1 {
+    background-color: #6973e7;
+    border-left: 5px solid #000647;
+}
+
+.project2-summary {
+    background-color: #6391dd;
+    border-left: 5px solid #011e4d;
+}
+
+.project2-summary a {
+    color: #000000;
+}
+.project2 {
+    background-color: #6391dd;
+    border-left: 5px solid #011e4d;
+}
+
+.project3-summary {
+    background-color: #5aadd3;
+    border-left: 5px solid #013953;
+}
+
+.project3-summary a {
+    color: #000000;
+}
+
+.project3 {
+    background-color: #5aadd3;
+    border-left: 5px solid #013953;
+}
+
+.project4-summary {
+    background-color: #4cc9c4;
+    border-left: 5px solid #013b39;
+}
+
+.project4-summary a {
+    color: #000000;
+}
+
+.project4 {
+    background-color: #4cc9c4;
+    border-left: 5px solid #013b39;
+}
+
+.project5-summary {
+    background-color: #2ed9a6;
+    border-left: 5px solid #014934;
+}
+
+.project5-summary a {
+    color: #000000;
+}
+
+.project5 {
+    background-color: #2ed9a6;
+    border-left: 5px solid #014934;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+#language-switcher {
+    position: relative;
+    /* margin-right: 40px; */
+}
+
+.current-language {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.arrow-down {
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    margin-left: 5px;
+}
+
+.language-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    right: 0px; /* Ajustez si nécessaire */
+    background-color: #fff;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+}
+
+.language-option {
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.current-language img,
+.language-option img {
+    width: 20px; /* Ajustez la largeur souhaitée */
+    height: 20px; /* Ajustez la hauteur souhaitée */
+    margin-right: 10px;
+}
+
+.tikz {
+    text-align: center;
+}
+
+.tikz img {
+    width: 70%;
+    height: auto;
+}
+
+.project4-img {
+    text-align: center;
+    padding: 20px;
+}
+
+.project4-img img {
+    width: 40%;
+    height: auto;
+}
+
+.button-div {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.button-div a {
+    margin-inline: 10px;
+    margin-bottom: 15px;
+}
+
+.button2 {
+    background: linear-gradient(0deg,#A47CF3,#683FEA);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.button2:hover {
+    background: linear-gradient(0deg,#A47CF3,#683FEA);
+    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+    inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+    0px 0px 20px 0px #9917FF;
+    transform: translateY(-2px);
+}

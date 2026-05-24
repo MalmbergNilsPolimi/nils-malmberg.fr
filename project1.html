@@ -1,91 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="media/favicons/favicon.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-    <!-- <meta name="keywords" content="engineering, ingénieur, ingénierie, nuclear, nucléaire, quantique, quantum, fluid, fluide, mécanique, CDF, ansys, fluent, mechanics, materials, matériaux, électronique, electronics, PHELMA, Grenoble INP, Grenoble, French, Français, Anglais, English, LaTeX, Python, Matlab, C, C++, SQL, HTML, CSS, JavaScript, js, PHP, computing, programmation, code, projet, projects, nils, selma, richard, nathalie, malmberg, POLIMI, Milan, Milano, Italie, Italy, Politecnico, NAS, interpolation, mdisd"> -->
-    <meta name="keywords" id="meta-keywords" content="">
-    <title>Nils Malmberg - Projets</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="media/favicons/favicon.ico" type="image/x-icon">
+  <title>TIPE - Nils Malmberg</title>
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="containerbar">
-            <div class="logo-left">
-                <a href="index.html">
-                    <img src="media/favicons/apple-touch-icon-57x57.png" alt="Logo">
-                </a>
-            </div>
-            <nav id="navbar">
-                <ul>
-                    <li><a href="index.html" id="nav-home">Accueil</a></li>
-                    <li><a href="cv.html" id="nav-cv">CV</a></li>
-                    <li><a href="projects.html" class="active" id="nav-projects">Projets</a></li>
-                </ul>
-            </nav>
-            <div id="language-switcher">
-                <div class="current-language" onclick="toggleLanguageMenu()">
-                    <img  src="media/logo/logo_fr.svg" alt="Français">
-                    <div class="arrow-down"></div>
-                </div>
-                <div class="language-menu" id="language-menu">
-                    <div class="language-option" onclick="changeLanguage('fr')">
-                        <img src="media/logo/logo_fr.svg" alt="Français">
-                        <span>Français (FR)</span>
-                    </div>
-                    <div class="language-option" onclick="changeLanguage('en')">
-                        <img src="media/logo/logo_en.svg" alt="English">
-                        <span>English (EN)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    
-    <main id="project1-content-fr">
-        <section id="project">
-            <div class="container">
-                <h2>TIPE : Modélisation d'un système d'exploitation des énergies houlomotrices (Searev).</h2>
-                <p>Pendant mes deux années de classe préparatoire aux grandes écoles, j'ai travaillé sur un projet appelé TIPE (Travail d'Initiative Personnelle Encadré). 
-                    Dans le cadre du thème "Enjeux Sociétaux", j'ai choisi de modéliser numériquement le Searev, un dispositif innovant pour convertir l'énergie de la houle 
-                    en électricité à l'aide d'une bouée et d'une masse pendulaire. Mon objectif était d'étudier l'efficacité de ce système et de réaliser un prototype.</p>
-            </div>
-            <center>
-                <div>
-                    <a href="projects.html" class="button">Retour</a>
-                    <a href="media/projets/project1/TIPE_nils-malmberg.fr.zip" class="button">Télécharger le projet</a>
-                </div>
-            </center>
-        </section>
-    </main>
-
-    <main id="project1-content-en">
-        <section id="project">
-            <div class="container">
-                <h2>TIPE: Modeling of a wave energy exploitation system (Searev).</h2>
-                <p>During my two-year university intensive course, I worked on a project called TIPE (Supervised Personal Initiative Work). As part of the "Societal Issues"
-                    theme, I chose to numerically model the Searev, an innovative device for converting wave energy into electricity using a buoy and a pendulum mass. 
-                    My goal was to study the effectiveness of this system and create a prototype.</p>
-            </div>
-            <center>
-                <div>
-                    <a href="projects.html" class="button">Back</a>
-                    <a href="media/projets/project1/TIPE_nils-malmberg.fr.zip" class="button">Download the project</a>
-                </div>
-            </center>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Nils Malmberg</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<header><div class="header-inner">
+  <a href="index.html" class="site-logo"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="currentColor" opacity="0.15"/><path d="M7 21V7h3l7 10V7h3v14h-3L10 11v10H7z" fill="currentColor"/></svg><span>Nils <em>Malmberg</em></span></a>
+  <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <nav id="navbar"><ul>
+    <li><a href="index.html" id="nav-home">Accueil</a></li>
+    <li><a href="cv.html" id="nav-cv">CV</a></li>
+    <li><a href="projects.html" id="nav-projects" class="active">Projets</a></li>
+  </ul></nav>
+  <div class="header-controls">
+    <button class="theme-toggle" aria-label="Basculer le thème"></button>
+    <div id="language-switcher" onclick="toggleLanguageMenu()">
+      <div class="current-language" role="button" tabindex="0"><img src="media/logo/logo_fr.svg" alt="Langue" width="18" height="18"><span class="lang-label">FR</span><span class="arrow-down"></span></div>
+      <div class="language-menu" id="language-menu">
+        <div class="language-option" onclick="changeLanguage('fr')"><img src="media/logo/logo_fr.svg" alt="" width="18" height="18"> Français</div>
+        <div class="language-option" onclick="changeLanguage('en')"><img src="media/logo/logo_en.svg" alt="" width="18" height="18"> English</div>
+      </div>
+    </div>
+  </div>
+</div></header>
+<main>
+  <div id="project1-content-fr">
+    <div class="container project-page">
+      <a href="projects.html" class="project-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Retour aux projets</a>
+      <div class="project-page-header">
+        <h1>TIPE - Modélisation du Searev</h1>
+      </div>
+      <div class="project-content">
+        <h2>Contexte</h2>
+        <p>Pendant mes deux années de classe préparatoire aux grandes écoles, j'ai travaillé sur un projet de TIPE (Travail d'Initiative Personnelle Encadré) dans le cadre du thème « Enjeux Sociétaux ». J'ai choisi de modéliser numériquement le <strong>Searev</strong> (Système Électrique Autonome de Récupération de l'Énergie des Vagues), un dispositif innovant pour convertir l'énergie de la houle en électricité.</p>
+        <h2>Principe du Searev</h2>
+        <p>Le Searev est une bouée flottante contenant une masse pendulaire. Le mouvement oscillatoire de la houle fait basculer la bouée, mettant en mouvement le pendule. L'énergie mécanique de ce pendule est ensuite convertie en électricité via un générateur.</p>
+        <img src="media/projets/project1/searev.webp" alt="Schéma du Searev" width="450" height="220" loading="eager" style="display:block; margin:0 auto;">
+        <h2>Approche numérique</h2>
+        <p>Mon objectif était de modéliser ce système dynamique et d'étudier l'efficacité de la conversion d'énergie en fonction des paramètres de la houle et du dispositif. J'ai mis en œuvre une simulation numérique en Python et réalisé un prototype.</p>
+      </div>
+      <a href="projects.html" class="btn btn-secondary">Retour</a>
+      <a href="media/projets/project1/TIPE_nils-malmberg.fr.zip" class="btn btn-primary">Télécharger le projet</a>
+      <br><br>
+      <div class="project-meta"><span class="tag">CPGE</span><span class="tag">2019-2021</span><span class="tag">Python</span><span class="tag">Physique</span><span class="tag">Energie</span></div>
+    </div>
+  </div>
+  <div id="project1-content-en" style="display:none">
+    <div class="container project-page">
+      <a href="projects.html" class="project-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Back to projects</a>
+      <div class="project-page-header">
+        <div class="project-meta"><span class="tag">CPGE</span><span class="tag">2019–2021</span><span class="tag">Python</span><span class="tag">Physics</span></div>
+        <h1>TIPE – Searev Wave Energy System</h1>
+      </div>
+      <div class="project-content">
+        <h2>Context</h2>
+        <p>During my two years of preparatory classes (CPGE), I worked on a TIPE project on the theme "Societal Issues". I chose to numerically model the <strong>Searev</strong>, an innovative device for converting wave energy into electricity using a floating buoy and a pendulum mass.</p>
+        <h2>Numerical Approach</h2>
+        <p>My goal was to model this dynamic system and study energy conversion efficiency as a function of wave and device parameters, using Python-based numerical simulation (Runge-Kutta method).</p>
+        <h2>Achievements</h2>
+        <ul>
+          <li>Modeling of the coupled buoy-pendulum equations of motion</li>
+          <li>Numerical simulation in Python</li>
+          <li>Parametric study of device efficiency</li>
+          <li>Realization of a simplified physical prototype</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+<footer><div class="footer-inner"><span class="footer-copy">© 2025 Nils Malmberg</span><div class="footer-links"><a href="index.html">Accueil</a><a href="cv.html">CV</a><a href="projects.html">Projets</a></div></div></footer>
+<script src="script.js"></script>
+</body></html>

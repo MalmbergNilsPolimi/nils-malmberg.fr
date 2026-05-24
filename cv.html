@@ -1,373 +1,326 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="media/favicons/favicon.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-    <!-- <meta name="keywords" content="engineering, ingénieur, ingénierie, nuclear, nucléaire, quantique, quantum, fluid, fluide, mécanique, CDF, ansys, fluent, mechanics, materials, matériaux, électronique, electronics, PHELMA, Grenoble INP, Grenoble, French, Français, Anglais, English, LaTeX, Python, Matlab, C, C++, SQL, HTML, CSS, JavaScript, js, PHP, computing, programmation, code, projet, projects, nils, selma, richard, nathalie, malmberg, POLIMI, Milan, Milano, Italie, Italy, Politecnico, NAS, interpolation, mdisd"> -->
-    <meta name="keywords" id="meta-keywords" content="">
-    <title>Nils Malmberg - CV</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="media/favicons/favicon.ico" type="image/x-icon">
+  <title>CV - Nils Malmberg</title>
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="containerbar">
-            <div class="logo-left">
-                <a href="index.html">
-                    <img src="media/favicons/apple-touch-icon-57x57.png" alt="Logo">
-                </a>
-            </div>
-            <nav id="navbar">
-                <ul>
-                    <li><a href="index.html" id="nav-home">Accueil</a></li>
-                    <li><a href="cv.html" class="active" id="nav-cv">CV</a></li>
-                    <li><a href="projects.html" id="nav-projects">Projets</a></li>
-                </ul>
-            </nav>
-            <div id="language-switcher">
-                <div class="current-language" onclick="toggleLanguageMenu()">
-                    <img  src="media/logo/logo_fr.svg" alt="Français">
-                    <div class="arrow-down"></div>
-                </div>
-                <div class="language-menu" id="language-menu">
-                    <div class="language-option" onclick="changeLanguage('fr')">
-                        <img src="media/logo/logo_fr.svg" alt="Français">
-                        <span>Français (FR)</span>
-                    </div>
-                    <div class="language-option" onclick="changeLanguage('en')">
-                        <img src="media/logo/logo_en.svg" alt="English">
-                        <span>English (EN)</span>
-                    </div>
-                </div>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="site-logo">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect width="28" height="28" rx="6" fill="currentColor" opacity="0.15"/><path d="M7 21V7h3l7 10V7h3v14h-3L10 11v10H7z" fill="currentColor"/></svg>
+      <span>Nils <em>Malmberg</em></span>
+    </a>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav id="navbar">
+      <ul>
+        <li><a href="index.html" id="nav-home">Accueil</a></li>
+        <li><a href="cv.html" id="nav-cv" class="active">CV</a></li>
+        <li><a href="projects.html" id="nav-projects">Projets</a></li>
+      </ul>
+    </nav>
+    <div class="header-controls">
+      <button class="theme-toggle" aria-label="Basculer le thème"></button>
+      <div id="language-switcher" onclick="toggleLanguageMenu()">
+        <div class="current-language" role="button" tabindex="0">
+          <img src="media/logo/logo_fr.svg" alt="Langue" width="18" height="18">
+          <span class="lang-label">FR</span>
+          <span class="arrow-down" aria-hidden="true"></span>
+        </div>
+        <div class="language-menu" id="language-menu">
+          <div class="language-option" onclick="changeLanguage('fr')"><img src="media/logo/logo_fr.svg" alt="" width="18" height="18"> Français</div>
+          <div class="language-option" onclick="changeLanguage('en')"><img src="media/logo/logo_en.svg" alt="" width="18" height="18"> English</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- FRANÇAIS -->
+  <div id="cv-content-fr">
+    <section class="page-hero"><div class="container">
+      <div class="section-label">Curriculum Vitae</div>
+      <h1>Mon parcours</h1>
+      <p>Ingénieur en génie énergétique et nucléaire — double diplôme Grenoble INP Phelma (France) &amp; Politecnico di Milano (Italie).</p>
+    </div></section>
+
+    <div class="container cv-page">
+      <div class="cv-section">
+        <h2 class="cv-section-title">Formation</h2>
+
+        <div class="cv-item">
+          <div class="cv-date">Sept. 2023<br>Avr. 2025</div>
+          <div class="cv-content">
+            <h3>Diplôme d'ingénieur - Ingénierie nucléaire</h3>
+            <h4>Politecnico di Milano · Milan, Italie</h4>
+            <p>Neutronique, systèmes multiphasique, CFD (Ansys Fluent), analyse thermomécanique du combustible, fiabilité et sécurité, propulsion spatiale, optique et information quantique, C++ et Git.</p>
+          </div>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-date">Sept. 2021<br>Mars 2025</div>
+          <div class="cv-content">
+            <h3>Diplôme d'ingénieur - Génie énergétique et nucléaire</h3>
+            <h4>Grenoble INP - Phelma · Grenoble, France</h4>
+            <p>Physique nucléaire, neutronique, thermohydraulique monophasique, physique quantique, plasmas, matériaux, électronique, semi-conducteurs, C, Matlab et méthodes numériques.</p>
+          </div>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-date">Sept. 2019<br>Août 2021</div>
+          <div class="cv-content">
+            <h3>Classe préparatoire (CPGE) - MPSI/PSI*</h3>
+            <h4>Lycée Clémenceau &amp; Lycée Roosevelt · Reims, France</h4>
+            <p>Mathématiques, physique, chimie, sciences de l'ingénieur et Python.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <h2 class="cv-section-title">Expériences professionnelles</h2>
+
+        <div class="cv-item">
+          <div class="cv-date">Avr. 2025<br>Présent</div>
+          <div class="cv-content">
+            <h3>Ingénieur d'études neutroniques</h3>
+            <h4>Framatome - DTI · Courbevoie, France</h4>
+            <p>Réalisation d'études de conception et de fonctionnement de coeurs de réacteurs à eau sous pression (REP) à trois boucles, en conditions normales et accidentelles.
+              <br>Activités principales: analyse de transitoires à l'aide de codes de calculs spécialisés et rédaction de documents techniques de synthèse.
+              <br><u>Compétences :</u> Codes de calculs, Python, Git, analyse physique, fonctionnement des REP.
+            </p>
+          </div>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-date">Sept. 2024<br>Fév. 2025</div>
+          <div class="cv-content">
+            <h3>Projet de fin d'études</h3>
+            <h4>Framatome - DTI · Courbevoie, France</h4>
+            <p>Développement d'une méthode « Best-Estimate Plus Uncertainty » (BEPU) pour l'accident de Rupture de Tuyauterie Vapeur initiée à puissance nulle (RTV4).
+              <br><u>Compétences :</u> Linux, inférence statistique, Python, Git, Programmation orientée objet (POO), Machine Learning, Optimisation bayésienne, Processus Gaussiens.
+            </p>
+          </div>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-date">Mai 2023<br>Sept. 2023</div>
+          <div class="cv-content">
+            <h3>Stage de fin de Master 1 - 3,5 mois</h3>
+            <h4>CEA - SERMA/LTSD · Saclay, France</h4>
+            <p>Évaluation des incertitudes sur des calculs sous-critiques à source fixe avec le code Monte-Carlo TRIPOLI-4®.
+              <br><u>Compétences :</u> Linux, inférence statistique, intervalles de confiance, Python, C++, Git, TRIPOLI-4®, Monte-Carlo.</p>
+          </div>
+        </div>
+        
+        <div class="cv-item">
+          <div class="cv-date">Juin 2022<br>Juil. 2022</div>
+          <div class="cv-content">
+            <h3>Ouvrier polyvalent</h3>
+            <h4>Technocoat - Groupe OPTITEC · Chassieu, France</h4>
+            <p>CDD ouvrier dans le cadre de la validation de ma première année à PHELMA. Emploi à Technocoat, filiale du groupe OPTITEC, spécialisée dans le traitement des surfaces et l'application de peinture industrielle au service de l'industrie et du bâtiment.
+              <br><u>Travail effectué :</u> masquage de pièces, accroche, décroche de pièces sur chaîne, préparation des surfaces, emballage et conditionnement.
+            </p>
+          </div>
+        </div>
+      </div>
+
+        <h2 class="cv-section-title">Bénévolat</h2>
+        <div class="cv-item">
+          <div class="cv-date">Avr. 2022<br>Avr. 2023</div>
+          <div class="cv-content">
+            <h3>Vice-trésorier - Bureau des Arts (BDA)</h3>
+            <h4>Grenoble INP - Phelma · Grenoble, France</h4>
+            <p>Statut d'étudiant engagé.
+              <br> Vice-trésorier d'une association étudiante ayant pour but d'orgaiser des événements culturels et artistiques (voyages, concerts, conférences, visites...) à destination des étudiants de Grenoble.
+              <br><u>Rôle :</u> organisation d'événements (réservations, communications...), gestion de budget et d'équipes, préparation de budgets prévisionnels et bilans financiers.</p>
+          </div>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-date">Sept. 2021<br>Juin 2022</div>
+          <div class="cv-content">
+            <h3>Vulgarisation scientifique</h3>
+            <h4>Phelm'Avenir -Grenoble INP - Phelma · Grenoble, France</h4>
+            <p>Vulgarisation scientifique auprès des jeunes: écoles primaires, collèges et lycées par des expériences, des conférences et la participation à des événements comme la Fête de la Science.</p>
             </div>
         </div>
-    </header>
 
-    <main id="cv-content-fr">
-        <section id="cv">
-            <div class="container">
-                <h2>Curriculum Vitae</h2>
-
-                <h3>Formation</h3>
-                <div class="cv-item">
-                    <div class="cv-image">
-                        <a href="https://www.polimi.it/en" target="_blank">
-                            <img src="media/logo/logo_polimi.svg" alt="Logo Polimi">
-                        </a>
-                    </div>
-                    <div class="cv-content">
-                        <h4>Septembre 2023 - Avril 2025</h4>
-                        <h4>Diplôme d'ingénieur en ingénierie nucléaire</h4>
-                        <p>Politecnico di Milano, Milan, Italie</p>
-                        <p>Neutronique, thermohydraulique multiphasique, CFD (Ansys Fluent), analyse thermomécanique du combustible, 
-                            fiabilité et sécurité, propulsion spatiale, optique et information quantique, C++, Git et italien.</p>
-                    </div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-image">
-                        <a href="https://phelma.grenoble-inp.fr/" target="_blank">
-                            <img src="media/logo/logo_phelma.png" alt="Logo Phelma">
-                        </a>
-                    </div>
-                    <div class="cv-content">
-                        <h4>Septembre 2021 - Mars 2025</h4>
-                        <h4>Diplôme d'ingénieur en génie énergétique et nucléaire</h4>
-                        <p>Grenoble INP - Phelma, Grenoble, France</p>
-                        <p>Physique nucléaire, neutronique, thermohydraulique monophasique, physique quantique, plasmas, matériaux, électronique, 
-                            semi-conducteurs, C et Matlab.</p>
-                    </div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-image">
-                        <a href="https://prepareims.org/" target="_blank">
-                            <img src="media/logo/logo_prepareims.png" alt="Logo PrepaReims">
-                        </a>
-                    </div>
-                    <div class="cv-content">
-                        <h4>Septembre 2019 - Août 2021</h4>
-                        <h4>Classe préparatoire aux grandes écoles (CPGE) - 2 ans</h4>
-                        <p>Lycée Clémenceau (MPSI) & Lycée Roosevelt (PSI*), Reims, France</p>
-                        <p>Mathématiques, physique, chimie, sciences de l'ingénieur et Python.
-                            <br>PSI* : 2020 - 2021
-                            <br>MPSI : 2019 - 2020</p>
-                    </div>
-                </div>
-
-                <h3>Expériences professionnelles</h3>
-                <div class="cv-item">
-                    <div class="cv-image">
-                        <a href="https://www.framatome.com/fr/" target="_blank">
-                            <img src="media/logo/logo_framatome.svg" alt="Logo Framatome">
-                        </a>
-                    </div>
-                    <div class="cv-content">
-                        <h4>Septembre 2024 - Février 2025</h4>
-                        <h4>Projet de Fin d'études</h4>
-                        <p>Framatome - DTI, Courbevoie, La Défense, France</p>
-                        <p>Sujet : Dévelopement d'une méthode « Best-Estimate Plus Uncertainty » (BEPU) pour l'accident de RTV4.
-                    </div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-image">
-                        <a href="https://www.cea.fr/" target="_blank">
-                            <img src="media/logo/logo_cea.png" alt="ILogo CEA">
-                        </a>
-                    </div>
-                    <div class="cv-content">
-                        <h4>Mai 2023 - Septembre 2023</h4>
-                        <h4>Stage de fin de Master 1 - 3.5 mois</h4>
-                        <p>CEA - SERMA/LTSD, Saclay, France</p>
-                        <p>Sujet : Evaluation des incertitudes sur des calculs sous-critiques à source fixe avec le code de calcul Monte-Carlo TRIPOLI-4®.
-                            <br><br>Étude de distributions statistiques et construction d'intervalles de confiance sur le facteur de multiplication.
-                            <br><br><u>Compétences :</u> Inférence statistique, simulation Monte-Carlo, Python/C++/Git.</p>
-                    </div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-image">
-                        <a href="https://phelma.grenoble-inp.fr/fr/vie-etudiante/clubs-et-associations" target="_blank">
-                            <img src="media/logo/logo_bda.png" alt="Logo BDA Phelma">
-                        </a>
-                    </div>
-                    <div class="cv-content">
-                        <h4>Avril 2022 - Avril 2023</h4>
-                        <h4>Vice-trésorier du Bureau des Arts (BDA) de Phelma - 1 an</h4>
-                        <p>Grenoble INP - Phelma, Grenoble, France</p>
-                        <p>Vice-trésorier d'une association étudiante ayant pour but d'organiser des évènements culturels, artistiques et internationaux.
-                            <br><br><u>Compétences :</u> Gestion financière, gestion d'équipe, démarches administratives, organisation évènementielle...</p>
-                    </div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-image">
-                        <a href="https://www.peinture-industrielle.fr/" target="_blank">
-                            <img src="media/logo/logo_optitec.png" alt="Logo Optitec">
-                        </a>
-                    </div>
-                    <div class="cv-content">
-                        <h4>Juin 2022 - Juillet 2022</h4>
-                        <h4>Stage - ouvrier polyvalent - 7 semaines</h4>
-                        <p>Technocoat OPTITEC, Chassieu, France</p>
-                        <p>Stage ouvrier dans une entreprise faisant de la peinture industrielle dans le cadre de la validation de mon diplôme de Bachelor à Grenoble INP - Phelma.
-                            <br><br><u>Compétences :</u> Travail à la chaîne, préparation des pièces avant traitement (peinture), travail d'équipe...</p>
-                    </div>
-                </div>
-
-
-                <h3>Certifications</h3>
-                <div class="cv-item">
-                    <div class="cv-image">
-                        <a href="https://online.stanford.edu/" target="_blank">
-                            <img src="media/logo/logo_stanford.png" alt="Logo Stanford">
-                        </a>
-                    </div>
-                    <div class="cv-content">
-                        <h4>Novembre 2024</h4>
-                        <h4>Spécialisation Machine Learning</h4>
-                        <p>Stanford Online, <a href="https://www.coursera.org/account/accomplishments/specialization/AO4XM5YS3PTN" target="_blank">lien vers la certification</a></p>
-                        <p>Cours:
-                            <ul>
-                                <li>Supervised Machine Learning: Regression and Classification</li>
-                                <li>Advanced Learning Algorithms</li>
-                                <li>Unsupervised Learning, Recommenders, Reinforcement Learning</li>
-                            </ul>
-                            <br><br><u>Compétences :</u> Python, TensorFlow, régression linéaire, régression logistique, descente du gradient, réseaux de neurones, XGBoost, K-mean, arbres de décision, détection d'anomalies.</p>
-                    </div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-image">
-                        <a href="https://www.cambridgeenglish.org/fr/exams-and-tests/linguaskill/" target="_blank">
-                            <img src="media/logo/logo_linguaskill.jpeg" alt="Logo Linguaskill">
-                        </a>
-                    </div>
-                    <div class="cv-content">
-                        <h4>Février 2022</h4>
-                        <h4>Linguaskill, CEFR C1</h4>
-                    </div>
-                </div>
-                
-
-                <h3>Compétences techniques</h3>
-                    <ul class="skills-list">
-                        <li class="advanced">Niveau avancé : <span>Python, LaTeX, Git, Office</span></li>
-                        <li class="intermediate">Niveau intermédiaire : <span>C, C++, Matlab, HTML, CSS, Fusion 360</span></li>
-                        <li class="beginner">Niveau débutant : <span>JavaScript, PHP</span></li>
-                    </ul>
-                <h3>Langues</h3>
-                <ul class="languages-list">
-                    <li><span>Français</span> : langue maternelle</li>
-                    <li><span>Anglais</span> : CEFR C1</li>
-                </ul>
-                </div>
-
-        </section>
-    </main>
-
-    <main id="cv-content-en">
-        <section id="cv">
-            <div class="container">
-                <h2>Resume</h2>
-
-                <h3>Training</h3>
-                <div class="cv-item">
-                    <div class="cv-image">
-                        <a href="https://www.polimi.it/en" target="_blank">
-                            <img src="media/logo/logo_polimi.svg" alt="Logo Polimi">
-                        </a>
-                    </div>
-                    <div class="cv-content">
-                        <h4>September 2023 - April 2025</h4>
-                        <h4>MSc. in nuclear engineering</h4>
-                        <p>Politecnico di Milano, Milan, Italy</p>
-                        <p>Neutronics, multiphase thermal-hydraulics, CFD (Ansys Fluent), thermomechanical fuel analysis, reliability and safety, 
-                            space propulsion, quantum optics and information, C++, Git and Italian.</p>
-                    </div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-image">
-                        <a href="https://phelma.grenoble-inp.fr/en" target="_blank">
-                            <img src="media/logo/logo_phelma.png" alt="Logo Phelma">
-                        </a>
-                    </div>
-                    <div class="cv-content">
-                        <h4>September 2021 - March 2025</h4>
-                        <h4>MSc. in nuclear engineering</h4>
-                        <p>Grenoble INP - Phelma, Grenoble, France</p>
-                        <p>Nuclear physics, neutronics, single-phase thermal-hydraulics, quantum physics, plasmas, materials, electronics,
-                             semiconductors, C and Matlab.</p>
-                    </div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-image">
-                        <a href="https://prepareims.org/" target="_blank">
-                            <img src="media/logo/logo_prepareims.png" alt="Logo PrepaReims">
-                        </a>
-                    </div>
-                    <div class="cv-content">
-                        <h4>September 2019 - August 2021</h4>
-                        <h4>Two-year university intensive course (CPGE) - 2 years</h4>
-                        <p>High Schools Clémenceau (MPSI) & Lycée Roosevelt (PSI*), Reims, France</p>
-                        <p>Mathematics, physics, chemistry, engineering sciences and Python.
-                            <br>PSI* : 2020 - 2021
-                            <br>MPSI : 2019 - 2020</p>
-                    </div>
-                </div>
-
-                <h3>Work experience</h3>
-                <div class="cv-item">
-                    <div class="cv-image">
-                        <a href="https://www.framatome.com/en/" target="_blank">
-                            <img src="media/logo/logo_framatome.svg" alt="Logo Framatome">
-                        </a>
-                    </div>
-                    <div class="cv-content">
-                        <h4>September 2024 - February 2025</h4>
-                        <h4>End of studies project</h4>
-                        <p>Framatome - DTI, Courbevoie, La Défense, France</p>
-                        <p>Topic : Developement of a « Best-Estimate Plus Uncertainty » (BEPU) method for the SLB accident.
-                            <!-- <br><br>Étude de distributions statistiques et construction d'intervalles de confiance sur le facteur de multiplication.
-                            <br><br><u>Compétences :</u> Inférence statistique, simulation Monte-Carlo, Python/C++/Git.</p> -->
-                    </div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-image">
-                        <a href="https://www.cea.fr/english" target="_blank">
-                            <img src="media/logo/logo_cea.png" alt="ILogo CEA">
-                        </a>
-                    </div>
-                    <div class="cv-content">
-                        <h4>May 2023 - September 2023</h4>
-                        <h4>End of Master 1 internship - 3.5 months</h4>
-                        <p>CEA - SERMA/LTSD, Saclay, France</p>
-                        <p>Topic : Evaluation of uncertainties in fixed-source subcritical calculations using the Monte-Carlo calculation code TRIPOLI-4®.
-                            <br><br>Study of statistical distributions and construction of confidence intervals on the multiplication factor.
-                            <br><br><u>Skills :</u> Statistical inference, Monte-Carlo simulation, Python/C++/Git.</p>
-                    </div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-image">
-                        <a href="https://phelma.grenoble-inp.fr/en/student-life/clubs-and-associations" target="_blank">
-                            <img src="media/logo/logo_bda.png" alt="Logo BDA Phelma">
-                        </a>
-                    </div>
-                    <div class="cv-content">
-                        <h4>April 2022 - April 2023</h4>
-                        <h4>Vice-Treasurer of Phelma's Arts Office (BDA) - 1 year</h4>
-                        <p>Grenoble INP - Phelma, Grenoble, France</p>
-                        <p>Vice-treasurer of a student association that organises cultural, artistic and international events.
-                            <br><br><u>Skills :</u> Financial management, team management, administrative procedures, event organisation...</p>
-                    </div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-image">
-                        <a href="https://www.peinture-industrielle.fr/" target="_blank">
-                            <img src="media/logo/logo_optitec.png" alt="Logo Optitec">
-                        </a>
-                    </div>
-                    <div class="cv-content">
-                        <h4>June 2022 - July 2022</h4>
-                        <h4>Internship - versatile worker - 7 weeks</h4>
-                        <p>Technocoat OPTITEC, Chassieu, France</p>
-                        <p>Work internship in an industrial painting company as part of my Bachelor's degree at Grenoble INP - Phelma.
-                            <br><br><u>Skills :</u> Production line work, parts preparation before treatment (painting), teamwork...</p>
-                    </div>
-                </div>
-
-                <h3>Certifications</h3>
-                <div class="cv-item">
-                    <div class="cv-image">
-                        <a href="https://online.stanford.edu/" target="_blank">
-                            <img src="media/logo/logo_stanford.png" alt="Logo Stanford">
-                        </a>
-                    </div>
-                    <div class="cv-content">
-                        <h4>November 2024</h4>
-                        <h4>Machine Learning Specialization</h4>
-                        <p>Stanford Online, <a href="https://www.coursera.org/account/accomplishments/specialization/AO4XM5YS3PTN" target="_blank">link to the certificate</a></p>
-                        <p>Courses:
-                            <ul>
-                                <li>Supervised Machine Learning: Regression and Classification</li>
-                                <li>Advanced Learning Algorithms</li>
-                                <li>Unsupervised Learning, Recommenders, Reinforcement Learning</li>
-                            </ul>
-                            <br><br><u>Skills :</u> Python, TensorFlow, linear regression, logistic regression, gradient descent, neural networks, XGBoost, K-mean, decision trees, anomalies detection.</p>
-                    </div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-image">
-                        <a href="https://www.cambridgeenglish.org/fr/exams-and-tests/linguaskill/" target="_blank">
-                            <img src="media/logo/logo_linguaskill.jpeg" alt="Logo Linguaskill">
-                        </a>
-                    </div>
-                    <div class="cv-content">
-                        <h4>February 2022</h4>
-                        <h4>Linguaskill, CEFR C1</h4>
-                    </div>
-                </div>
-
-                <h3>Skills</h3>
-                    <ul class="skills-list">
-                        <li class="advanced">Advanced level : <span>Python, LaTeX, Git, Office</span></li>
-                        <li class="intermediate">Intermediate level : <span>C, C++, Matlab, HTML, CSS, Fusion 360</span></li>
-                        <li class="beginner">Beginner level : <span>JavaScript, PHP</span></li>
-                    </ul>
-                <h3>Languages</h3>
-                <ul class="languages-list">
-                    <li><span>French</span> : native</li>
-                    <li><span>English</span> : CEFR C1 (Linguaskill)</li>
-                </ul>
-                </div>
-
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Nils Malmberg</p>
+        <div class="cv-item">
+          <div class="cv-date">2018<br>2019</div>
+          <div class="cv-content">
+            <h3>Assistant entraîneur</h3>
+            <h4>Reims Métropole Hockey · Reims, France</h4>
+            <p>Participation à l'entraînement et l'encadrement de jeunes apprenants à patiner et à jouer au hockey sur glace.</p>
+          </div>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+
+      <div class="cv-section">
+        <h2 class="cv-section-title">Certifications</h2>
+        <div class="cv-item">
+          <div class="cv-date">Nov. 2024</div>
+          <div class="cv-content">
+            <h3>Machine Learning Specialization</h3>
+            <h4>Stanford Online (Coursera)</h4>
+            <p>Python, TensorFlow, Régression linaire, Régression logistique, Réseaux de neurones artificiels, Arbres décisionnels, Systèmes de recommandation, Détection d'anomalies, Descente de gradient, XGBoost, Algorithme des k-moyennes.</p>
+          </div>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-date">2022</div>
+          <div class="cv-content">
+            <h3>Linguaskill  CEFR C1</h3>
+            <h4>Cambridge English</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <h2 class="cv-section-title">Compétences techniques</h2>
+        <div class="skills-grid">
+          <div class="skill-item advanced"><div class="skill-name">Python</div><div class="skill-level">Avancé</div></div>
+          <div class="skill-item advanced"><div class="skill-name">LaTeX</div><div class="skill-level">Avancé</div></div>
+          <div class="skill-item advanced"><div class="skill-name">Git</div><div class="skill-level">Avancé</div></div>
+          <div class="skill-item advanced"><div class="skill-name">Office</div><div class="skill-level">Avancé</div></div>
+          <div class="skill-item intermediate"><div class="skill-name">C / C++</div><div class="skill-level">Intermédiaire</div></div>
+          <div class="skill-item intermediate"><div class="skill-name">Matlab</div><div class="skill-level">Intermédiaire</div></div>
+          <div class="skill-item intermediate"><div class="skill-name">HTML/CSS</div><div class="skill-level">Intermédiaire</div></div>
+          <div class="skill-item intermediate"><div class="skill-name">Fusion 360</div><div class="skill-level">Intermédiaire</div></div>
+          <div class="skill-item intermediate"><div class="skill-name">Docker</div><div class="skill-level">Intermédiaire</div></div>
+          <div class="skill-item intermediate"><div class="skill-name">Machine Learning</div><div class="skill-level">Intermédiaire</div></div>
+          <div class="skill-item beginner"><div class="skill-name">JavaScript</div><div class="skill-level">Débutant</div></div>
+          <div class="skill-item beginner"><div class="skill-name">Rust</div><div class="skill-level">Débutant</div></div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <h2 class="cv-section-title">Langues</h2>
+        <div class="lang-item"><span class="lang-name">Français</span><span class="lang-level">Langue maternelle</span></div>
+        <div class="lang-item"><span class="lang-name">Anglais</span><span class="lang-level">CEFR C1</span></div>
+        <div class="lang-item"><span class="lang-name">Italien, Allemand</span><span class="lang-level">Notions</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENGLISH -->
+  <div id="cv-content-en" style="display:none">
+    <section class="page-hero"><div class="container">
+      <div class="section-label">Resume</div>
+      <h1>My Background</h1>
+      <p>Nuclear and energy engineer — double degree from Grenoble INP Phelma &amp; Politecnico di Milano.</p>
+    </div></section>
+
+    <div class="container cv-page">
+      <div class="cv-section">
+        <h2 class="cv-section-title">Education</h2>
+        <div class="cv-item">
+          <div class="cv-date">Sep. 2023<br>Apr. 2025</div>
+          <div class="cv-content">
+            <h3>Master's – Nuclear Engineering</h3>
+            <h4>Politecnico di Milano · Milan, Italy</h4>
+            <p>Neutronics, multiphase thermal-hydraulics, CFD (Ansys Fluent), fuel thermomechanics, reliability and safety, space propulsion, quantum optics, C++, Git and Italian.</p>
+          </div>
+        </div>
+        <div class="cv-item">
+          <div class="cv-date">Sep. 2021<br>Mar. 2025</div>
+          <div class="cv-content">
+            <h3>Engineering degree – Nuclear &amp; Energy Engineering</h3>
+            <h4>Grenoble INP – Phelma · Grenoble, France</h4>
+            <p>Nuclear physics, neutronics, single-phase thermal-hydraulics, quantum physics, plasmas, materials, electronics, semiconductors, C and Matlab.</p>
+          </div>
+        </div>
+        <div class="cv-item">
+          <div class="cv-date">Sep. 2019<br>Aug. 2021</div>
+          <div class="cv-content">
+            <h3>Preparatory classes (CPGE) – MPSI/PSI*</h3>
+            <h4>Lycée Clémenceau &amp; Lycée Roosevelt · Reims, France</h4>
+            <p>Mathematics, physics, chemistry, engineering sciences and Python.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <h2 class="cv-section-title">Professional Experience</h2>
+        <div class="cv-item">
+          <div class="cv-date">Apr. 2025<br>Present</div>
+          <div class="cv-content">
+            <h3>Engineer</h3>
+            <h4>Framatome · France</h4>
+            <p>Engineering missions in civil nuclear power.</p>
+          </div>
+        </div>
+        <div class="cv-item">
+          <div class="cv-date">Sep. 2024<br>Feb. 2025</div>
+          <div class="cv-content">
+            <h3>Master's thesis project</h3>
+            <h4>Framatome – DTI · Courbevoie, La Défense</h4>
+            <p>Development of a "Best-Estimate Plus Uncertainty" (BEPU) method for the RTV4 accident scenario.</p>
+          </div>
+        </div>
+        <div class="cv-item">
+          <div class="cv-date">May 2023<br>Sep. 2023</div>
+          <div class="cv-content">
+            <h3>M1 Internship – 3.5 months</h3>
+            <h4>CEA – SERMA/LTSD · Saclay</h4>
+            <p>Uncertainty evaluation on fixed-source subcritical calculations with the Monte-Carlo code TRIPOLI-4®. Skills: statistical inference, Python/C++/Git.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <h2 class="cv-section-title">Certifications</h2>
+        <div class="cv-item">
+          <div class="cv-date">Nov. 2024</div>
+          <div class="cv-content">
+            <h3>Machine Learning Specialization</h3>
+            <h4>Stanford Online (Coursera)</h4>
+            <p>Supervised ML, neural networks, unsupervised learning, XGBoost, K-means. Tools: Python, TensorFlow.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <h2 class="cv-section-title">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-item advanced"><div class="skill-name">Python</div><div class="skill-level">Advanced</div></div>
+          <div class="skill-item advanced"><div class="skill-name">LaTeX</div><div class="skill-level">Advanced</div></div>
+          <div class="skill-item advanced"><div class="skill-name">Git</div><div class="skill-level">Advanced</div></div>
+          <div class="skill-item intermediate"><div class="skill-name">C / C++</div><div class="skill-level">Intermediate</div></div>
+          <div class="skill-item intermediate"><div class="skill-name">Docker</div><div class="skill-level">Intermediate</div></div>
+          <div class="skill-item intermediate"><div class="skill-name">Fusion 360</div><div class="skill-level">Intermediate</div></div>
+          <div class="skill-item beginner"><div class="skill-name">Rust</div><div class="skill-level">Beginner</div></div>
+          <div class="skill-item beginner"><div class="skill-name">JavaScript</div><div class="skill-level">Beginner</div></div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <h2 class="cv-section-title">Languages</h2>
+        <div class="lang-item"><span class="lang-name">French</span><span class="lang-level">Native</span></div>
+        <div class="lang-item"><span class="lang-name">English</span><span class="lang-level">CEFR C1</span></div>
+        <div class="lang-item"><span class="lang-name">Italian</span><span class="lang-level">Notions</span></div>
+        <div class="lang-item"><span class="lang-name">Swedish</span><span class="lang-level">Learning</span></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-copy">© 2025 Nils Malmberg</span>
+    <div class="footer-links">
+      <a href="index.html">Accueil</a><a href="cv.html">CV</a><a href="projects.html">Projets</a>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>
