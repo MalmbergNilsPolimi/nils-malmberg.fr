@@ -82,6 +82,22 @@
       "Team Management",
       "Administrative Procedures",
       "Industrial Painting",
-      "Assembly Line Work"
+      "Assembly Line Work",
+      "Docker",
+      "LLM",
+      "GPU",
+      "NVIDIA",
+      "CUDA",
+      "cuDNN",
+      "NVIDIA Container Toolkit",
+      "UGOS",
+      "Debian",
+      "APT",
+      "Package Management",
+      "Software Installation",
+      "Troubleshooting",
+      "System Administration",
+      "OpenWebUI",
+      "Ollama"
     ]
 }  

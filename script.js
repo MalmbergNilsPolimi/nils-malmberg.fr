@@ -146,3 +146,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+// Load keywords
+document.addEventListener("DOMContentLoaded", function() {
+    fetch('keywords.json')
+        .then(response => response.json())
+        .then(data => {
+            const keywords = data.keywords.join(', ');
+            document.getElementById('meta-keywords').setAttribute('content', keywords);
+            // console.log('Keywords loaded:', keywords);
+        })
+        .catch(error => console.error('Error loading keywords:', error));
+});

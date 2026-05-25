@@ -37,27 +37,85 @@
 <div class="container project-page">
   <a href="projects.html" class="project-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Retour aux projets</a>
   <div class="project-page-header">
-    <h1>Ugreen DXP6800 Pro – NAS Lab</h1>
+    <h1>Ugreen DXP6800 Pro - NAS Lab</h1>
   </div>
   
   <div class="project-content">
     <h2>Le matériel</h2>
-    <p>Le NAS <strong>Ugreen DXP6800 Pro</strong> est un NAS de la gamme NASync équipé d'un Intel i5-1235U (10 cœurs). J'y ai installé 64 Go de RAM DDR4 et j'utilise le système d'exploitation fournit par UGREEN : <strong>UGOS</strong> — un système basé sur Debian 12 (Bookworm). J'ai ajouté une carte graphique <strong>Nvidia RTX 3050 (6Gb de VRAM) de la marque Yeston en low-profile</strong> via le slot PCIe (x4) interne pour les workloads IA.</p>
-    <p>Ce NAS est ma plateforme d'expérimentation principale : conteneurs Docker, IA locale, hébergement de services. Les tutos ci-dessous documentent les défis rencontrés et les solutions trouvées.</p>
+    <p>Le NAS <strong>Ugreen DXP6800 Pro</strong> est un NAS de la gamme NASync équipé d'un Intel i5-1235U (10 cœurs). J'y ai installé 64 Go de RAM DDR4 et un GPU <strong>Nvidia RTX 3050 (6Gb de VRAM) de la marque Yeston en low-profile</strong> via le slot PCIe (x4) interne. J'utilise le système d'exploitation fournit par UGREEN : <strong>UGOS</strong> — un système basé sur Debian 12 (Bookworm).</p>
+    <p>Ce NAS est ma plateforme d'expérimentation principale : conteneurs Docker, LLM locale, hébergement de services. Les tutos ci-dessous documentent certaines de mes installations.</p>
     
     <div class="tuto-toc">
       <h4>📋 Tutos disponibles</h4>
       <ol>
-        <li><a href="#tuto-nvidia">Accès au NAS à distance</a></li>
+        <li><a href="#tuto-vpn">Accès au NAS à distance</a></li>
         <li><a href="#tuto-ollama">Déployer Ollama + OpenWebUI sur le NAS (stack Docker complète)</a></li>
         <li><a href="#tuto-nvidia">Corriger les packages UGOS pour accéder au GPU Nvidia dans Docker</a></li>
-        <li><a href="#tuto-nvidia">Déployer OpenCode sur le NAS</a></li>
+        <li><a href="#tuto-opencode">Déployer OpenCode sur le NAS</a></li>
       </ol>
     </div>
     
-    <!-- TUTO 1 -->
-    <h2 id="tuto-ollama">Tuto 1 — Ollama + OpenWebUI sur DXP6800 Pro</h2>
-    <p>Ollama permet de faire tourner des LLM open source(grands modèles de langage) en local. OpenWebUI offre une interface type ChatGPT pour les interroger. L'objectif : une stack IA locale auto-hébergée sur le NAS, accessible depuis mon réseau local.</p>
+
+    <h2 id="tuto-vpn">Tuto 1 — Accès au NAS à distance</h2>
+    <p>Afin d'accéder au NAS à distance, je ne souhaitais pas utiliser le service UGREENlink car il implique une dépendance à un service tiers et le passage des données sur les serveurs de UGREEN. Cela peut ralentir le transit mais également poser question d'un point de vue protection des données. De plus, cela implique une exposition sur Internet du NAS.
+      <br>J'ai donc opté pour une solution plus classique : acessibilité du NAS uniquement sur mon réseau local. Afin d'accéder au NAS à distance, depuis un autre réseau, j'utilise le système de VPN WireGuard qui est directement hébergé sur ma Freebox. L'hébergement du serveur VPN sur ma box et non sur le NAS permet de protéger le NAS si le VPN est compromis, et d'avoir accès à tous les autres appareils de mon réseau local.
+    </p>
+     
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">1</span>
+        <span class="tuto-card-title">Prérequis : demander un adresse IP fixe</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+
+      <div class="tuto-card-body">
+        <p>Par défaut, l'adresse IP des box internet est attribuée dynamiquement. Elle va donc changer périodiquement. Deux options sont possibles :</p>
+        <ol>
+          <li>Demander une adresse IP fixe dans le panneau de configuration de votre box.</li>
+          <li>Utiliser un service de DNS dynamique (DDNS) pour mapper un nom de domaine à l'adresse IP du NAS.</li>
+        </ol>
+        <p>L'option 1 est généralement la plus simple à mettre en place.
+          <br>Pour ma part, je me suis connecté sur mon espace abonné free puis dans "Ma Freebox", j'ai cliqué sur "Demander une adresse IP fixe V4 full-stack".
+          <img src="media/projets/project6/page_free.png" alt="Site Free" width="800"></p>
+        </p>
+        <p>L'attribution d'une IP fixe peut prendre un certain temps.</p>
+      </div>
+    </div>
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">2</span>
+        <span class="tuto-card-title">Activer le serveur VPN sur sa box internet</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body">
+        <p>Pour l'hébergement du serveur VPN sur ma box, je me suis connecté sur le site <a href="https://mafreebox.freebox.fr" target="_blank">mafreebox.freebox.fr</a> puis je clique sur "Paramètres de la Freebox" puis sur "Serveur VPN" puis sur "WireGuard" et j'active le service. Ensuite je configure un nouvel utilisateur et je télécharge le fichier de configuration. Il y a également un QR code disponible permettant de configurer rapidement son VPN sur l'application mobile WireGuard.</p>
+        <img src="media/projets/project6/vpn1.png" alt="VPN1" width="500">
+        <br>
+        <img src="media/projets/project6/vpn2.png" alt="VPN2" width="500">
+        <br>
+        <img src="media/projets/project6/vpn3.png" alt="VPN3" width="500">
+      </p>
+      </div>
+    </div>
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">3</span>
+        <span class="tuto-card-title">Accéder au NAS</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body">
+        <p>Maintenant il suffit d'activer le VPN sur votre appareil puis accéder au NAS via son adresse IP locale ou via l'application UGREEN NAS.
+      </p>
+      </div>
+    </div>
+
+
+    <h2 id="tuto-ollama">Tuto 2 — Déployer Ollama + OpenWebUI sur le NAS (stack Docker complète)</h2>
+    <p><a href="https://ollama.com/" target="_blank">Ollama</a> permet de faire tourner des LLM open source en local (sans clé API). Il existe une application pour Windows et Mac OS mais il peut également être lancé via terminal. <a href="https://github.com/open-webui/open-webui" target="_blank">OpenWebUI</a> offre une interface type ChatGPT afin d'interagir avec les modèles que l'on peut trouver sur Ollama.
+      <br>Ici, on sera limité dans le choix du modèle à utiliser car il doit pouvoir tourner sur le NAS. Malgré les 64Gb de RAM, les performances sont fortements limitées lorsqu'on exécute sur CPU. Cela est du au fait qu'un CPU est très bon dans l'exécution séquentielle de tâches complexes. Un LLM et autres métamodèles sont essentiellements basés sur la multiplication/inversion de matrices. Des milliards d'opérations sont nécessaires pour chaque token généré. Ces calculs étant parallélisables, faire tourner ces modèles sur GPU permet donc un gain de performance significatif.
+      <br>Il faut compter envrion 5Gb de VRAM nécessaire pour faire tourner un modèle de 7 milliards de paramètres sur GPU. Avec la configuration actuelle (sans GPU), il faudra se contenter de modèles plus légers.
+      <br>Un autre tuto est consacré à l'installation d'une carte graphique pour accélérer les performances d'exécution de ces modèles.
+    </p>
     
     <div class="tuto-card">
       <div class="tuto-card-header">
@@ -66,7 +124,7 @@
         <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
       </div>
       <div class="tuto-card-body">
-        <p>Dans l'interface UGOS, activer le terminal SSH :</p>
+        <p>Il est possible de passer par l'application Docker disponible dans UGOS mais je préfère utiliser le terminal SSH pour plus de flexibilité :</p>
         <p><strong>Panneau de configuration → Terminal → SSH → Activer → Appliquer</strong></p>
         <p>Puis se connecter depuis PowerShell ou un terminal :</p>
         <div class="code-block"><pre>ssh votre_utilisateur@adresse_ip_du_nas</pre></div>
@@ -83,222 +141,17 @@
       </div>
       <div class="tuto-card-body">
         <p>Créer un dossier dédié sur le volume de données partagées:</p>
-        <div class="code-block"><pre>mkdir -p /volume1/docker/ai-stack
-          cd /volume1/docker/ai-stack
-          vim docker-compose.yml</pre></div>
-          <p>Coller la configuration suivante :</p>
-          <div class="code-label">docker-compose.yml</div>
+        <div class="code-block"><pre>mkdir -p /volume1/docker/ai-stack<br>cd /volume1/docker/ai-stack<br>vim docker-compose.yml</pre></div>
+        <p>Créer une clé API:</p>
+        <div class="code-block"><pre>openssl rand -hex 32</pre></div>
+          <p>Coller la configuration suivante en remplaçant "change_this_secret_key_please" par la clé générée (choisir la version CPU si pas de GPU installé. Sinon regarder le tuto sur l'installation d'une carte graphique et choisir la version GPU) :</p>
+          <div class="code-label">docker-compose.yml (version CPU)</div>
           <div class="code-block"><pre>services:
             
-  ollama:
-  image: ollama/ollama:latest
-  container_name: ollama
-  restart: unless-stopped
-  ports:
-  - "11434:11434"
-  volumes:
-  - ollama_data:/root/.ollama
-  deploy:
-  resources:
-  reservations:
-  devices:
-  - driver: nvidia
-  count: all
-  capabilities: [gpu]
-  environment:
-  - OLLAMA_HOST=0.0.0.0
-  - OLLAMA_ORIGINS=*
-  healthcheck:
-  test: ["CMD", "ollama", "list"]
-  interval: 30s
-      timeout: 10s
-      retries: 3
+        </pre></div>
+          <div class="code-label">docker-compose.yml (version CPU)</div>
+          <div class="code-block"><pre>services:
 
-  open-webui:
-  image: ghcr.io/open-webui/open-webui:main
-  container_name: open-webui
-    restart: unless-stopped
-    ports:
-      - "3000:8080"
-    volumes:
-      - open_webui_data:/app/backend/data
-    environment:
-      - OLLAMA_BASE_URL=http://ollama:11434
-      - WEBUI_SECRET_KEY=changez_cette_cle_secrete
-    depends_on:
-      ollama:
-      condition: service_healthy
-      
-      volumes:
-  ollama_data:
-  open_webui_data:</pre></div>
-        <p>Sauvegarder : <kbd>:wq</kbd></p>
-      </div>
-    </div>
-
-    <div class="tuto-card">
-      <div class="tuto-card-header">
-        <span class="step-num">3</span>
-        <span class="tuto-card-title">Lancer la stack et accéder à l'interface</span>
-        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-      </div>
-      <div class="tuto-card-body">
-        <div class="code-block"><pre>docker compose up -d</pre></div>
-        <p>Attendre quelques minutes le téléchargement des images. Une fois démarré, ouvrir dans le navigateur :</p>
-        <div class="code-block"><pre>http://&lt;ip_nas&gt;:3000/</pre></div>
-        <p>Créer un compte administrateur, puis importer un modèle depuis l'interface (ex. : <code>llama3.2</code>, <code>qwen2.5</code>).</p>
-        <div class="warning-block"><strong>⚠️ Note :</strong> Si le NAS se déconnecte brièvement au démarrage de la stack, c'est normal — la montée en charge réseau de Docker peut temporairement saturer la connexion.</div>
-      </div>
-    </div>
-
-    <!-- TUTO 2 -->
-    <h2 id="tuto-nvidia">Tuto 2 — Corriger les packages UGOS pour le GPU Nvidia dans Docker</h2>
-    <p>Le problème est classique : les drivers Nvidia et CUDA/cuDNN sont installés sur le NAS (disponibles dans le store ugreen), mais il manque le <strong>NVIDIA Container Toolkit</strong> — le composant qui fait le pont entre Docker et les drivers GPU. Sans lui, Docker ne voit pas la carte graphique.</p>
-    <p>Sur UGOS (Debian 12), une difficulté supplémentaire vient des dépôts locaux CUDA/cuDNN installés par Ugreen qui ont des fichiers <code>Release</code> manquants, bloquant <code>apt</code>.</p>
-
-    <div class="tuto-card">
-      <div class="tuto-card-header">
-        <span class="step-num">1</span>
-        <span class="tuto-card-title">Ajouter le dépôt NVIDIA Container Toolkit</span>
-        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-      </div>
-      <div class="tuto-card-body">
-        <p>En SSH en tant que root :</p>
-        <div class="code-block"><pre>curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey \
-          | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
-
-          curl -fsSL https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list \
-  | sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' \
-  | sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
-
-  sudo apt-get update</pre></div>
-  <p>Si vous voyez des erreurs du type <em>"The repository does not have a Release file"</em> pour les dépôts CUDA locaux, passez à l'étape suivante.</p>
-</div>
-</div>
-
-<div class="tuto-card">
-      <div class="tuto-card-header">
-        <span class="step-num">2</span>
-        <span class="tuto-card-title">Désactiver les dépôts CUDA/cuDNN locaux cassés</span>
-        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-      </div>
-      <div class="tuto-card-body">
-        <p>Les dépôts locaux installés par UGOS pour CUDA 12.8 et cuDNN 9.10.0 ont des fichiers <code>Release</code> manquants. Il faut les désactiver temporairement :</p>
-        <div class="code-block"><pre>sudo mv /etc/apt/sources.list.d/cuda-debian12-12-8-local.list /tmp/ 2>/dev/null || true
-sudo mv /etc/apt/sources.list.d/cudnn-local-repo-debian12-9.10.0.list /tmp/ 2>/dev/null || true</pre></div>
-        <div class="warning-block"><strong>Pourquoi ?</strong> Ces dépôts locaux pointent vers des fichiers <code>/var/cuda-repo-*/Release</code> absents. Apt refuse alors de mettre à jour, bloquant toute installation.</div>
-      </div>
-    </div>
-    
-    <div class="tuto-card">
-      <div class="tuto-card-header">
-        <span class="step-num">3</span>
-        <span class="tuto-card-title">Réparer les dépendances et installer le toolkit</span>
-        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-      </div>
-      <div class="tuto-card-body">
-        <div class="code-block"><pre># Mettre à jour les listes de paquets
-          sudo apt-get update
-
-# Corriger les dépendances cassées (libglib2.0, libexiv2, etc.)
-sudo apt --fix-broken install -y
-
-# Installer le NVIDIA Container Toolkit
-sudo apt-get install -y nvidia-container-toolkit</pre></div>
-        <p>Cette séquence installe <code>libnvidia-container1</code>, <code>libnvidia-container-tools</code>, <code>nvidia-container-toolkit-base</code> et <code>nvidia-container-toolkit</code>.</p>
-      </div>
-    </div>
-    
-    <div class="tuto-card">
-      <div class="tuto-card-header">
-        <span class="step-num">4</span>
-        <span class="tuto-card-title">Configurer Docker et vérifier l'accès GPU</span>
-        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-      </div>
-      <div class="tuto-card-body">
-        <p>Configurer le runtime NVIDIA pour Docker :</p>
-        <div class="code-block"><pre>sudo nvidia-ctk runtime configure --runtime=docker
-sudo systemctl restart docker</pre></div>
-<p>Vérifier que Docker voit bien le GPU :</p>
-        <div class="code-block"><pre>docker run --rm --gpus all nvidia/cuda:12.0-base nvidia-smi</pre></div>
-        <p>Si la commande affiche les infos de votre carte Nvidia, tout est en ordre. Vous pouvez maintenant relancer la stack Ollama avec accélération GPU.</p>
-      </div>
-    </div>
-
-  </div>
-  <a href="projects.html" class="btn btn-secondary">Retour</a>
-  <br><br>
-  <div class="project-meta">
-    <span class="tag">NAS</span><span class="tag">Linux</span><span class="tag">Docker</span>
-    <span class="tag">Ollama</span><span class="tag">LLM</span><span class="tag">en cours</span>
-  </div>
-</div>
-  <footer>
-    <div class="footer-inner">
-      <span class="footer-copy">© <span id="year-fr"></span> Nils Malmberg</span>
-      <script>document.getElementById("year-fr").textContent = new Date().getFullYear();</script>
-      <div class="footer-links">
-        <a href="index.html">Accueil</a>
-        <a href="cv.html">CV</a>
-        <a href="projects.html">Projets</a>
-      </div>
-    </div>
-  </footer>
-</div>
-
-<!-- ════════ ENGLISH ════════ -->
-<div id="project6-content-en" style="display:none">
-<div class="container project-page">
-  <a href="projects.html" class="project-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Back to projects</a>
-  <div class="project-page-header">
-    <div class="project-meta">
-      <span class="tag">NAS</span><span class="tag">Docker</span><span class="tag">NVIDIA</span>
-      <span class="tag">Ollama</span><span class="tag">UGOS</span><span class="tag">2024–present</span>
-    </div>
-    <h1>Ugreen DXP6800 Pro – NAS Lab</h1>
-  </div>
-
-  <div class="project-content">
-    <h2>The Hardware</h2>
-    <p>The <strong>Ugreen DXP6800 Pro</strong> is a NAS from the NASync lineup, powered by an Intel i5-1235U (10 cores), 64 GB DDR4 RAM, running <strong>UGOS</strong> — a Debian 12 (Bookworm) based OS. I added an <strong>Nvidia GPU</strong> via the internal PCIe slot for AI workloads.</p>
-    <p>This NAS is my main experimentation platform: Docker containers, local AI, self-hosted services. The tutorials below document the challenges encountered and solutions found.</p>
-
-    <div class="tuto-toc">
-      <h4>📋 Available tutorials</h4>
-      <ol>
-        <li><a href="#tuto-ollama-en">Deploy Ollama + OpenWebUI on the NAS (full Docker stack)</a></li>
-        <li><a href="#tuto-nvidia-en">Fix UGOS packages to access the Nvidia GPU in Docker</a></li>
-      </ol>
-    </div>
-
-    <h2 id="tuto-ollama-en">Tutorial 1 — Ollama + OpenWebUI on DXP6800 Pro</h2>
-    <p>Ollama runs LLMs locally. OpenWebUI provides a ChatGPT-like interface. Goal: a self-hosted local AI stack accessible from the local network.</p>
-
-    <div class="tuto-card">
-      <div class="tuto-card-header">
-        <span class="step-num">1</span>
-        <span class="tuto-card-title">Enable SSH on UGOS</span>
-        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-      </div>
-      <div class="tuto-card-body">
-        <p><strong>Control Panel → Terminal → SSH → Enable → Apply</strong></p>
-        <div class="code-block"><pre>ssh your_user@192.168.1.XX
-sudo -i</pre></div>
-      </div>
-    </div>
-
-    <div class="tuto-card">
-      <div class="tuto-card-header">
-        <span class="step-num">2</span>
-        <span class="tuto-card-title">Create the docker-compose.yml</span>
-        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-      </div>
-      <div class="tuto-card-body">
-        <div class="code-block"><pre>mkdir -p /volume1/docker/ai-stack
-cd /volume1/docker/ai-stack
-nano docker-compose.yml</pre></div>
-        <div class="code-label">docker-compose.yml</div>
-        <div class="code-block"><pre>services:
   ollama:
     image: ollama/ollama:latest
     container_name: ollama
@@ -333,7 +186,7 @@ nano docker-compose.yml</pre></div>
       - open_webui_data:/app/backend/data
     environment:
       - OLLAMA_BASE_URL=http://ollama:11434
-      - WEBUI_SECRET_KEY=change_this_secret_key
+      - WEBUI_SECRET_KEY=change_this_secret_key_please
     depends_on:
       ollama:
         condition: service_healthy
@@ -341,83 +194,262 @@ nano docker-compose.yml</pre></div>
 volumes:
   ollama_data:
   open_webui_data:</pre></div>
+        <p>Sauvegarder en écrivant :</p>
+        <div class="code-block"><pre>:wq</pre></div>
       </div>
     </div>
 
     <div class="tuto-card">
       <div class="tuto-card-header">
         <span class="step-num">3</span>
-        <span class="tuto-card-title">Start and access the interface</span>
+        <span class="tuto-card-title">Lancer la stack et accéder à l'interface</span>
         <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
       </div>
       <div class="tuto-card-body">
         <div class="code-block"><pre>docker compose up -d</pre></div>
-        <p>Then open: <code>http://&lt;nas_ip&gt;:3000/</code> — create an admin account and pull a model.</p>
-      </div>
-    </div>
-
-    <h2 id="tuto-nvidia-en">Tutorial 2 — Fix UGOS packages for Nvidia GPU in Docker</h2>
-    <p>The classic issue: Nvidia drivers and CUDA/cuDNN are installed, but the <strong>NVIDIA Container Toolkit</strong> — the bridge between Docker and the GPU drivers — is missing. UGOS also ships broken local CUDA/cuDNN repos that block <code>apt</code>.</p>
-
-    <div class="tuto-card">
-      <div class="tuto-card-header">
-        <span class="step-num">1</span>
-        <span class="tuto-card-title">Add the NVIDIA Container Toolkit repository</span>
-        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-      </div>
-      <div class="tuto-card-body">
-        <div class="code-block"><pre>curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey \
-  | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
-
-curl -fsSL https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list \
-  | sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' \
-  | sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
-
-sudo apt-get update</pre></div>
-      </div>
-    </div>
-
-    <div class="tuto-card">
-      <div class="tuto-card-header">
-        <span class="step-num">2</span>
-        <span class="tuto-card-title">Disable broken local CUDA/cuDNN repos</span>
-        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-      </div>
-      <div class="tuto-card-body">
-        <div class="code-block"><pre>sudo mv /etc/apt/sources.list.d/cuda-debian12-12-8-local.list /tmp/ 2>/dev/null || true
-sudo mv /etc/apt/sources.list.d/cudnn-local-repo-debian12-9.10.0.list /tmp/ 2>/dev/null || true</pre></div>
-        <div class="warning-block"><strong>Why?</strong> Ugreen's local repos point to missing <code>Release</code> files, causing apt to fail on every update.</div>
-      </div>
-    </div>
-
-    <div class="tuto-card">
-      <div class="tuto-card-header">
-        <span class="step-num">3</span>
-        <span class="tuto-card-title">Fix dependencies and install the toolkit</span>
-        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-      </div>
-      <div class="tuto-card-body">
-        <div class="code-block"><pre>sudo apt-get update
-sudo apt --fix-broken install -y
-sudo apt-get install -y nvidia-container-toolkit</pre></div>
+        <p>Attendre quelques minutes le téléchargement des images. Une fois démarré, ouvrir dans le navigateur :</p>
+        <div class="code-block"><pre>http://&lt;ip_nas&gt;:3000/</pre></div>
       </div>
     </div>
 
     <div class="tuto-card">
       <div class="tuto-card-header">
         <span class="step-num">4</span>
-        <span class="tuto-card-title">Configure Docker and verify GPU access</span>
+        <span class="tuto-card-title">Première utilisation</span>
         <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
       </div>
       <div class="tuto-card-body">
-        <div class="code-block"><pre>sudo nvidia-ctk runtime configure --runtime=docker
-sudo systemctl restart docker
-docker run --rm --gpus all nvidia/cuda:12.0-base nvidia-smi</pre></div>
-        <p>If the command shows your GPU info, you're all set. Restart the Ollama stack with GPU acceleration.</p>
+        <p>Ouvrir dans le navigateur :</p>
+        <div class="code-block"><pre>http://&lt;ip_nas&gt;:3000/</pre></div>
+        <p>Créer un compte administrateur.</p>
+        <p>Choisir un modèle sur le site d'<a href="https://ollama.com/models" target="_blank">Ollama</a>. Je vous conseille de commencer par un modèle léger comme qwen3.5:0.8b qui fait environ 1Gb et tourne correctement sur CPU.</p>
+        <p>Télécharger le modèle choisi.</p>
+        <p>Tester le modèle.</p>
       </div>
     </div>
+
+    <h2 id="tuto-nvidia">Tuto 3 — Corriger les packages UGOS pour accéder au GPU Nvidia dans Docker</h2>
+    <p>J'ai installé une carte graphique Nvidia RTX 3050 sur mon NAS et j'ai installé les pilotes et la toolkit disponibles dans le centre d'application de UGOS.</p>
+    <p>Si vous souhaitez installer un GPU, il faut vérifier qu'il est compatible (<a href="https://www.nvidia.cn/drivers/details/252481/" target="_blank">voir la liste des cartes supportées</a>). De plus, si vous souhaitez utiliser le port PCIe 4 pin disponible et intégrer la carte dans le boitier, il faut que la carte soit low-profile, single-slot et quelle consomme moins de 75W. Si vous souhaitez utiliser un GPU plus performant, vous pouvez utiliser le port thunderbolt et fonctionner en eGPU.</p>
+    <p>Cependant, malgré toutes les précautions, il n'est pas possible, par défaut d'utiliser le GPU via Docker. En effet, le GPU est parfaitement intégré pour les outils d'IA pour le traitement des Photos mais pas pour le reste. Le problème reste néanmoins classique : les drivers Nvidia et CUDA/cuDNN sont installés sur le NAS, mais il manque le <strong>NVIDIA Container Toolkit</strong> — le composant qui fait le pont entre Docker et les drivers GPU. Sans lui, Docker ne voit pas la carte graphique.</p>
+    <p>Sur UGOS (Debian 12), une difficulté supplémentaire vient des dépôts locaux CUDA/cuDNN installés par Ugreen qui ont des fichiers <code>Release</code> manquants, bloquant <code>apt</code>.</p>
+
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">1</span>
+        <span class="tuto-card-title">Ouvrir une connexion SSH et tester l'installation</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body">
+        <p>Via l'interface graphique (application UGREEN NAS):</p> 
+        <p><strong>Panneau de configuration → Terminal → SSH → Activer → Appliquer</strong></p>
+        <p>Puis se connecter depuis PowerShell ou un terminal :</p>
+        <div class="code-block"><pre>ssh votre_utilisateur@adresse_ip_du_nas</pre></div>
+        <p>Passer en root :</p>
+        <div class="code-block"><pre>sudo -i</pre></div>
+        <p>Tester l'installation du toolkit :</p>
+        <div class="code-block"><pre>
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey \
+  | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
+
+curl -fsSL https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list \
+  | sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' \
+  | sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+
+sudo apt-get update
+sudo apt-get install -y nvidia-container-toolkit</pre></div>
+  <p>Si vous voyez des erreurs du type <em>"The repository does not have a Release file"</em> pour les dépôts CUDA locaux, passez à l'étape suivante.</p>
+</div>
+</div>
+
+<div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">2</span>
+        <span class="tuto-card-title">Désactiver les dépôts CUDA/cuDNN locaux cassés</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body">
+        <p>Les dépôts locaux installés par UGOS pour CUDA 12.8 et cuDNN 9.10.0 ont des fichiers <code>Release</code> manquants. Il faut les désactiver temporairement :</p>
+        <div class="code-block"><pre>sudo mv /etc/apt/sources.list.d/cuda-debian12-12-8-local.list /tmp/ 2>/dev/null || true
+sudo mv /etc/apt/sources.list.d/cudnn-local-repo-debian12-9.10.0.list /tmp/ 2>/dev/null || true</pre></div>
+        <div class="warning-block"><strong>Pourquoi ?</strong> Ces dépôts locaux pointent vers des fichiers <code>/var/cuda-repo-*/Release</code> absents. Apt refuse alors de mettre à jour, bloquant toute installation.</div>
+      </div>
+    </div>
+    
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">3</span>
+        <span class="tuto-card-title">Réparer les dépendances et installer le toolkit</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body">
+        <div class="code-block"><pre># Mettre à jour les listes de paquets
+sudo apt-get update
+
+# Corriger les dépendances cassées (libglib2.0, libexiv2, etc.)
+sudo apt --fix-broken install -y
+
+# Installer le NVIDIA Container Toolkit
+sudo apt-get install -y nvidia-container-toolkit</pre></div>
+        <p>Cette séquence installe <code>libnvidia-container1</code>, <code>libnvidia-container-tools</code>, <code>nvidia-container-toolkit-base</code> et <code>nvidia-container-toolkit</code>.</p>
+      </div>
+    </div>
+    
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">4</span>
+        <span class="tuto-card-title">Configurer Docker et vérifier l'accès GPU</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body">
+        <p>Configurer le runtime NVIDIA pour Docker :</p>
+        <div class="code-block"><pre>sudo nvidia-ctk runtime configure --runtime=docker
+sudo systemctl restart docker</pre></div>
+<p>A ce stade, il peut rester un dépôt cuDNN cassé. Ce n'est pas bloquant mais pour retirer l'avertissement :</p>
+<div class="code-block"><pre>ls /etc/apt/sources.list.d/ | grep cudnn
+  sudo rm /etc/apt/sources.list.d/&lt;nom_du_fichier&gt;</pre></div>
+        <p>Vérifier que Docker voit bien le GPU :</p>
+        <div class="code-block"><pre>docker run --rm --gpus all nvidia/cuda:12.0-base nvidia-smi</pre></div>
+        <p>Si la commande affiche les infos de votre carte Nvidia, tout est en ordre. Vous pouvez maintenant relancer la stack Ollama avec accélération GPU.</p>
+        <div class="code-block"><pre>+-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.181                Driver Version: 570.181        CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3050        On  |   00000000:02:00.0 Off |                  N/A |
+|100%   38C    P8              5W /   70W |       0MiB /   6144MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+</pre></div>
+      </div>
+    </div>
+
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">5</span>
+        <span class="tuto-card-title">Test de l'utilisation du GPU avec Ollama</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body">
+        <p>Lancer un conteneur Ollama avec accélération GPU :</p>
+        <div class="code-block"><pre>docker run -d \
+  --gpus all \
+  -v ollama:/root/.ollama \
+  -p 11434:11434 \
+  --name ollama \
+  --restart unless-stopped \
+  ollama/ollama</pre></div>
+<p>Télécharger un modèle léger adapté à 6GB VRAM</p>
+<div class="code-block"><pre>docker exec -it ollama ollama pull llama3.2:3b</pre></div>
+        <p>Tester l'utilisation du GPU :</p>
+        <div class="code-block"><pre>docker exec -it ollama ollama run llama3.2:3b "Code moi la fonction factorielle en Python."</pre></div>
+        <p>En parallèle, dans un autre terminal, établissez la connexion ssh et tapez la commande suivante :</p>
+        <div class="code-block"><pre>watch -n 1 nvidia-smi</pre></div>
+        <p>Durant la génération de la réponse, vous devriez voir l'évolution de l'utilisation des ressources GPU.</p>
+        <div class="code-block"><pre>+-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.181                Driver Version: 570.181        CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3050        On  |   00000000:02:00.0 Off |                  N/A |
+|100%   47C    P2             39W /   70W |    2782MiB /   6144MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A          347591      C   /usr/bin/ollama                        2774MiB |
++-----------------------------------------------------------------------------------------+</pre></div>
+      </div>
+    </div>
+
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">6</span>
+        <span class="tuto-card-title">Nettoyage des fichiers de tests</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body">
+        <p>Toujours en connexion ssh :</p>
+        <div class="code-block"><pre>docker stop ollama
+docker rm ollama
+docker volume rm ollama
+docker ps -a | grep ollama
+docker volume ls | grep ollama
+docker rmi nvidia/cuda:12.8.0-base-ubuntu22.04</pre></div>
+      </div>
+    </div>
+
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">7</span>
+        <span class="tuto-card-title">Configuration de Ollama</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="tuto-card-body"><p>Voir le tuto 2.</p></div>
+    </div>
+    
+    
+    <h2 id="tuto-opencode">Tuto 4 — Installation d'OpenCode et configuration avec Ollama (local)</h2>
+    <p><a href="https://opencode.ai/" target="_blank">OpenCode</a> est un outil d'automatisation de tâches basé sur des LLM. Il permet de créer des agents personnalisés capables d'exécuter des tâches complexes en combinant différentes actions (exécuter du code, faire des requêtes web, interagir avec des APIs, etc.). OpenCode peut être utilisé pour automatiser une grande variété de tâches, de la gestion de fichiers à l'automatisation de processus métier.</p>
+    <p>OpenCode est souvent vu et utilisé commen une alternative à Claude Code.</p>
+    
+    <div class="tuto-card">
+      <div class="tuto-card-header">
+        <span class="step-num">1</span>
+        <span class="tuto-card-title">Prérequis</span>
+        <svg class="tuto-card-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+         <div class="tuto-card-body">
+          <p>Suivre les tutos précédents afin de configurer Ollama.</p>
+         </div>
+        
+
+    </div>
+
+</div>
+
+  <a href="projects.html" class="btn btn-secondary">Retour</a>
+  <br><br>
+  <div class="project-meta">
+    <span class="tag">NAS</span><span class="tag">Linux</span><span class="tag">Docker</span>
+    <span class="tag">Ollama</span><span class="tag">LLM</span><span class="tag">en cours</span>
   </div>
 </div>
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-copy">© <span id="year-fr"></span> Nils Malmberg</span>
+      <script>document.getElementById("year-fr").textContent = new Date().getFullYear();</script>
+      <div class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="cv.html">CV</a>
+        <a href="projects.html">Projets</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ════════ ENGLISH ════════ -->
+<div id="project6-content-en" style="display:none">
+<div class="container project-page">
+  <a href="projects.html" class="project-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Back to projects</a>
+  <div class="project-page-header">
+    <h1>In construction</h1>
+  </div>
+  </div>
+
     <footer>
       <div class="footer-inner">
         <span class="footer-copy">© <span id="year-en"></span> Nils Malmberg</span>
