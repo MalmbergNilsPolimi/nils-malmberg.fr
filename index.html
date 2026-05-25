@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="media/favicons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="media/favicons/logo.png" type="image/x-icon" style="border-radius: 4px;">
   <title>Nils Malmberg</title>
   <meta name="keywords" id="meta-keywords" content="">
   <link rel="preconnect" href="https://api.fontshare.com">
@@ -18,10 +18,7 @@
 <header>
   <div class="header-inner">
     <a href="index.html" class="site-logo" aria-label="Nils Malmberg">
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-        <rect width="28" height="28" rx="6" fill="currentColor" opacity="0.15"/>
-        <path d="M7 21V7h3l7 10V7h3v14h-3L10 11v10H7z" fill="currentColor"/>
-      </svg>
+      <img src="media/favicons/logo.png" href="index.html" alt="Logo de Nils Malmberg" width="25" height="25" style="border-radius: 4px;">
       <span>Nils <em>Malmberg</em></span>
     </a>
     <button class="burger" aria-label="Menu" aria-expanded="false">
@@ -70,7 +67,7 @@
           </div>
         </div>
         <div class="hero-photo">
-          <img src="media/accueil/photo_nils.JPEG" alt="Photo de Nils Malmberg" width="220" height="220" loading="eager">
+          <img src="media/accueil/photo_nils.JPEG" alt="Photo de Nils Malmberg" width="220" height="220" loading="eager" oncontextmenu="return false;" draggable="false">
         </div>
       </div>
     </section>
@@ -134,6 +131,19 @@
         </a>
       </div>
     </section>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-copy">© <span id="year-fr"></span> Nils Malmberg</span>
+      <script>document.getElementById("year-fr").textContent = new Date().getFullYear();</script>
+      <div class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="cv.html">CV</a>
+        <a href="projects.html">Projets</a>
+      </div>
+    </div>
+  </footer>
+
   </div>
 
   <!-- ════════════════ ENGLISH ════════════════ -->
@@ -141,16 +151,16 @@
     <section class="hero" aria-label="Introduction">
       <div class="hero-inner">
         <div class="hero-text">
-          <div class="hero-eyebrow">Engineer &amp; Developer</div>
+          <div class="hero-eyebrow">Engineer &amp; Tech enthusiast</div>
           <h1>Nils <em>Malmberg</em></h1>
-          <p class="hero-subtitle">Nuclear and energy engineer — double degree from Grenoble INP Phelma &amp; Politecnico di Milano. Passionate about programming, 3D modeling and Linux systems.</p>
+          <p class="hero-subtitle">Nuclear and energy engineer — double degree from Grenoble INP Phelma &amp; Politecnico di Milano. Passionate about cooking, DIY, programming and 3D printing.</p>
           <div class="hero-cta">
             <a href="projects.html" class="btn btn-primary">See my projects</a>
             <a href="cv.html" class="btn btn-secondary">My Resume</a>
           </div>
         </div>
         <div class="hero-photo">
-          <img src="media/accueil/photo_nils.JPEG" alt="Nils Malmberg photo" width="220" height="220" loading="eager">
+          <img src="media/accueil/photo_nils.JPEG" alt="Photo de Nils Malmberg" width="220" height="220" loading="eager" oncontextmenu="return false;" draggable="false">
         </div>
       </div>
     </section>
@@ -162,41 +172,41 @@
         <div class="about-grid">
           <div class="about-card">
             <h3>🎓 Education &amp; Background</h3>
-            <p>Graduated from Grenoble INP Phelma in nuclear and energy engineering, with a double degree from Politecnico di Milano. After two years of CPGE (MPSI/PSI*), I developed strong skills in physics and numerical simulation.</p>
+            <p>Graduated from Grenoble INP Phelma in nuclear and energy engineering, with a double degree from Politecnico di Milano. After two years of French CPGE (MPSI/PSI*), I developed strong skills in physics and numerical simulation.</p>
             <div class="about-chips">
-              <span class="chip">Nuclear</span>
               <span class="chip">Neutronics</span>
-              <span class="chip">CFD</span>
-              <span class="chip">Monte-Carlo</span>
+              <span class="chip">Thermohydraulics</span>
+              <span class="chip">Fluid Mechanics</span>
+              <span class="chip">Quantum</span>
+              <span class="chip">Programming</span>
             </div>
           </div>
           <div class="about-card">
             <h3>💻 Tech &amp; Development</h3>
-            <p>A long-standing passion for programming — I work in Python, C/C++, Rust, and build tools focused on local AI and data. I also run a Ugreen DXP6800 Pro NAS on UGOS with Docker and an Nvidia GPU.</p>
+            <p>A long-standing passion for programming — I work mainly in Python. I also have some knowledge of C/C++, and my next project is to learn Rust. I'm very interested in data science, machine learning, NAS, and self-hosting services like LLMs.</p>
             <div class="about-chips">
               <span class="chip">Python</span>
-              <span class="chip">Docker</span>
-              <span class="chip">Ollama</span>
+              <span class="chip">C/C++</span>
+              <span class="chip">Machine Learning</span>
               <span class="chip">Linux</span>
-              <span class="chip">Rust</span>
+              <span class="chip">NAS</span>
+              <span class="chip">Docker</span>
             </div>
           </div>
           <div class="about-card">
             <h3>🖨️ Design &amp; Fabrication</h3>
-            <p>I design parts with Fusion 360 and manufacture them with 3D printing. This hobby led me to model a full custom NAS before acquiring the Ugreen DXP6800 Pro.</p>
+            <p>I design parts with Fusion 360 and manufacture them with 3D printing. This hobby led me to model a full custom NAS based on a Raspberry Pi card and an open-source OS.</p>
             <div class="about-chips">
               <span class="chip">Fusion 360</span>
               <span class="chip">3D Printing</span>
-              <span class="chip">CAD</span>
             </div>
           </div>
           <div class="about-card">
-            <h3>🏒 Beyond Engineering</h3>
-            <p>12 years of ice hockey — a sport that builds discipline and teamwork. I'm also interested in gastronomy, photography, and I'm learning Swedish.</p>
+            <h3>🏒👨‍🍳 Other hobbies</h3>
+            <p>I played ice hockey for about ten years. I'm also interested in gastronomy.</p>
             <div class="about-chips">
               <span class="chip">Hockey</span>
               <span class="chip">Gastronomy</span>
-              <span class="chip">Swedish</span>
             </div>
           </div>
         </div>
@@ -210,23 +220,25 @@
         <p style="color:var(--color-text-muted);margin-bottom:var(--space-4);max-width:50ch;">For any question or professional opportunity, feel free to reach out via LinkedIn.</p>
         <a href="https://www.linkedin.com/in/nils-malmberg/" class="contact-link" target="_blank" rel="noopener noreferrer">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          LinkedIn – Nils Malmberg
+          LinkedIn - Nils Malmberg
         </a>
       </div>
     </section>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-copy">© <span id="year-en"></span> Nils Malmberg</span>
+      <script>document.getElementById("year-en").textContent = new Date().getFullYear();</script>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="cv.html">Resume</a>
+        <a href="projects.html">Projects</a>
+      </div>
+    </div>
+  </footer>
+
   </div>
 </main>
-
-<footer>
-  <div class="footer-inner">
-    <span class="footer-copy">© 2025 Nils Malmberg</span>
-    <div class="footer-links">
-      <a href="index.html">Accueil</a>
-      <a href="cv.html">CV</a>
-      <a href="projects.html">Projets</a>
-    </div>
-  </div>
-</footer>
 
 <script src="script.js"></script>
 </body>

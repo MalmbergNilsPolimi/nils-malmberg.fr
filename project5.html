@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="media/favicons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="media/favicons/logo.png" type="image/x-icon" style="border-radius: 4px;">
   <title>mdisd – Interpolation · Nils Malmberg</title>
   <link rel="preconnect" href="https://api.fontshare.com">
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
 </head>
 <body>
 <header><div class="header-inner">
-  <a href="index.html" class="site-logo"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="currentColor" opacity="0.15"/><path d="M7 21V7h3l7 10V7h3v14h-3L10 11v10H7z" fill="currentColor"/></svg><span>Nils <em>Malmberg</em></span></a>
+  <img src="media/favicons/logo.png" href="index.html" alt="Logo de Nils Malmberg" width="25" height="25" style="border-radius: 4px;"><span>Nils <em>Malmberg</em></span></a>
   <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   <nav id="navbar"><ul>
     <li><a href="index.html" id="nav-home">Accueil</a></li>
@@ -38,30 +38,11 @@
       <div class="project-page-header">
         <h1>mdisd</h1>
       </div>
-      <!-- <div class="project-content">
-        <h2>Contexte</h2>
-        <p>Lors du cours <em>Advanced Programming for Scientific Computing</em> au Politecnico di Milano, j'ai développé la librairie <strong>mdisd</strong> en C++. Son but : interpoler des fonctions à plusieurs variables à partir de jeux de données dispersées.</p>
-        <h2>Problème général</h2>
-        <p>Considérons un système décrit par <em>n</em> paramètres d'entrée et produisant une sortie scalaire. À partir de <em>m</em> mesures connues, on cherche à estimer la sortie pour tout nouvel état d'entrée. Deux méthodes principales sont implémentées :</p>
-        <h3>Moindres Carrés Ordinaires (OLS)</h3>
-        <p>Méthode de régression qui minimise la somme des carrés des résidus. Elle cherche les coefficients β minimisant ‖y - Xβ‖². Adaptée aux données bruitées.</p>
-        <h3>Radial Basis Functions (RBF)</h3>
-        <p>Chaque point de donnée « influence » son voisinage via une fonction radiale φ(r). Le système interpolant impose que chaque point connu soit exactement reproduit. Adaptée à l'interpolation exacte.</p>
-        <h2>Méthodes disponibles</h2>
-        <ul>
-          <li><strong>OLS</strong> — Moindres carrés ordinaires</li>
-          <li><strong>RBF</strong> — Radial Basis Functions</li>
-          <li><strong>NRBF</strong> — RBF normalisée</li>
-          <li><strong>RBFP</strong> — RBF augmentée par des polynômes</li>
-        </ul>
-        <h2>Résultats</h2>
-        <p>La librairie génère un fichier <code>.so</code> utilisable en Python via des bindings. Un rapport détaillé, le code source et des cas tests sont disponibles sur GitHub.</p>
 
-      </div> -->
       <div class="project-content">
           <h2>mdisd : une librairie C++/Python pour l'interpolation multi-dimensionnelle de données.</h2>
           <h2>Contexte</h2>
-          <p></p>Considérons un système qui dépend directement de \(n\) paramètres et renvoie une quantité de sortie basée sur ces \(n\) paramètres. 
+          <p>Considérons un système qui dépend directement de \(n\) paramètres et renvoie une quantité de sortie basée sur ces \(n\) paramètres. 
               Par exemple, considérons une usine dont la quantité de sortie est la quantité de produits finis. Les paramètres d'entrée peuvent être, par exemple,
               la quantité de matériaux, l'état des machines, la fatigue des employés etc. L'usine est représenté par la fonction \(f\),
               le nombre de produits finis par \(o\) et les paramètres d'entrée par \(\textbf{P}\).</p>
@@ -186,30 +167,166 @@
       <br><br>
       <div class="project-meta"><span class="tag">C++</span><span class="tag">Python</span><span class="tag">Interpolation</span><span class="tag">2024-2025</span></div>
     </div>
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-copy">© <span id="year-fr"></span> Nils Malmberg</span>
+      <script>document.getElementById("year-fr").textContent = new Date().getFullYear();</script>
+      <div class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="cv.html">CV</a>
+        <a href="projects.html">Projets</a>
+      </div>
+    </div>
+  </footer>
   </div>
   <div id="project5-content-en" style="display:none">
     <div class="container project-page">
       <a href="projects.html" class="project-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Back to projects</a>
       <div class="project-page-header">
-        <div class="project-meta"><span class="tag">C++</span><span class="tag">Python</span><span class="tag">Politecnico</span><span class="tag">2024</span></div>
-        <h1>mdisd – Multi-dimensional Interpolation</h1>
+        <h1>mdisd</h1>
       </div>
       <div class="project-content">
-        <h2>Context</h2>
-        <p>Developed during the <em>Advanced Programming for Scientific Computing</em> course at Politecnico di Milano. The <strong>mdisd</strong> C++ library interpolates multi-variable functions from scattered datasets, with Python bindings.</p>
-        <h2>Methods</h2>
-        <ul>
-          <li><strong>OLS</strong> — Ordinary Least Squares</li>
-          <li><strong>RBF</strong> — Radial Basis Functions</li>
-          <li><strong>NRBF</strong> — Normalized RBF</li>
-          <li><strong>RBFP</strong> — Polynomial-augmented RBF</li>
-        </ul>
-        <p>Full report, source code and test cases are available on GitHub.</p>
-        <a href="https://github.com/nils-malmberg" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          <h2>mdisd : a C++ library with Python bindings for multi-dimensional data interpolation.</h2>
+          <h2>Context</h2>
+          <p>Consider a system that depends directly on \(n\) parameters and returns an output quantity based on these \(n\) parameters. 
+              For example, consider a factory whose output quantity is the quantity of finished products. The input parameters may be, for example,
+              the quantity of materials, the state of the machines, the fatigue of employees etc. The factory is represented by the function \(f\),
+              the number of finished products by \(o\) and the input parameters by \(\textbf{P}\).</p>
+
+          <div style="width: fit-content; background-color: white; border-radius: 8px; line-height: 0; margin: 0 auto;">
+              <img src="media/projets/project5/scheme.png" alt="TikZ Diagram" width="600">
+          </div>
+
+          <p>It can therefore be difficult to create a model that takes all these parameters into account in order to estimate the quantity of finished products for 
+              the current state of the factory. This is why the method proposed here aims to interpolate the quantity of finished products based on a 
+              data collection performed in advance and the current state of each of the parameters.</p>
+
+          <h2>Approach</h2>
+          <p>For this purpose, let us consider that the company has taken care to collect the factory parameters and the corresponding quantities of finished products 
+              at several time intervals (over several days, months or years). Let us consider the \(m\) measurements of these parameters 
+              and the quantities of products.</p>
+
+          <p>A known quantity of finished product \(o_i\) can therefore be associated with a corresponding state of the factory 
+              \(\textbf{P}_i\) for all \(i\) in \([\![1;m]\!]\). This gives the following matrix format:</p>
+      
+          <div style="text-align: center;">
+              \(
+              \textbf{P} = \begin{pmatrix} \textbf{P}_1\\ \textbf{P}_2 \\ \vdots \\ \textbf{P}_m \end{pmatrix}
+              = \begin{pmatrix}
+              p_{1,1} & p_{1,2} & \cdots & p_{1,n}  \\
+              p_{2,1} & p_{2,2} & \cdots & p_{2,n}  \\
+              \vdots & \vdots & \vdots & \vdots\\
+              p_{m,1} & p_{m,2} & \cdots & p_{m,n}
+              \end{pmatrix}\)
+              \(
+              \textbf{O} = \begin{pmatrix}
+              o_1\\ o_2 \\ \vdots \\ o_m 
+              \end{pmatrix}
+              = \begin{pmatrix} 
+              f(\textbf{P}_1)\\ f(\textbf{P}_2) \\ \vdots \\ f(\textbf{P}_m) 
+              \end{pmatrix}
+              \)
+          </div>
+      
+          <p>The objective is now to estimate a new output \(o_{\text{new}} = f(\textbf{P}_{\text{new}})\) based on a new input 
+              \(\textbf{P}_{\text{new}} = \begin{pmatrix} p_{\text{new,1}} & p_{\text{new,2}} &\dots & p_{\text{new,n}}\end{pmatrix}\).</p>
+          
+          <h3>Ordinary Least Squares</h3>
+          <p>The ordinary least squares (OLS) method is a fundamental statistical modeling technique used to 
+              estimate the relationship between a dependent variable and one or more independent variables. It essentially aims to minimize 
+              the sum of the squares of the differences between the observed and predicted values. Thus, OLS seeks to find the line 
+              (in simple linear regression) or plane/hyperplane (in multivariate regression) that best fits the observed data points.</p>
+          <div style="text-align: center;">
+              \[
+              \widehat{o}_\text{new} = \widehat{\alpha} + \sum\limits_{i=1}^n \widehat{\beta}_i \times p_{\text{new},i}\\
+              \]
+          </div>
+
+          <p>The main idea behind this method is to find the coefficients \(\widehat{\alpha}, \widehat{\beta}_1, \cdots, \widehat{\beta}_n\)
+                minimizing the following sum in order to have the smallest distance between the known points and their estimations by regression:</p>
+          <div style="text-align: center;">
+              \[
+              \sum\limits_{i=1}^m \left[o_i - \underbrace{\left(\widehat{\alpha} + \sum\limits_{i=1}^n \widehat{\beta}_i \times p_{\text{new},i}\right)}_{\widehat{o}_\text{new}}\right]^2
+              \]
+          </div>
+
+          <p>By introducing the following matrix notations:</p>
+          <div style="text-align: center;">
+              \(  X = \begin{pmatrix}
+                  1 & p_{1,1} &p_{1,2}  & \cdots & p_{1,n}  \\
+                  1 & p_{2,1} &p_{2,2}  & \cdots & p_{2,n}  \\
+                  \vdots & \vdots & \vdots & \vdots & \vdots\\
+                  1 & p_{m,1} &p_{m,2}  & \cdots & p_{m,n}  \\
+                  \end{pmatrix}\)
+                  \(\widehat{\beta} = \begin{pmatrix}
+                  \widehat{\alpha} \\ \widehat{\beta}_1 \\ \vdots \\ \widehat{\beta}_n
+                  \end{pmatrix}\) 
+                  \(O = \begin{pmatrix}
+                  o_1\\ o_2 \\ \vdots \\ o_m \end{pmatrix}
+              \)
+          </div>
+
+          <p>Thus, the coefficients minimizing the sum are:</p>
+          <div style="text-align: center;">
+              \[
+              \widehat{\beta} = \left(X^T X\right)^{-1} X^T O
+              \]
+          </div>
+          
+          <h3>Radial Basis Function</h3>
+          <p> Idea: each point defined by  \(\textbf{P}_i\) and \(o_i\) "influences" its neighborhood in each direction in a similar manner 
+              according to the functional \(\phi(r)\) where \(r\) is the radial distance.</p>
+          <div style="text-align: center;">
+              \[
+              o_\text{new} = \sum\limits_{i=1}^m \omega_i\cdot \phi(||\textbf{p}_\text{new} - \textbf{p}_i||)
+              \]
+          </div>
+
+          <p>To determine the weights \(w_i\), we must solve the linear system with \(m\) equations in order to impose that the interpolation of a known point
+              gives exactly the known solution:</p>
+          <div style="text-align: center;">
+              \[
+              \forall i\in [\![1;m]\!],~~~~ o_i = \sum\limits_{k=1}^m \omega_k\cdot \phi(||\textbf{p}_i - \textbf{p}_k||)
+              \]
+          </div>
+
+          <p>The system can be written in the following matrix form:</p>
+
+          <div style="text-align: center;">
+              \[\Phi \Omega = O\]
+          </div>
+
+          <p>where, \(\Phi = \left[\phi(||\textbf{P}_j-\textbf{P}_i||)\right]_{(i,j)\in[\![1,m]\!]^2}\) (row i, column j)</p>
+          <p>and \(\Omega = \begin{pmatrix} \omega_1 & \omega_2  & \cdots & \omega_m\end{pmatrix}^T\) (T denotes the transpose)</p>
+          
+          <h2>Results</h2>
+          <p>
+              This project has led to the development of the mdisd library, which can be used to apply OLS (ordinary least squares), 
+              RBF (radial basis function) and other methods such as NRBF (normalized RBF) and RBFP (RBF augmented by polynomials). This project
+                contains other tools such as scaling tools and radial basis functions. It also generates a library file
+                for Python. You will find a detailed report on the library's GitHub repository in the doc/ folder, as well as the source code and various test cases.
+          </p>
       </div>
+
+      <a href="projects.html" class="btn btn-secondary">Return</a>
+      <a href="https://github.com/MalmbergNilsPolimi/mdisd" class="btn btn-primary">Link to GitHub</a>
+      <br><br>
+      <div class="project-meta"><span class="tag">C++</span><span class="tag">Python</span><span class="tag">Interpolation</span><span class="tag">2024-2025</span></div>
+
+
     </div>
+    <footer>
+      <div class="footer-inner">
+        <span class="footer-copy">© <span id="year-en"></span> Nils Malmberg</span>
+        <script>document.getElementById("year-en").textContent = new Date().getFullYear();</script>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="cv.html">Resume</a>
+          <a href="projects.html">Projects</a>
+        </div>
+      </div>
+    </footer>
   </div>
 </main>
-<footer><div class="footer-inner"><span class="footer-copy">© 2025 Nils Malmberg</span><div class="footer-links"><a href="index.html">Accueil</a><a href="cv.html">CV</a><a href="projects.html">Projets</a></div></div></footer>
 <script src="script.js"></script>
 </body></html>

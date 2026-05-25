@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="media/favicons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="media/favicons/logo.png" type="image/x-icon" style="border-radius: 4px;">
   <title>nils-malmberg.fr · Nils Malmberg</title>
   <link rel="preconnect" href="https://api.fontshare.com">
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
 </head>
 <body>
 <header><div class="header-inner">
-  <a href="index.html" class="site-logo"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="currentColor" opacity="0.15"/><path d="M7 21V7h3l7 10V7h3v14h-3L10 11v10H7z" fill="currentColor"/></svg><span>Nils <em>Malmberg</em></span></a>
+  <img src="media/favicons/logo.png" href="index.html" alt="Logo de Nils Malmberg" width="25" height="25" style="border-radius: 4px;"><span>Nils <em>Malmberg</em></span></a>
   <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   <nav id="navbar"><ul>
     <li><a href="index.html" id="nav-home">Accueil</a></li>
@@ -49,33 +49,58 @@
         <a href="media/projets/project3/ancien_sites/v3_site/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Voir la version 2.2</a>
         <h2>Version 3 (2026) - Responsive &amp; refonte (actuelle)</h2>
         <p>L'objectif principal était de modifier la palette de couleur ainsi que la mise en page du site.</p>
-        <!-- <a href="media/projets/project3/ancien_sites/v4_site/index.html" class="btn btn-secondary">Voir la version 3</a> -->
       </div>
       <a href="projects.html" class="btn btn-secondary">Retour</a>
       <br><br>
       <div class="project-meta"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">depuis 2021</span></div>
     </div>
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-copy">© <span id="year-fr"></span> Nils Malmberg</span>
+      <script>document.getElementById("year-fr").textContent = new Date().getFullYear();</script>
+      <div class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="cv.html">CV</a>
+        <a href="projects.html">Projets</a>
+      </div>
+    </div>
+  </footer>
   </div>
   <div id="project3-content-en" style="display:none">
     <div class="container project-page">
       <a href="projects.html" class="project-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Back to projects</a>
       <div class="project-page-header">
-        <div class="project-meta"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">2021–present</span></div>
         <h1>The nils-malmberg.fr website</h1>
       </div>
       <div class="project-content">
         <h2>Context</h2>
         <p>During my first year of engineering school, I started developing this personal website out of passion. This project traces its evolution from the very beginning to the current version.</p>
-        <h2>Version 1 – The Basics</h2>
-        <p>The first version combined HTML with some PHP, little CSS and no JavaScript — a learning exercise.</p>
-        <h2>Version 2 – Modernization in Milan</h2>
-        <p>While in Milan, I challenged myself to rebuild the entire site in a weekend. This version introduced FR/EN multilingual support and JavaScript animations.</p>
-        <h2>Version 3 – Responsive Redesign (current)</h2>
-        <p>Optimized for mobile devices using media queries, with a significant code rewrite. Now includes dark/light mode.</p>
+        <h2>Version 1 (2022) - The Basics</h2>
+        <p>The first version, simple and basic, mainly combined HTML with some PHP, little CSS and no JavaScript. The goal was to familiarize myself with web development.</p>
+        <a href="media/projets/project3/ancien_sites/v1_site/index.php" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Version 1</a>
+        <h2>Version 2 (2024) - Modernization in Milan</h2>
+        <p>During my stay in Milan, I took on the challenge of rebuilding the website entirely in a weekend. I used a website builder for the mockup, then recoded it entirely in HTML/CSS/JavaScript. This version introduces multilingual management (FR/EN) and JavaScript animations.</p>
+        <a href="media/projets/project3/ancien_sites/v2_site/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Version 2.1</a>
+        <a href="media/projets/project3/ancien_sites/v3_site/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Version 2.2</a>
+        <h2>Version 3 (2026) - Responsive &amp; Refurbishment (Current)</h2>
+        <p>The main objective was to modify the color palette as well as the layout of the site.</p>
       </div>
+      <a href="projects.html" class="btn btn-secondary">Retour</a>
+      <br><br>
+      <div class="project-meta"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">since 2021</span></div>
     </div>
+    <footer>
+      <div class="footer-inner">
+        <span class="footer-copy">© <span id="year-en"></span> Nils Malmberg</span>
+        <script>document.getElementById("year-en").textContent = new Date().getFullYear();</script>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="cv.html">Resume</a>
+          <a href="projects.html">Projects</a>
+        </div>
+      </div>
+    </footer>
   </div>
 </main>
-<footer><div class="footer-inner"><span class="footer-copy">© 2025 Nils Malmberg</span><div class="footer-links"><a href="index.html">Accueil</a><a href="cv.html">CV</a><a href="projects.html">Projets</a></div></div></footer>
 <script src="script.js"></script>
 </body></html>

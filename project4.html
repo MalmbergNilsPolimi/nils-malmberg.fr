@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="media/favicons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="media/favicons/logo.png" type="image/x-icon" style="border-radius: 4px;">
   <title>Design NAS - Nils Malmberg</title>
   <link rel="preconnect" href="https://api.fontshare.com">
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
 </head>
 <body>
 <header><div class="header-inner">
-  <a href="index.html" class="site-logo"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="currentColor" opacity="0.15"/><path d="M7 21V7h3l7 10V7h3v14h-3L10 11v10H7z" fill="currentColor"/></svg><span>Nils <em>Malmberg</em></span></a>
+  <img src="media/favicons/logo.png" href="index.html" alt="Logo de Nils Malmberg" width="25" height="25" style="border-radius: 4px;"><span>Nils <em>Malmberg</em></span></a>
   <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   <nav id="navbar"><ul>
     <li><a href="index.html" id="nav-home">Accueil</a></li>
@@ -50,7 +50,7 @@
           <li>Cache arrière avec passe-câbles + face avant plexiglas découpée sur mesure</li>
         </ul>
         <h2>Résultat</h2>
-        <p>Le modèle 3D est complet avec ses fichiers. Finalement, je n'ai pas procédé à l'impression car j'ai acquis le NAS <strong>Ugreen DXP6800 Pro</strong> lors du lancement de la gamme NASync — avec ses 64 Go de RAM et son Intel i5-1235U, il surpasse largement les ambitions initiales du projet et m'a ouvert la voie vers le <a href="project6.html">Projet 6</a>.</p>
+        <p>Le modèle 3D est complet. Finalement, je n'ai pas procédé à l'impression car j'ai acquis le NAS <strong>Ugreen DXP6800 Pro</strong> lors du lancement de la gamme NASync — avec ses 64 Go de RAM et son Intel i5-1235U, il surpasse largement les ambitions initiales du projet et m'a ouvert la voie vers le <a href="project6.html">Projet 6</a>.</p>
         <div class="project-img" style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
           <img src="media/projets/project4/NAS_coque_1.png" alt="Modélisation Fusion 360 - vue 1" style="flex: 1; width: 0; object-fit: contain;">
           <img src="media/projets/project4/NAS_coque_2.png" alt="Modélisation Fusion 360 - vue 2" style="flex: 1; width: 0; object-fit: contain;">
@@ -61,17 +61,27 @@
       <br><br>
       <div class="project-meta"><span class="tag">Fusion 360</span><span class="tag">Impression 3D</span><span class="tag">NAS</span><span class="tag">2022-2023</span></div>
     </div>
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-copy">© <span id="year-fr"></span> Nils Malmberg</span>
+      <script>document.getElementById("year-fr").textContent = new Date().getFullYear();</script>
+      <div class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="cv.html">CV</a>
+        <a href="projects.html">Projets</a>
+      </div>
+    </div>
+  </footer>
   </div>
   <div id="project4-content-en" style="display:none">
     <div class="container project-page">
       <a href="projects.html" class="project-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Back to projects</a>
       <div class="project-page-header">
-        <div class="project-meta"><span class="tag">Fusion 360</span><span class="tag">3D Print</span><span class="tag">NAS</span><span class="tag">2022–2023</span></div>
-        <h1>Custom NAS Design – Fusion 360</h1>
+        <h1>Custom NAS Design using Fusion 360</h1>
       </div>
       <div class="project-content">
         <h2>Context</h2>
-        <p>After experimenting with OpenMediaVault and TrueNAS on salvaged towers, I decided to design a full custom NAS in Fusion 360. I had a Raspberry Pi 4 and a 3D printer ready.</p>
+        <p>Strongly interested in Linux systems, I experimented with OpenMediaVault and TrueNAS on old computers before deciding to design a full custom NAS in Fusion 360.</p>
         <h2>Design Constraints</h2>
         <ul>
           <li>BeQuiet! ATX power supply slot</li>
@@ -81,11 +91,30 @@
           <li>Cable management channel + plexiglass front cover</li>
         </ul>
         <h2>Outcome</h2>
-        <p>The 3D model is complete with <code>.obj</code>, <code>.dxf</code> and <code>.f3d</code> files. The print never happened — I acquired the <strong>Ugreen DXP6800 Pro</strong> instead, which exceeded the project's original goals and opened the door to <a href="project6.html">Project 6</a>.</p>
+        <p>The 3D model is complete. The print never happened — I acquired the <strong>Ugreen DXP6800 Pro</strong> during the launch of the NASync line instead, with its 64 Go of RAM and the Intel i5-1235U processor, it surpassed the project's original goals and opened the door to <a href="project6.html">Project 6</a>.</p>
+        <div class="project-img" style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
+          <img src="media/projets/project4/NAS_coque_1.png" alt="Modeling Fusion 360 - view 1" style="flex: 1; width: 0; object-fit: contain;">
+          <img src="media/projets/project4/NAS_coque_2.png" alt="Modeling Fusion 360 - view 2" style="flex: 1; width: 0; object-fit: contain;">
+        </div>
       </div>
+      <a href="projects.html" class="btn btn-secondary">Return</a>
+      <a href="media/projets/project4/nas-fusion360.zip" class="btn btn-primary">Download the project</a>
+      <br><br>
+      <div class="project-meta"><span class="tag">Fusion 360</span><span class="tag">3D Printing</span><span class="tag">NAS</span><span class="tag">2022-2023</span></div>
+
     </div>
+    <footer>
+      <div class="footer-inner">
+        <span class="footer-copy">© <span id="year-en"></span> Nils Malmberg</span>
+        <script>document.getElementById("year-en").textContent = new Date().getFullYear();</script>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="cv.html">Resume</a>
+          <a href="projects.html">Projects</a>
+        </div>
+      </div>
+    </footer>
   </div>
 </main>
-<footer><div class="footer-inner"><span class="footer-copy">© 2025 Nils Malmberg</span><div class="footer-links"><a href="index.html">Accueil</a><a href="cv.html">CV</a><a href="projects.html">Projets</a></div></div></footer>
 <script src="script.js"></script>
 </body></html>

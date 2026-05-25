@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="media/favicons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="media/favicons/logo.png" type="image/x-icon" style="border-radius: 4px;">
   <title>Projets - Nils Malmberg</title>
   <link rel="preconnect" href="https://api.fontshare.com">
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
@@ -17,10 +17,7 @@
 <header>
   <div class="header-inner">
     <a href="index.html" class="site-logo">
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-        <rect width="28" height="28" rx="6" fill="currentColor" opacity="0.15"/>
-        <path d="M7 21V7h3l7 10V7h3v14h-3L10 11v10H7z" fill="currentColor"/>
-      </svg>
+      <img src="media/favicons/logo.png" href="index.html" alt="Logo de Nils Malmberg" width="25" height="25" style="border-radius: 4px;">
       <span>Nils <em>Malmberg</em></span>
     </a>
     <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -142,7 +139,7 @@
             </div>
           </div>
           <div class="project-card-body">
-            <p>Logiciel C/C++ avec interface FLTK pour simuler le passage de portes quantiques par des qbits et visualiser les probabilités d'états quantiques.</p>
+            <p>Logiciel C/C++ avec interface FLTK pour simuler le passage de portes quantiques par des qubits et visualiser les probabilités d'états quantiques.</p>
           </div>
           <div class="project-card-footer">
             <div class="project-tags">
@@ -171,6 +168,17 @@
 
       </div>
     </div>
+    <footer>
+      <div class="footer-inner">
+        <span class="footer-copy">© <span id="year-fr"></span> Nils Malmberg</span>
+        <script>document.getElementById("year-fr").textContent = new Date().getFullYear();</script>
+        <div class="footer-links">
+          <a href="index.html">Accueil</a>
+          <a href="cv.html">CV</a>
+          <a href="projects.html">Projets</a>
+        </div>
+      </div>
+    </footer>
   </div>
 
   <!-- ════════════════ ENGLISH ════════════════ -->
@@ -179,19 +187,98 @@
       <div class="container">
         <div class="section-label">Portfolio</div>
         <h1>My Projects</h1>
-        <p>From scientific computing to 3D modeling, local AI and reactor physics.</p>
       </div>
     </section>
 
     <div class="container">
       <div class="projects-grid">
+        
+        <div class="project-card featured">
+          <div class="project-card-header">
+            <div class="project-num">6</div>
+            <div>
+              <h3><a href="project6.html">Ugreen DXP6800 Pro - NAS Lab</a></h3>
+              <p style="font-size:var(--text-xs);color:var(--color-text-faint)">2024 - present</p>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <p>Adventures with the Ugreen DXP6800 Pro NAS on UGOS: deploying Ollama + OpenWebUI, fixing broken packages to access the Nvidia GPU in Docker, and more.</p>
+          </div>
+          <div class="project-card-footer">
+            <div class="project-tags"><span class="tag">NAS</span><span class="tag">Docker</span><span class="tag">NVIDIA</span><span class="tag">Ollama</span><span class="tag">Local AI</span></div>
+          </div>
+        </div>
+
+        <div class="project-card featured">
+          <div class="project-card-header">
+            <div class="project-num">5</div>
+            <div>
+              <h3><a href="project3.html">nils-malmberg.fr</a></h3>
+              <p style="font-size:var(--text-xs);color:var(--color-text-faint)">2021 - present</p>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <p>History of this website from its first HTML/PHP version to the current responsive multilingual redesign.</p>
+          </div>
+          <div class="project-card-footer">
+            <div class="project-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">PHP</span></div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-header">
+            <div class="project-num">4</div>
+            <div>
+              <h3><a href="project5.html">mdisd - Multi-dimensional Interpolation</a></h3>
+              <p style="font-size:var(--text-xs);color:var(--color-text-faint)">Politecnico di Milano · 2024-2025</p>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <p>C++ library with Python bindings for multi-dimensional functions interpolation: RBF, OLS, NRBF.</p>
+          </div>
+          <div class="project-card-footer">
+            <div class="project-tags"><span class="tag">C++</span><span class="tag">Python</span><span class="tag">Math</span></div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-header">
+            <div class="project-num">3</div>
+            <div>
+              <h3><a href="project4.html">NAS Design - Fusion 360</a></h3>
+              <p style="font-size:var(--text-xs);color:var(--color-text-faint)">2022-2023</p>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <p>Custom NAS design in Fusion 360: ATX PSU, Raspberry Pi, 6 HDD bays, anti-vibration mounts and plexiglas cover.</p>
+          </div>
+          <div class="project-card-footer">
+            <div class="project-tags"><span class="tag">Fusion 360</span><span class="tag">3D Printing</span><span class="tag">NAS</span></div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-header">
+            <div class="project-num">2</div>
+            <div>
+              <h3><a href="project2.html">Braket - Quantum Computing</a></h3>
+              <p style="font-size:var(--text-xs);color:var(--color-text-faint)">Grenoble INP Phelma· 2021-2022</p>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <p>C/C++ software with FLTK interface to simulate qubits going through quantum gates and visualize quantum state probabilities.</p>
+          </div>
+          <div class="project-card-footer">
+            <div class="project-tags"><span class="tag">C++</span><span class="tag">FLTK</span><span class="tag">Quantum</span></div>
+          </div>
+        </div>
 
         <div class="project-card">
           <div class="project-card-header">
             <div class="project-num">1</div>
             <div>
-              <h3><a href="project1.html">TIPE – Searev</a></h3>
-              <p style="font-size:var(--text-xs);color:var(--color-text-faint)">CPGE · 2019–2021</p>
+              <h3><a href="project1.html">TIPE - Searev</a></h3>
+              <p style="font-size:var(--text-xs);color:var(--color-text-faint)">CPGE · 2019-2021</p>
             </div>
           </div>
           <div class="project-card-body">
@@ -202,100 +289,23 @@
           </div>
         </div>
 
-        <div class="project-card">
-          <div class="project-card-header">
-            <div class="project-num">2</div>
-            <div>
-              <h3><a href="project2.html">Braket – Quantum Computing</a></h3>
-              <p style="font-size:var(--text-xs);color:var(--color-text-faint)">Grenoble INP · 2021–2022</p>
-            </div>
-          </div>
-          <div class="project-card-body">
-            <p>C/C++ software with FLTK interface to simulate quantum gates and visualize quantum state probabilities.</p>
-          </div>
-          <div class="project-card-footer">
-            <div class="project-tags"><span class="tag">C++</span><span class="tag">FLTK</span><span class="tag">Quantum</span></div>
-          </div>
-        </div>
 
-        <div class="project-card">
-          <div class="project-card-header">
-            <div class="project-num">3</div>
-            <div>
-              <h3><a href="project3.html">nils-malmberg.fr</a></h3>
-              <p style="font-size:var(--text-xs);color:var(--color-text-faint)">2021 – present</p>
-            </div>
-          </div>
-          <div class="project-card-body">
-            <p>History of this website from its first HTML/PHP version to the current responsive multilingual redesign.</p>
-          </div>
-          <div class="project-card-footer">
-            <div class="project-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-card-header">
-            <div class="project-num">4</div>
-            <div>
-              <h3><a href="project4.html">NAS Design – Fusion 360</a></h3>
-              <p style="font-size:var(--text-xs);color:var(--color-text-faint)">2022–2023</p>
-            </div>
-          </div>
-          <div class="project-card-body">
-            <p>Custom NAS design in Fusion 360: ATX PSU, Raspberry Pi, 6 HDD bays, anti-vibration mounts and plexiglas cover.</p>
-          </div>
-          <div class="project-card-footer">
-            <div class="project-tags"><span class="tag">Fusion 360</span><span class="tag">3D Print</span><span class="tag">NAS</span></div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-card-header">
-            <div class="project-num">5</div>
-            <div>
-              <h3><a href="project5.html">mdisd – Multi-dim. Interpolation</a></h3>
-              <p style="font-size:var(--text-xs);color:var(--color-text-faint)">Politecnico di Milano · 2024</p>
-            </div>
-          </div>
-          <div class="project-card-body">
-            <p>C++/Python library for multi-variable function interpolation: RBF, OLS, NRBF. Report available on GitHub.</p>
-          </div>
-          <div class="project-card-footer">
-            <div class="project-tags"><span class="tag">C++</span><span class="tag">Python</span><span class="tag">Math</span></div>
-          </div>
-        </div>
-
-        <div class="project-card featured">
-          <div class="project-card-header">
-            <div class="project-num">6</div>
-            <div>
-              <h3><a href="project6.html">Ugreen DXP6800 Pro – NAS Lab</a></h3>
-              <p style="font-size:var(--text-xs);color:var(--color-text-faint)">2024 – present</p>
-            </div>
-          </div>
-          <div class="project-card-body">
-            <p>Adventures with the Ugreen DXP6800 Pro NAS on UGOS: deploying Ollama + OpenWebUI, fixing broken packages to access the Nvidia GPU in Docker, and more.</p>
-          </div>
-          <div class="project-card-footer">
-            <div class="project-tags"><span class="tag">NAS</span><span class="tag">Docker</span><span class="tag">NVIDIA</span><span class="tag">Ollama</span><span class="tag">Local AI</span></div>
-          </div>
-        </div>
       </div>
     </div>
+    <footer>
+      <div class="footer-inner">
+        <span class="footer-copy">© <span id="year-en"></span> Nils Malmberg</span>
+        <script>document.getElementById("year-en").textContent = new Date().getFullYear();</script>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="cv.html">Resume</a>
+          <a href="projects.html">Projects</a>
+        </div>
+      </div>
+    </footer>
   </div>
 </main>
 
-<footer>
-  <div class="footer-inner">
-    <span class="footer-copy">© 2025 Nils Malmberg</span>
-    <div class="footer-links">
-      <a href="index.html">Accueil</a>
-      <a href="cv.html">CV</a>
-      <a href="projects.html">Projets</a>
-    </div>
-  </div>
-</footer>
 <script src="script.js"></script>
 </body>
 </html>

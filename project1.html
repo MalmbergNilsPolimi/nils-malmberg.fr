@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="media/favicons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="media/favicons/logo.png" type="image/x-icon" style="border-radius: 4px;">
   <title>TIPE - Nils Malmberg</title>
   <link rel="preconnect" href="https://api.fontshare.com">
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
 </head>
 <body>
 <header><div class="header-inner">
-  <a href="index.html" class="site-logo"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="currentColor" opacity="0.15"/><path d="M7 21V7h3l7 10V7h3v14h-3L10 11v10H7z" fill="currentColor"/></svg><span>Nils <em>Malmberg</em></span></a>
+  <img src="media/favicons/logo.png" href="index.html" alt="Logo de Nils Malmberg" width="25" height="25" style="border-radius: 4px;"><span>Nils <em>Malmberg</em></span></a>
   <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   <nav id="navbar"><ul>
     <li><a href="index.html" id="nav-home">Accueil</a></li>
@@ -51,30 +51,54 @@
       <br><br>
       <div class="project-meta"><span class="tag">CPGE</span><span class="tag">2019-2021</span><span class="tag">Python</span><span class="tag">Physique</span><span class="tag">Energie</span></div>
     </div>
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-copy">© <span id="year-fr"></span> Nils Malmberg</span>
+      <script>document.getElementById("year-fr").textContent = new Date().getFullYear();</script>
+      <div class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="cv.html">CV</a>
+        <a href="projects.html">Projets</a>
+      </div>
+    </div>
+  </footer>
   </div>
+
   <div id="project1-content-en" style="display:none">
     <div class="container project-page">
       <a href="projects.html" class="project-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Back to projects</a>
       <div class="project-page-header">
-        <div class="project-meta"><span class="tag">CPGE</span><span class="tag">2019–2021</span><span class="tag">Python</span><span class="tag">Physics</span></div>
-        <h1>TIPE – Searev Wave Energy System</h1>
+        <h1>TIPE - Searev Wave Energy System</h1>
       </div>
       <div class="project-content">
         <h2>Context</h2>
-        <p>During my two years of preparatory classes (CPGE), I worked on a TIPE project on the theme "Societal Issues". I chose to numerically model the <strong>Searev</strong>, an innovative device for converting wave energy into electricity using a floating buoy and a pendulum mass.</p>
+        <p>During my two years two-year university intensive course (CPGE), I worked on a project on the theme "Societal Issues". I chose to numerically model the <strong>Searev</strong>, an innovative device for converting wave energy into electricity.</p>
+        <h2>Searev System</h2>
+        <p>The Searev is a floating buoy containing a pendulum mass. The oscillatory motion of the waves causes the buoy to tilt, moving the pendulum. The mechanical energy of this pendulum is then converted into electricity via a generator.</p>
+        <img src="media/projets/project1/searev.webp" alt="Searev System" width="450" height="220" loading="eager" style="display:block; margin:0 auto;">
         <h2>Numerical Approach</h2>
-        <p>My goal was to model this dynamic system and study energy conversion efficiency as a function of wave and device parameters, using Python-based numerical simulation (Runge-Kutta method).</p>
-        <h2>Achievements</h2>
-        <ul>
-          <li>Modeling of the coupled buoy-pendulum equations of motion</li>
-          <li>Numerical simulation in Python</li>
-          <li>Parametric study of device efficiency</li>
-          <li>Realization of a simplified physical prototype</li>
-        </ul>
+        <p>My goal was to model this dynamic system and study the efficiency of energy conversion as a function of wave parameters and device characteristics. I implemented a numerical simulation in Python and built a prototype.</p>
+        
       </div>
+      <a href="projects.html" class="btn btn-secondary">Return</a>
+      <a href="media/projets/project1/TIPE_nils-malmberg.fr.zip" class="btn btn-primary">Download Project</a>
+      <br><br>
+      <div class="project-meta"><span class="tag">CPGE</span><span class="tag">2019-2021</span><span class="tag">Python</span><span class="tag">Physics</span><span class="tag">Energy</span></div>
     </div>
+
+    <footer>
+      <div class="footer-inner">
+        <span class="footer-copy">© <span id="year-en"></span> Nils Malmberg</span>
+        <script>document.getElementById("year-en").textContent = new Date().getFullYear();</script>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="cv.html">Resume</a>
+          <a href="projects.html">Projects</a>
+        </div>
+      </div>
+    </footer>
+
   </div>
 </main>
-<footer><div class="footer-inner"><span class="footer-copy">© 2025 Nils Malmberg</span><div class="footer-links"><a href="index.html">Accueil</a><a href="cv.html">CV</a><a href="projects.html">Projets</a></div></div></footer>
 <script src="script.js"></script>
 </body></html>
